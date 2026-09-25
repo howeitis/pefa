@@ -178,13 +178,13 @@
     }
   }
 }
+/* Movement only, no fade: a half-faded element fails contrast, and text
+   should never pass through an unreadable state on its way in. */
 @keyframes reveal {
   from {
-    opacity: 0;
-    transform: translateY(1.5rem);
+    transform: translateY(2rem);
   }
   to {
-    opacity: 1;
     transform: none;
   }
 }

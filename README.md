@@ -7,17 +7,19 @@ and `CANON.md` for the lore rules.
 
 ## Commands
 
-| Command                | What it does                                                                      |
-| ---------------------- | --------------------------------------------------------------------------------- |
-| `npm run dev`          | Dev server on :5173                                                               |
-| `npm run build`        | Prerenders every route to static HTML in `build/client`, plus `404.html`          |
-| `npm run preview`      | Serves the build on :4173, the way a static host would                            |
-| `npm run typecheck`    | Route typegen + `tsc`                                                             |
-| `npm run lint`         | ESLint, zero warnings allowed                                                     |
-| `npm test`             | Vitest: canon lint (see below)                                                    |
-| `npm run test:e2e`     | Playwright against the build: every route, desktop + 375px, axe, no requests      |
-| `npm run canon:import` | Re-imports locked canon from `../Superior League 2036/Howe to Manage` (read-only) |
-| `npm run brand`        | Regenerates the PEFA™ mark, favicon, app icons, manifest and default OG image     |
+| Command                | What it does                                                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `npm run dev`          | Dev server on :5173                                                                                                  |
+| `npm run build`        | Generates OG cards, prerenders every route to `build/client`, then writes `404.html`, `sitemap.xml` and `robots.txt` |
+| `npm run preview`      | Serves the build on :4173, the way a static host would                                                               |
+| `npm run typecheck`    | Route typegen + `tsc`                                                                                                |
+| `npm run lint`         | ESLint, zero warnings allowed                                                                                        |
+| `npm test`             | Vitest: canon lint (see below)                                                                                       |
+| `npm run test:e2e`     | Playwright against the build: every route, desktop + 375px, axe, no requests                                         |
+| `npm run canon:import` | Re-imports locked canon from `../Superior League 2036/Howe to Manage` (read-only)                                    |
+| `npm run brand`        | Regenerates the PEFA™ mark, favicon, app icons, manifest and default OG image                                        |
+| `npm run og`           | Regenerates the per-page OG cards in `public/og/` (gitignored; runs before every build)                              |
+| `npm run thumbs`       | Regenerates the crest thumbnails and ledger minis from `public/club-crests/`                                         |
 
 ## Layout
 

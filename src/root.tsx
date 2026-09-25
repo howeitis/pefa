@@ -12,9 +12,25 @@ import type { Route } from './+types/root';
 import { SiteFooter } from './components/shared/SiteFooter';
 import { SiteHeader } from './components/shared/SiteHeader';
 import { materialFor } from './site-map';
-import './styles/app.css';
+// Imported as a URL so it can also be preloaded: React Router emits the
+// stylesheet link after the JS module preloads, and a preload at the top of
+// links() starts the render-blocking download first.
+import appCss from './styles/app.css?url';
+// The two faces used above the fold, latin subset only. Preloaded so first
+// paint swaps to the real type sooner; the other subsets load on demand.
+import dmSans400 from '@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2?url';
+import playfair400 from '@fontsource/playfair-display/files/playfair-display-latin-400-normal.woff2?url';
 
 export const links: Route.LinksFunction = () => [
+  { rel: 'preload', as: 'style', href: appCss },
+  { rel: 'stylesheet', href: appCss },
+  ...[dmSans400, playfair400].map((href) => ({
+    rel: 'preload',
+    href,
+    as: 'font',
+    type: 'font/woff2',
+    crossOrigin: 'anonymous' as const,
+  })),
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
   { rel: 'icon', href: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
   { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon.png' },

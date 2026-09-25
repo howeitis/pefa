@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import type { Route } from './+types/club';
-import { clubById, clubLore, clubs, crestSrc, crestThumb, formatFollowers } from '~/canon';
+import { clubById, clubLore, clubs, crestMini, crestThumb, formatFollowers } from '~/canon';
 import { FactList } from '~/components/filing/FactList';
 import { FilingDocument, FilingPage, FilingSection } from '~/components/filing/FilingPage';
 import { Footnote } from '~/components/filing/Footnote';
@@ -51,11 +51,11 @@ export default function ClubListing({ params }: Route.ComponentProps) {
         title={
           <span className="flex flex-col gap-6 sm:flex-row sm:items-center">
             <img
-              src={crestSrc(club)}
+              src={crestThumb(club)}
               alt=""
               width={435}
               height={512}
-              className="h-28 w-auto shrink-0 sm:h-32"
+              className="h-28 w-auto shrink-0 self-start sm:h-32 sm:self-center"
             />
             <span>{club.name}</span>
           </span>
@@ -126,7 +126,14 @@ export default function ClubListing({ params }: Route.ComponentProps) {
                     to={CLUB_PATH(r.id)}
                     className="flex items-center gap-2 border border-rule px-3 py-2 hover:border-accent"
                   >
-                    <img src={crestThumb(r)} alt="" width={20} height={24} className="h-6 w-auto" />
+                    <img
+                      src={crestMini(r)}
+                      alt=""
+                      width={20}
+                      height={24}
+                      loading="lazy"
+                      className="h-6 w-auto"
+                    />
                     {r.name}
                   </Link>
                 </li>

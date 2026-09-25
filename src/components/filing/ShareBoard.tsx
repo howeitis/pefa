@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react';
 import { Link } from 'react-router';
-import { type Club, clubLore, crestThumb, formatFollowers } from '~/canon';
+import { type Club, clubLore, crestMini, formatFollowers } from '~/canon';
 import { formatReleaseDate } from '~/content/newsroom';
 import { inWorldDate, quote, todayUtc } from '~/lib/market';
 import { CLUB_PATH } from '~/site-map';
@@ -39,7 +39,14 @@ export function ShareBoard({ clubs }: { clubs: Club[] }) {
           header: 'Club',
           render: (c) => (
             <Link to={CLUB_PATH(c.id)} className="flex items-center gap-2 hover:text-accent">
-              <img src={crestThumb(c)} alt="" width={17} height={20} className="h-5 w-auto" />
+              <img
+                src={crestMini(c)}
+                alt=""
+                width={17}
+                height={20}
+                loading="lazy"
+                className="h-5 w-auto"
+              />
               <span className="sm:hidden">{c.cardName}</span>
               <span className="hidden sm:inline">{c.name}</span>
             </Link>

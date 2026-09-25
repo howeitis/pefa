@@ -25,7 +25,14 @@ export function SiteFooter({ material }: { material: Material }) {
       <div className="bg-ground">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_repeat(3,1fr)] lg:px-8">
           <div className="max-w-xs">
-            <img src={emblem} alt="" width={48} height={48} className="mb-4 h-12 w-12" />
+            <img
+              src={emblem}
+              alt=""
+              width={48}
+              height={48}
+              loading="lazy"
+              className="mb-4 h-12 w-12"
+            />
             <p className="font-display text-lg leading-snug">
               Results remain unscripted.
               <br />

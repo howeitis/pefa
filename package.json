@@ -15,7 +15,9 @@
     "test:e2e": "playwright test",
     "canon:import": "node scripts/import-game-canon.mjs",
     "brand": "node scripts/build-brand.mjs",
-    "thumbs": "node scripts/build-thumbs.mjs"
+    "thumbs": "node scripts/build-thumbs.mjs",
+    "og": "node scripts/build-og.mjs",
+    "prebuild": "node scripts/build-og.mjs"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.3.0",

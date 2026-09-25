@@ -63,6 +63,8 @@ export const clubById = (id: string): Club | undefined => clubs.find((c) => c.id
 export const crestSrc = (club: Club) => `/club-crests/${club.logo}`;
 /** 192px-tall thumbnail (scripts/build-thumbs.mjs), for grids. */
 export const crestThumb = (club: Club) => `/club-crests/thumb/${club.logo}`;
+/** 48px-tall mini, for ledger rows and chips. */
+export const crestMini = (club: Club) => `/club-crests/mini/${club.logo}`;
 
 /** `71_400_000` → `71.4M`. Same rules as the game's formatFollowers. */
 export function formatFollowers(n: number): string {

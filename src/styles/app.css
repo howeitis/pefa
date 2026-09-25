@@ -1,12 +1,14 @@
 @import 'tailwindcss';
 
-/* Self-hosted fonts: no request leaves for a font CDN, so nothing sets a cookie. */
+/*
+ * Self-hosted fonts: no request leaves for a font CDN, so nothing sets a cookie.
+ * Only the faces in use: Playfair 400 and italic for display, DM Sans 400 and
+ * 600 for text. Out-of-character blocks use the system font, so no bold DM
+ * Sans is needed; font-medium falls back to 400.
+ */
 @import '@fontsource/playfair-display/400.css';
-@import '@fontsource/playfair-display/700.css';
 @import '@fontsource/playfair-display/400-italic.css';
 @import '@fontsource/dm-sans/400.css';
-@import '@fontsource/dm-sans/500.css';
 @import '@fontsource/dm-sans/600.css';
-@import '@fontsource/dm-sans/700.css';
 
 @import './tokens.css';

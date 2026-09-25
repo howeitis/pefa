@@ -9,3 +9,4 @@ playwright-report/
 # Real federation marks, the game's hero art and the game's own icons: kept
 # locally for reference, never shipped. See PLAN.md §7.
 _excluded/
+public/og/
