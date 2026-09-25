@@ -2,7 +2,7 @@ import type { MetaDescriptor } from 'react-router';
 import { pageFor, type SitePage } from './site-map';
 
 export const SITE_NAME = 'PEFA™';
-export const SITE_URL = 'https://pefa.vercel.app';
+export const SITE_URL = 'https://pefa-alpha.vercel.app';
 
 /** Standard title/description/OG tags for a page. */
 export function pageMeta(

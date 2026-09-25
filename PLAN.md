@@ -256,9 +256,10 @@ Decided 2026-09-25:
 - **The PEFA mark: I'll design it**, as a typographic PEFA™ wordmark plus an emblem in SVG, with
   on-light and on-dark variants, a favicon and app icons. It's the first task of Phase 0, because
   the header, OG images and manifest all depend on it.
-- **URL:** `pefa.vercel.app` (Vercel projects live on `*.vercel.app`; `vercel.com` is Vercel's own
-  site). If `pefa` is taken, fall back to `pefa-site.vercel.app`.
-- **Name:** the project, repo and Vercel project are all called **pefa-site**.
+- **URL:** `pefa-alpha.vercel.app`. `pefa` was already taken, so Vercel assigned this one
+  (2026-09-25).
+- **Name:** the package is **pefa-site**. The repo is github.com/howeitis/pefa, and Vercel deploys
+  from its `main` branch.
 - **Play CTA:** link to **joining the Android closed test**, labelled out of character
   ("Android only · closed test"). If testers are added through a Google Group, joining takes two
   steps: join the group, then open the Play opt-in link. `/play` walks through both. The
