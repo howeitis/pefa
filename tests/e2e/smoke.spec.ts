@@ -51,3 +51,12 @@ test('unknown routes show the not-invited page', async ({ page }) => {
   await page.goto('/superior-league/clubs/not-a-club');
   await expect(page.getByRole('heading', { name: /not invited/i })).toBeVisible();
 });
+
+test('house inventory is always labelled as house content', async ({ page }) => {
+  await page.goto('/partners');
+  const slots = page.locator('#inventory li');
+  await expect(slots).not.toHaveCount(0);
+  for (const slot of await slots.all()) {
+    await expect(slot.getByText('PEFA™ house content')).toBeVisible();
+  }
+});

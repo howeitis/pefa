@@ -77,7 +77,7 @@ const clubLore = await load(`export { CLUB_LORE } from '@/data/clubLore';`);
 const decrees = await load(`export { DECREES } from '@/engine/decrees';`);
 const domestic = await load(`
   export { DOMESTIC_LEAGUES, DOMESTIC_CLUBS } from '@/data/domesticLeagues';
-  export { LEAGUE_NAME, LEAGUE_NAME_SHORT, LEAGUE_SEASON_LABEL, CUP_NAME, CUP_NAME_SHORT } from '@/data/league';
+  export { LEAGUE_NAME, LEAGUE_NAME_SHORT, LEAGUE_SEASON_LABEL, CUP_NAME, CUP_NAME_SHORT, ZONE_LABELS, BOTTOM_ZONE_PHRASE } from '@/data/league';
   export { LEGACY_CLUB_NAME } from '@/engine/legacyMarket';
 `);
 
@@ -140,6 +140,8 @@ const outputs = {
     seasonLabel: domestic.LEAGUE_SEASON_LABEL,
     cupName: domestic.CUP_NAME,
     cupNameShort: domestic.CUP_NAME_SHORT,
+    zoneLabels: domestic.ZONE_LABELS,
+    bottomZonePhrase: domestic.BOTTOM_ZONE_PHRASE,
     legacyClubName: domestic.LEGACY_CLUB_NAME,
     leagues: domestic.DOMESTIC_LEAGUES,
     clubs: domestic.DOMESTIC_CLUBS,

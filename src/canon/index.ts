@@ -56,6 +56,8 @@ export const domestic = domesticJson;
 
 export const clubById = (id: string): Club | undefined => clubs.find((c) => c.id === id);
 export const crestSrc = (club: Club) => `/club-crests/${club.logo}`;
+/** 192px-tall thumbnail (scripts/build-thumbs.mjs), for grids. */
+export const crestThumb = (club: Club) => `/club-crests/thumb/${club.logo}`;
 
 /** `71_400_000` → `71.4M`. Same rules as the game's formatFollowers. */
 export function formatFollowers(n: number): string {
@@ -66,5 +68,40 @@ export function formatFollowers(n: number): string {
   if (n >= 1_000) return `${(n / 1000).toFixed(1)}K`;
   return `${n}`;
 }
+
+/** Look a decree up by id. Throws on a typo, so a renamed decree fails the build. */
+export function decree(id: string): Decree {
+  const found = decrees.find((d) => d.id === id);
+  if (!found) throw new Error(`Unknown decree: ${id}`);
+  return found;
+}
+
+/** The intro reel's scenes, by id. Shapes are the game's IntroScene union, loosely typed. */
+export interface IntroScene {
+  id: string;
+  kind: string;
+  kicker?: string;
+  headline?: string;
+  body?: string;
+  punch?: string;
+  stamp?: string;
+  footnote?: string;
+  stats?: { value: string; label: string }[];
+  filingTitle?: string;
+  filing?: { label: string; value: string; redacted?: boolean }[];
+  quote?: { text: string; attribution: string };
+  partners?: { name: string; role: string }[];
+  punchline?: string[];
+  welcome?: string[];
+  disclaimer?: string;
+}
+
+export function scene(id: string): IntroScene {
+  const found = (lore.intro.scenes as IntroScene[]).find((s) => s.id === id);
+  if (!found) throw new Error(`Unknown intro scene: ${id}`);
+  return found;
+}
+
+export const clubsIn = (ids: string[]) => ids.map((id) => clubById(id)!).filter(Boolean);
 
 export { SITE_CANON } from './site';

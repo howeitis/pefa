@@ -4,6 +4,12 @@
   "seasonLabel": "2036",
   "cupName": "The Clawed AI Cup",
   "cupNameShort": "Clawed AI Cup",
+  "zoneLabels": {
+    "champion": "Champions",
+    "european": "Global Series",
+    "relegation": "Brand Damage"
+  },
+  "bottomZonePhrase": "the brand damage zone",
   "legacyClubName": "████████",
   "leagues": [
     "English League",

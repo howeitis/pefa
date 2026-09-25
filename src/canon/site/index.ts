@@ -39,4 +39,39 @@ export const SITE_CANON: SiteCanonEntry[] = [
     ],
     surfaces: ['/newsroom/corporate-website-launch'],
   },
+  {
+    id: 'venue-spec',
+    title: 'Superior Venue™ specification',
+    status: 'proposed-for-game',
+    facts: [
+      'Every Superior Venue™ holds the pitch at a constant 19°C under a closed roof.',
+      'Ticket prices track demand, form and the opponent’s TokTok following.',
+      'In-seat displays are tuned to each occupant; chants are composed live from each crowd’s repertoire and cleared for rights.',
+      'Seats pulse on shots, tackles and price movements. Financial wellness content is shown at half-time.',
+    ],
+    surfaces: ['/superior-venue'],
+  },
+  {
+    id: 'partner-roles',
+    title: 'Technology partner details',
+    status: 'proposed-for-game',
+    facts: [
+      'Microsack’s crowd audio calibration raises atmosphere at under-attended fixtures and lowers it where the crowd is off-message. Microsack also supports the Synthetic Away End.',
+      'Clawed AI shares its opposition modeling with all clubs equally, at tiered rates.',
+      'ChatGDP issues statements within four seconds of the final whistle, and generates supporter reaction in advance of the result.',
+    ],
+    surfaces: ['/technology'],
+  },
+  {
+    id: 'commercial',
+    title: 'Commercial positioning',
+    status: 'site-only',
+    facts: [
+      'TokTok is the official short-form platform of the Superior League.',
+      'The Superior League trophy is also available as a subscription tier.',
+      'PEFA regards the Clawed AI Cup, where ties can still be lost, as heritage content.',
+      'PEFA sells house inventory including naming rights to the Brand Damage zone and a presenting partnership for the Second Ball.',
+    ],
+    surfaces: ['/superior-league', '/partners'],
+  },
 ];

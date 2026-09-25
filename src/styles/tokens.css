@@ -163,3 +163,54 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/*
+ * Scroll reveal, with no JavaScript: a scroll-driven animation where the
+ * browser supports it, and plain visible content everywhere else. Content
+ * is never hidden waiting for script, so the prerendered HTML reads in full.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Floodlight: the stadium-light glow behind heroes. */
+.floodlight-glow {
+  background:
+    radial-gradient(ellipse 60% 55% at 85% -10%, rgb(229 184 66 / 0.2), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 5% 0%, rgb(246 244 238 / 0.06), transparent 70%);
+}
+
+/*
+ * Redaction. The value stays in the DOM and in the accessibility tree (the
+ * game's rule: screen readers read the joke); sighted readers get the bar.
+ */
+.redacted {
+  /* Always black, as on a real document. On dark pages a hairline keeps the
+     bar legible against the navy. */
+  background: #050608;
+  box-shadow: 0 0 0 1px var(--rule);
+  border-radius: 1px;
+  padding: 0 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+/* Transparent, not visibility: hidden, which would drop it from the a11y tree. */
+.redacted > span {
+  color: transparent;
+}
