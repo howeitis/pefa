@@ -83,12 +83,27 @@ export const PAGES: SitePage[] = [
     material: 'filing',
   },
   {
+    path: '/investors/annual-report',
+    title: 'Annual Report 2035/36',
+    label: 'Annual Report',
+    description:
+      'Objectives, key performance indicators and the Supporter Tolerance Index for PEFA’s first financial year.',
+    material: 'filing',
+  },
+  {
     path: '/governance',
     title: 'Governance',
     description:
       'The Global Inclusion Committee, the decree register, and PEFA’s position on legacy supporter-trust “litigation”.',
     material: 'filing',
     nav: 'primary',
+  },
+  {
+    path: '/governance/committee-minutes',
+    title: 'Global Inclusion Committee: Minutes',
+    label: 'Committee minutes',
+    description: 'Minutes of the spring session. The Committee does not publish its reasoning.',
+    material: 'filing',
   },
   {
     path: '/leadership',

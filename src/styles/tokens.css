@@ -214,3 +214,10 @@
 .redacted > span {
   color: transparent;
 }
+.prose-filing ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.prose-filing li + li {
+  margin-top: 0.35em;
+}

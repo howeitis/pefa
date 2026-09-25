@@ -41,11 +41,18 @@ const FILINGS: Filing[] = [
   {
     title: 'Annual Report 2035/36',
     detail: 'Objectives, KPIs and the Supporter Tolerance Index.',
-    status: 'Pending',
+    to: '/investors/annual-report',
+    status: 'Available',
   },
   {
-    title: 'Global Inclusion Committee: minutes',
-    detail: 'The Committee does not publish its reasoning. It will publish its minutes.',
+    title: 'Global Inclusion Committee: minutes, spring 2036',
+    detail: 'The Committee does not publish its reasoning. It does publish its minutes.',
+    to: '/governance/committee-minutes',
+    status: 'Available',
+  },
+  {
+    title: 'Global Inclusion Committee: minutes, autumn 2036',
+    detail: 'Date to be determined by the draw.',
     status: 'Pending',
   },
 ];

@@ -6,6 +6,7 @@ import { Section } from '~/components/floodlight/Section';
 import { StampedStat, StatRow } from '~/components/floodlight/StampedStat';
 import { OocStrip, PlayLink } from '~/components/shared/OocStrip';
 import { Redacted } from '~/components/shared/Redacted';
+import { LETTER } from '~/content/leadership';
 import { metaFor } from '~/meta';
 
 export const meta = () => metaFor('/');
@@ -120,6 +121,30 @@ export default function Home() {
           ]}
         />
         <p className="mt-8 text-xs text-ink-muted">{globalGame.footnote}</p>
+      </Section>
+
+      <Section id="letter" kicker="From the President">
+        <figure className="reveal grid gap-10 lg:grid-cols-[auto_1fr] lg:items-center">
+          <div
+            aria-hidden="true"
+            className="flex h-28 w-28 items-center justify-center border border-rule bg-surface font-display text-4xl text-accent"
+          >
+            GI
+          </div>
+          <div>
+            <blockquote className="max-w-4xl font-display text-3xl leading-snug sm:text-5xl">
+              “{LETTER.excerpt}”
+            </blockquote>
+            <figcaption className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-ink-muted">
+              <span>
+                {LETTER.signature}, {LETTER.role}
+              </span>
+              <Link to="/leadership#letter" className="font-semibold text-ink hover:text-accent">
+                Read the letter <span aria-hidden="true">→</span>
+              </Link>
+            </figcaption>
+          </div>
+        </figure>
       </Section>
 
       <section aria-labelledby="close-heading" className="border-t border-rule">

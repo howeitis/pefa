@@ -1,12 +1,17 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
+import { readdirSync } from 'node:fs';
 import { FICTION_NOTICE } from '../../src/components/shared/OocStrip';
-import { CLUB_PATH, clubSlugs, materialFor, PAGES } from '../../src/site-map';
+import { CLUB_PATH, clubSlugs, materialFor, NEWS_PATH, PAGES } from '../../src/site-map';
+
+const newsSlugs = readdirSync(new URL('../../src/content/newsroom', import.meta.url))
+  .filter((f) => f.endsWith('.mdx'))
+  .map((f) => f.replace(/\.mdx$/, ''));
 
 const paths = [
   ...PAGES.map((p) => p.path),
   ...clubSlugs().map(CLUB_PATH),
-  '/newsroom/corporate-website-launch',
+  ...newsSlugs.map(NEWS_PATH),
 ];
 
 for (const path of paths) {
@@ -17,6 +22,9 @@ for (const path of paths) {
       if (url.hostname !== 'localhost') requests.push(r.url());
     });
 
+    // Reduced motion turns the scroll reveal off. Otherwise axe can catch an
+    // element mid-fade at the foot of the viewport and flag its contrast.
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto(path);
     await expect(page.locator('body')).toHaveAttribute('data-material', materialFor(path));
     await expect(page.locator('h1').first()).toBeVisible();
@@ -67,4 +75,16 @@ test('every club listing prints its TokTok reach and owner', async ({ page }) =>
     await expect(page.getByText('TokTok reach', { exact: true })).toBeVisible();
     await expect(page.getByText('Owner', { exact: true })).toBeVisible();
   }
+});
+
+test('supporter feedback replies in the browser and sends nothing', async ({ page }) => {
+  await page.goto('/support');
+  const requests: string[] = [];
+  page.on('request', (r) => requests.push(r.url()));
+  await page.getByLabel('Topic').selectOption('offside');
+  await page.getByLabel('Your feedback').fill('That was never offside.');
+  await page.getByRole('button', { name: 'Submit feedback' }).click();
+  await expect(page.getByRole('status')).toContainText(/Reference SF-\d{6}/);
+  await expect(page.getByRole('status')).toContainText('Clawed AI');
+  expect(requests).toEqual([]);
 });

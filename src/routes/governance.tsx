@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import { decrees, domestic, lore } from '~/canon';
 import { FilingDocument, FilingPage, FilingSection } from '~/components/filing/FilingPage';
 import { Footnote } from '~/components/filing/Footnote';
@@ -48,8 +49,15 @@ export default function Governance() {
           <p>{globalGame.body[1]}</p>
           <p>{globalGame.body[2]}</p>
           <p>
-            Minutes of the Committee’s meetings will be filed with Investor Relations. Its reasoning
-            will not.
+            Minutes of the Committee’s meetings are filed with Investor Relations. Its reasoning is
+            not.{' '}
+            <Link
+              to="/governance/committee-minutes"
+              className="underline underline-offset-4 hover:text-accent"
+            >
+              Read the minutes of the spring session
+            </Link>
+            .
           </p>
         </FilingSection>
 
