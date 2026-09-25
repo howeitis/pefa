@@ -1,0 +1,214 @@
+{
+  "splash": {
+    "kicker": "Superior League 2036 — Partner Onboarding",
+    "headline": "Football did not die. It was algorithmically optimized.",
+    "body": [
+      "Following the 2035 collapse of long-format broadcast revenue, PEFA™ — Private Equity Football Accelerate™ — was formed to address the sport’s structural defect: the possibility of a bad outcome. Under President Giacomo Infamtino, capital partners and technology leadership (Microsack, Clawed AI, ChatGDP) were invited to design a replacement.",
+      "Fifteen founding members hold permanent, un-relegatable seats. Their revenues are guaranteed regardless of performance, form, or final position.",
+      "The remaining places are allocated each season by the Synergy Draft™, an algorithmic lottery weighted by subscription tier. Every continent is represented. Every continent pays."
+    ],
+    "punchline": [
+      "Results remain unscripted.",
+      "Revenue does not."
+    ],
+    "welcome": [
+      "Welcome to the future of football.",
+      "Welcome to the Superior League."
+    ],
+    "disclaimer": "You have been appointed Manager. The fans are not shareholders. Please do not confuse the two."
+  },
+  "prospectus": {
+    "title": "The Superior League",
+    "subtitle": "Official Media Kit — 2035",
+    "confidentiality": "Confidential. Not for distribution.",
+    "sections": [
+      {
+        "heading": "The Problem",
+        "body": [
+          "European football had become dangerously unpredictable. Clubs could lose matches. Clubs could miss qualification. Clubs could even be relegated. For institutional investors holding positions across multiple squads, this represented an unacceptable level of volatility.",
+          "The revenue base was also failing. Following the 2033 finding that highlight packages outperformed live matches at one-fortieth the production cost, long-form broadcast rights collapsed within eighteen months. Four of Europe’s six largest domestic competitions entered administration.",
+          "PEFA convened an emergency working group in the spring of 2035. Technology partners Microsack, Clawed AI and ChatGDP were invited to model recovery scenarios. Their conclusion was unanimous:",
+          "Football’s biggest problem was football."
+        ]
+      },
+      {
+        "heading": "The Solution",
+        "body": [
+          "Private Equity Football Accelerate was incorporated in Luxembourg on 14 May 2035, nine days after the dissolution of the Global Broadcast Rights Consortium. Three of its five stated objectives are redacted in public filings.",
+          "Under President Giacomo Infamtino, PEFA removed the sport’s most inefficient feature: sporting merit.",
+          "Fifteen founding franchises were awarded permanent membership. No relegation. No qualification. No existential risk. Their participation is guaranteed regardless of performance, form, managerial competence, or whether they finish 15th.",
+          "The remaining places are contested through the Synergy Draft™, which provides a global platform for ambitious organizations with sufficient capital and/or a strategically significant fanbase. Membership is reviewed annually. Payments are reviewed continuously."
+        ],
+        "quote": {
+          "text": "We have not taken the game from anyone. We have asked them to subscribe.",
+          "attribution": "G. Infamtino, launch address, delivered from a data center in Dublin"
+        }
+      },
+      {
+        "heading": "Technology Partners",
+        "body": [
+          "Microsack provides Superior Venue™ infrastructure and crowd audio calibration. Clawed AI supplies tactical inference, opposition modeling and live player valuation. ChatGDP generates post-match statements, press conference responses, and the supporter reaction to both."
+        ]
+      },
+      {
+        "heading": "The Global Game",
+        "body": [
+          "The Superior League is committed to global representation. Each season, clubs from outside Europe are invited to compete in the world’s premier football competition.*",
+          "Eligibility is determined by a proprietary weighting of market size, brand compatibility, social engagement, broadcast reach, luxury hospitality demand, subscription conversion rate, private equity interest, and previous footballing success where relevant.",
+          "Applications are assessed by the Global Inclusion Committee, which meets twice annually and does not publish its reasoning.",
+          "No region is excluded. Some are simply more included."
+        ],
+        "footnote": "* \"Premier\" is a descriptive term and does not constitute a comparative claim."
+      },
+      {
+        "heading": "The Matchday Experience",
+        "body": [
+          "The football stadium has been replaced by the Superior Venue™. All venues feature:"
+        ],
+        "bullets": [
+          "Climate-controlled conditions",
+          "Dynamic ticket pricing",
+          "Personalized in-seat advertising",
+          "Sponsored substitutions",
+          "AI-generated chants",
+          "Haptic seating",
+          "Real-time Micro-Betting™",
+          "Live player valuation updates",
+          "Complimentary financial wellness content"
+        ],
+        "footnote": "Supporters are encouraged to participate throughout the match via the Superior League app™. Please remember: you are not merely watching football. You are generating value."
+      },
+      {
+        "heading": "Governance",
+        "body": [
+          "PEFA does not recognize legacy supporter-trust \"litigation\". PEFA does not consider these proceedings material.",
+          "The word \"football\" is subject to ongoing trademark review."
+        ]
+      }
+    ],
+    "footer": "This document is provided for informational purposes and constitutes neither an offer, a promise, nor an admission. Past performance is irrelevant. Future performance is contractually guaranteed."
+  },
+  "intro": {
+    "scenes": [
+      {
+        "kind": "coldOpen",
+        "id": "cold-open",
+        "presents": "Private Equity Football Accelerate™ presents",
+        "title": "The Superior League",
+        "subtitle": "A PEFA™ Global Property",
+        "microcopy": "Promotional material. Retain for your records. Do not distribute."
+      },
+      {
+        "kind": "problem",
+        "id": "problem",
+        "kicker": "Chapter One — The Problem",
+        "headline": "Football was volatile.",
+        "punch": "Anyone could lose.",
+        "stats": [
+          {
+            "value": "18",
+            "label": "Months to collapse"
+          },
+          {
+            "value": "−69%",
+            "label": "Viewership"
+          },
+          {
+            "value": "4",
+            "label": "Leagues insolvent"
+          }
+        ]
+      },
+      {
+        "kind": "genesis",
+        "id": "genesis",
+        "kicker": "Chapter Two — The Solution",
+        "headline": "So we removed it.",
+        "filingTitle": "Certificate of Incorporation",
+        "filing": [
+          {
+            "label": "Filed",
+            "value": "Luxembourg · 14 May 2035"
+          },
+          {
+            "label": "President",
+            "value": "G. Infamtino"
+          },
+          {
+            "label": "Removed",
+            "value": "Sporting merit"
+          },
+          {
+            "label": "Objectives",
+            "value": "Five stated · three redacted",
+            "redacted": true
+          }
+        ],
+        "quote": {
+          "text": "We have not taken the game. We have asked them to subscribe.",
+          "attribution": "G. Infamtino — launch address, from a data center in Dublin"
+        }
+      },
+      {
+        "kind": "founders",
+        "id": "founders",
+        "kicker": "Chapter Three — The Founding Fifteen",
+        "headline": "Fifteen seats. Held in perpetuity.",
+        "body": "Revenue is guaranteed regardless of performance, form, managerial competence, or final position.",
+        "stamp": "Permanent · Un-relegatable",
+        "footnote": "Founder status is not contingent on winning, qualifying, or attending."
+      },
+      {
+        "kind": "draft",
+        "id": "draft",
+        "kicker": "Chapter Four — The Synergy Draft™",
+        "headline": "Five berths. Redrawn every summer.",
+        "body": "Thirteen global partners. An algorithmic lottery weighted by subscription tier, market size, brand compatibility and broadcast reach.",
+        "punch": "Every continent is represented. Every continent pays.",
+        "footnote": "No region is excluded. Some are simply more included."
+      },
+      {
+        "kind": "partners",
+        "id": "partners",
+        "kicker": "Chapter Five — Technology Leadership",
+        "headline": "The match is supervised.",
+        "partners": [
+          {
+            "name": "Microsack",
+            "role": "Superior Venue™ infrastructure and crowd audio calibration"
+          },
+          {
+            "name": "Clawed AI",
+            "role": "Tactical inference, opposition modeling, live player valuation"
+          },
+          {
+            "name": "ChatGDP",
+            "role": "Post-match statements, press responses, and the supporter reaction to both"
+          }
+        ],
+        "footnote": "You are not merely watching football. You are generating value."
+      },
+      {
+        "kind": "close",
+        "id": "close",
+        "punchline": [
+          "Results remain unscripted.",
+          "Revenue does not."
+        ],
+        "welcome": [
+          "Welcome to the future of football.",
+          "Welcome to the Superior League."
+        ],
+        "disclaimer": "Past performance is irrelevant. Future performance is contractually guaranteed."
+      }
+    ],
+    "ticker": "PEFA™ · Private Equity Football Accelerate™ · Superior Venue™ · Synergy Draft™ · Micro-Betting™ · \"Football\" subject to ongoing trademark review · Supporters are not shareholders · Dynamic pricing applies · Haptic seating sold separately · Complimentary financial wellness content included · ",
+    "drawnClubIds": [
+      "retirement-fund",
+      "odiados",
+      "al-zaeem",
+      "urawa-synthetic",
+      "copacabana"
+    ]
+  }
+}

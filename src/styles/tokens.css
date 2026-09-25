@@ -1,0 +1,165 @@
+/*
+ * Material tokens. The root layout sets `data-material` on <body>; each
+ * material redefines the same semantic variables, and the Tailwind theme
+ * below maps utilities onto them. So `bg-ground text-ink` is navy/parchment
+ * on a Floodlight page and paper/ink on a Filing page, and a page is always
+ * wholly one or the other.
+ */
+
+:root,
+[data-material='floodlight'] {
+  --ground: #0b0f19;
+  --surface: #121826;
+  --surface-2: #1a2234;
+  --ink: #f6f4ee;
+  --ink-muted: #b9bcc4;
+  --accent: #e5b842;
+  --accent-ink: #0b0f19;
+  --rule: rgb(246 244 238 / 0.14);
+  --focus: #e5b842;
+  color-scheme: dark;
+}
+
+[data-material='filing'] {
+  --ground: #ede9e2;
+  --surface: #ffffff;
+  --surface-2: #f6f3ee;
+  --ink: #14171c;
+  --ink-muted: #4e5561;
+  /* Darker than the #B45309 foil: foil on paper is 4.1:1, too faint for text. */
+  --accent: #92400e;
+  --accent-ink: #ffffff;
+  --rule: #d5cfc4;
+  --focus: #0f1e36;
+  color-scheme: light;
+}
+
+/* Out of character: the /play page. Plain, flat, belongs to neither material. */
+[data-material='ooc'] {
+  --ground: #fafaf7;
+  --surface: #ffffff;
+  --surface-2: #f0f0ec;
+  --ink: #111111;
+  --ink-muted: #505050;
+  --accent: #111111;
+  --accent-ink: #d9f99d;
+  --rule: #dcdcd6;
+  --focus: #1d4ed8;
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-ooc: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-rule: var(--rule);
+
+  /* Fixed brand colours, same on every material. */
+  --color-navy: #0f1e36;
+  --color-gold: #e5b842;
+  --color-foil: #b45309;
+  --color-parchment: #f6f4ee;
+
+  /* The out-of-character strip. Deliberately unlike either material. */
+  --color-ooc: #d9f99d;
+  --color-ooc-ink: #0a0a0a;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+  /* Figures line up everywhere a figure appears. */
+  table,
+  .figures {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+}
+
+@layer components {
+  /* Letterspaced small caps: kickers, ledger headers, filing labels. */
+  .smallcaps {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* Anything addressed to the real visitor wears this. See OocStrip. */
+  .ooc {
+    font-family: var(--font-ooc);
+    background: var(--color-ooc);
+    color: var(--color-ooc-ink);
+  }
+}
+
+/* Legal ticker marquee: two copies of the text, scrolled by half. */
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.ticker-track {
+  animation: ticker 90s linear infinite;
+}
+.ticker:hover .ticker-track,
+.ticker:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+
+/* Long-form document body (MDX releases and documents). */
+.prose-filing {
+  line-height: 1.7;
+}
+.prose-filing > * + * {
+  margin-top: 1.1em;
+}
+.prose-filing blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+}
+.prose-filing blockquote > * + * {
+  margin-top: 0.5em;
+}
+.prose-filing strong {
+  font-weight: 600;
+}
+.prose-filing a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

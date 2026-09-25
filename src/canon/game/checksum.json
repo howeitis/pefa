@@ -1,0 +1,19 @@
+{
+  "gameCommit": "86155ef081fe978ae8140592799d2c80d2ca8066",
+  "sources": {
+    "src/data/lore.ts": "09435660369c9173c8f88a28dd50a71517bd5d34e6dcf67957a0b3f39b1df001",
+    "src/data/clubs.ts": "cb7cb0397c10a32b4c08ea3adaf6eb9c2477457fdd80ac25fdb59798a61c7407",
+    "src/data/clubLore.ts": "214e4cd63dcbfccf7057594b46cf51b4f29744620569608f9c863245ed8a78b5",
+    "src/engine/decrees.ts": "00839bec621a8f267a394ae7b3be2e1256532b9214aaab71cd2c99cf3d668f1e",
+    "src/data/domesticLeagues.ts": "c8d72e6b989dc5719e19be612f70a7e54161ac8e2383a041585ed365565fd05b",
+    "src/data/league.ts": "62029b49e5729662ab7399b24d58bcbfdfdba267f59d2b5e0fe2e2fa41c7a712",
+    "src/engine/legacyMarket.ts": "f9fc93e19c94d4a83913863823d4147003f7b40f002fa0d517ee726a347e3fdb"
+  },
+  "outputs": {
+    "lore.json": "9285fe2d82fcc0be019da05417b975bf696ea520a04e7f3b06fed328689dfcbd",
+    "clubs.json": "028e66a251f5957669c9d7055aaa61afc87eebc9c96af3861b35e9c8cb43e286",
+    "clubLore.json": "2f9b2834963bef567da88b70691b514291ab5048da0d378c19d93edce75e57f3",
+    "decrees.json": "dfe01e50b44c08656f9aa3fcb39edee35bf17c50491f5ca45f8cfe0b6af53d6c",
+    "domesticLeagues.json": "1c3b457ab2dd02830cfd8d58894a6f6e295fa8d6d2e49b73af1be12776c3d62f"
+  }
+}

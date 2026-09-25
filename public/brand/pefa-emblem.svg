@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="t"><title id="t">PEFA™ emblem</title>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="8" y="15" width="48" height="34" rx="1.5" stroke="#0F1E36" stroke-width="2.5"/>
+    <path d="M32 15V49" stroke="#0F1E36" stroke-width="2.5"/>
+    <circle cx="32" cy="32" r="7" stroke="#0F1E36" stroke-width="2.5"/>
+    <path d="M8 26h5v12H8M56 26h-5v12h5" stroke="#0F1E36" stroke-width="2.5"/>
+    <path d="M5 55L19 42l7 5L39 30l8 4L59 12" stroke="#B45309" stroke-width="4"/>
+    <path d="M51 11.5L59 12l-.5 8" stroke="#B45309" stroke-width="4"/>
+  </g>
+</svg>

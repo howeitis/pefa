@@ -1,0 +1,528 @@
+{
+  "leagueSize": 20,
+  "rotatingSlots": 5,
+  "permanentIds": [
+    "armory",
+    "kensington",
+    "boston-reds",
+    "citizens",
+    "red-devils",
+    "white-hart-loan",
+    "almostico",
+    "more-than-a-club",
+    "vardrid",
+    "milano-runway",
+    "debito",
+    "piemonte",
+    "saint-sovereign",
+    "bavarian-monopoly",
+    "borussia-export"
+  ],
+  "globalIds": [
+    "retirement-fund",
+    "la-cameo",
+    "ny-citizens",
+    "odiados",
+    "rayados-industrial",
+    "al-zaeem",
+    "al-alami",
+    "shanghai-supply",
+    "urawa-synthetic",
+    "pyramid-scheme",
+    "pretoria-gold",
+    "copacabana",
+    "ba-millionaires"
+  ],
+  "clubs": [
+    {
+      "id": "armory",
+      "name": "The Armory Group",
+      "shortName": "ARM",
+      "cardName": "Armory",
+      "membership": "permanent",
+      "country": "England",
+      "city": "London",
+      "logo": "armory.webp",
+      "colors": {
+        "primary": "#DA2128",
+        "secondary": "#C9A227"
+      },
+      "rivalries": [
+        "white-hart-loan",
+        "kensington"
+      ]
+    },
+    {
+      "id": "kensington",
+      "name": "Kensington Capital FC",
+      "shortName": "KEN",
+      "cardName": "Kensington",
+      "membership": "permanent",
+      "country": "England",
+      "city": "London",
+      "logo": "kensington.webp",
+      "colors": {
+        "primary": "#1E4C9A",
+        "secondary": "#C9A227"
+      },
+      "rivalries": [
+        "armory",
+        "white-hart-loan"
+      ]
+    },
+    {
+      "id": "boston-reds",
+      "name": "Boston Reds of Merseyside",
+      "shortName": "BOS",
+      "cardName": "Boston Reds",
+      "membership": "permanent",
+      "country": "England",
+      "city": "Liverpool",
+      "logo": "boston-reds.webp",
+      "colors": {
+        "primary": "#C8102E",
+        "secondary": "#C9A227"
+      },
+      "rivalries": [
+        "red-devils",
+        "citizens"
+      ]
+    },
+    {
+      "id": "citizens",
+      "name": "Manchester Citizens* Corp",
+      "shortName": "MCC",
+      "cardName": "Citizens*",
+      "membership": "permanent",
+      "country": "England",
+      "city": "Manchester",
+      "logo": "citizens.webp",
+      "colors": {
+        "primary": "#6CABDD",
+        "secondary": "#1C2C5B"
+      },
+      "rivalries": [
+        "red-devils",
+        "boston-reds",
+        "ny-citizens"
+      ]
+    },
+    {
+      "id": "red-devils",
+      "name": "Red Devils PLC",
+      "shortName": "RDV",
+      "cardName": "Red Devils",
+      "membership": "permanent",
+      "country": "England",
+      "city": "Manchester",
+      "logo": "red-devils.webp",
+      "colors": {
+        "primary": "#DA291C",
+        "secondary": "#1A1A1A"
+      },
+      "rivalries": [
+        "citizens",
+        "boston-reds"
+      ]
+    },
+    {
+      "id": "white-hart-loan",
+      "name": "White Hart Loan FC",
+      "shortName": "WHL",
+      "cardName": "WHL",
+      "membership": "permanent",
+      "country": "England",
+      "city": "London",
+      "logo": "white-hart-loan.webp",
+      "colors": {
+        "primary": "#132257",
+        "secondary": "#FFFFFF"
+      },
+      "rivalries": [
+        "armory",
+        "kensington"
+      ]
+    },
+    {
+      "id": "almostico",
+      "name": "Almostico de Madrid FC",
+      "shortName": "ALM",
+      "cardName": "Almostico",
+      "membership": "permanent",
+      "country": "Spain",
+      "city": "Madrid",
+      "logo": "almostico.webp",
+      "colors": {
+        "primary": "#CB3524",
+        "secondary": "#1B2A5B"
+      },
+      "rivalries": [
+        "vardrid"
+      ]
+    },
+    {
+      "id": "more-than-a-club",
+      "name": "More Than A Club™ FC",
+      "shortName": "MTC",
+      "cardName": "MTC",
+      "membership": "permanent",
+      "country": "Spain",
+      "city": "Barcelona",
+      "logo": "more-than-a-club.webp",
+      "colors": {
+        "primary": "#A50044",
+        "secondary": "#004D98"
+      },
+      "rivalries": [
+        "vardrid"
+      ]
+    },
+    {
+      "id": "vardrid",
+      "name": "Royal VARdrid",
+      "shortName": "VAR",
+      "cardName": "VARdrid",
+      "membership": "permanent",
+      "country": "Spain",
+      "city": "Madrid",
+      "logo": "vardrid.webp",
+      "colors": {
+        "primary": "#5C3D7E",
+        "secondary": "#D4AF37"
+      },
+      "rivalries": [
+        "more-than-a-club",
+        "almostico"
+      ]
+    },
+    {
+      "id": "milano-runway",
+      "name": "Milano Runway FC",
+      "shortName": "RUN",
+      "cardName": "Milano Runway",
+      "membership": "permanent",
+      "country": "Italy",
+      "city": "Milan",
+      "logo": "milano-runway.webp",
+      "colors": {
+        "primary": "#A62B33",
+        "secondary": "#1A1A1A"
+      },
+      "rivalries": [
+        "debito"
+      ]
+    },
+    {
+      "id": "debito",
+      "name": "Internazionale Debito FC",
+      "shortName": "DEB",
+      "cardName": "Debito",
+      "membership": "permanent",
+      "country": "Italy",
+      "city": "Milan",
+      "logo": "debito.webp",
+      "colors": {
+        "primary": "#0B1E3F",
+        "secondary": "#1A1A1A"
+      },
+      "rivalries": [
+        "milano-runway",
+        "piemonte"
+      ]
+    },
+    {
+      "id": "piemonte",
+      "name": "Piemonte Capital",
+      "shortName": "PIE",
+      "cardName": "Piemonte",
+      "membership": "permanent",
+      "country": "Italy",
+      "city": "Turin",
+      "logo": "piemonte.webp",
+      "colors": {
+        "primary": "#1A1A1A",
+        "secondary": "#D4AF37"
+      },
+      "rivalries": [
+        "debito",
+        "milano-runway"
+      ]
+    },
+    {
+      "id": "saint-sovereign",
+      "name": "Paris Saint-Sovereign",
+      "shortName": "PSS",
+      "cardName": "PSS",
+      "membership": "permanent",
+      "country": "France",
+      "city": "Paris",
+      "logo": "saint-sovereign.webp",
+      "colors": {
+        "primary": "#0B2240",
+        "secondary": "#C9A227"
+      },
+      "rivalries": [
+        "bavarian-monopoly",
+        "vardrid"
+      ]
+    },
+    {
+      "id": "bavarian-monopoly",
+      "name": "Bavarian Monopoly",
+      "shortName": "BAV",
+      "cardName": "Bavarian",
+      "membership": "permanent",
+      "country": "Germany",
+      "city": "Munich",
+      "logo": "bavarian-monopoly.webp",
+      "colors": {
+        "primary": "#B8112E",
+        "secondary": "#C9A227"
+      },
+      "rivalries": [
+        "borussia-export",
+        "saint-sovereign"
+      ]
+    },
+    {
+      "id": "borussia-export",
+      "name": "Borussia Export AG",
+      "shortName": "BEX",
+      "cardName": "Borussia",
+      "membership": "permanent",
+      "country": "Germany",
+      "city": "Dortmund",
+      "logo": "borussia-export.webp",
+      "colors": {
+        "primary": "#F5D000",
+        "secondary": "#1A1A1A"
+      },
+      "rivalries": [
+        "bavarian-monopoly"
+      ]
+    },
+    {
+      "id": "retirement-fund",
+      "name": "Inter Retirement Fund",
+      "shortName": "IRF",
+      "cardName": "IRF",
+      "membership": "global",
+      "country": "USA",
+      "city": "Miami",
+      "logo": "retirement-fund.webp",
+      "colors": {
+        "primary": "#F7B5CD",
+        "secondary": "#1A1A1A"
+      },
+      "rivalries": [
+        "la-cameo",
+        "ny-citizens"
+      ]
+    },
+    {
+      "id": "la-cameo",
+      "name": "LA Cameo FC",
+      "shortName": "LAC",
+      "cardName": "LA Cameo",
+      "membership": "global",
+      "country": "USA",
+      "city": "Los Angeles",
+      "logo": "la-cameo.webp",
+      "colors": {
+        "primary": "#C9A227",
+        "secondary": "#1A1A1A"
+      },
+      "rivalries": [
+        "retirement-fund"
+      ]
+    },
+    {
+      "id": "ny-citizens",
+      "name": "New York Citizens* Corp",
+      "shortName": "NYC",
+      "cardName": "NY Citizens*",
+      "membership": "global",
+      "country": "USA",
+      "city": "New York",
+      "logo": "ny-citizens.webp",
+      "colors": {
+        "primary": "#6CABDD",
+        "secondary": "#1C2C5B"
+      },
+      "rivalries": [
+        "retirement-fund",
+        "citizens"
+      ]
+    },
+    {
+      "id": "odiados",
+      "name": "Odiados FC",
+      "shortName": "ODI",
+      "cardName": "Odiados",
+      "membership": "global",
+      "country": "Mexico",
+      "city": "Mexico City",
+      "logo": "odiados.webp",
+      "colors": {
+        "primary": "#F5C518",
+        "secondary": "#B31217"
+      },
+      "rivalries": [
+        "rayados-industrial"
+      ]
+    },
+    {
+      "id": "rayados-industrial",
+      "name": "Rayados Industrial FC",
+      "shortName": "RAY",
+      "cardName": "Rayados",
+      "membership": "global",
+      "country": "Mexico",
+      "city": "Monterrey",
+      "logo": "rayados-industrial.webp",
+      "colors": {
+        "primary": "#002F6C",
+        "secondary": "#FFFFFF"
+      },
+      "rivalries": [
+        "odiados"
+      ]
+    },
+    {
+      "id": "al-zaeem",
+      "name": "Al-Za'eem Holdings",
+      "shortName": "ZAE",
+      "cardName": "Al-Za'eem",
+      "membership": "global",
+      "country": "Saudi Arabia",
+      "city": "Riyadh",
+      "logo": "al-zaeem.webp",
+      "colors": {
+        "primary": "#0B2A5B",
+        "secondary": "#C9A227"
+      },
+      "rivalries": [
+        "al-alami"
+      ]
+    },
+    {
+      "id": "al-alami",
+      "name": "Al-Alami Worldwide",
+      "shortName": "ALA",
+      "cardName": "Al-Alami",
+      "membership": "global",
+      "country": "Saudi Arabia",
+      "city": "Jeddah",
+      "logo": "al-alami.webp",
+      "colors": {
+        "primary": "#C9A227",
+        "secondary": "#0E2A47"
+      },
+      "rivalries": [
+        "al-zaeem"
+      ]
+    },
+    {
+      "id": "shanghai-supply",
+      "name": "Shanghai Supply Chain FC",
+      "shortName": "SSC",
+      "cardName": "Shanghai",
+      "membership": "global",
+      "country": "China",
+      "city": "Shanghai",
+      "logo": "shanghai-supply.webp",
+      "colors": {
+        "primary": "#C8102E",
+        "secondary": "#FFFFFF"
+      },
+      "rivalries": [
+        "urawa-synthetic"
+      ]
+    },
+    {
+      "id": "urawa-synthetic",
+      "name": "Urawa Synthetic Diamonds",
+      "shortName": "URW",
+      "cardName": "Urawa",
+      "membership": "global",
+      "country": "Japan",
+      "city": "Tokyo",
+      "logo": "urawa-synthetic.webp",
+      "colors": {
+        "primary": "#B4131A",
+        "secondary": "#FFFFFF"
+      },
+      "rivalries": [
+        "shanghai-supply"
+      ]
+    },
+    {
+      "id": "pyramid-scheme",
+      "name": "Pyramid Scheme FC",
+      "shortName": "PYR",
+      "cardName": "Pyramid",
+      "membership": "global",
+      "country": "Egypt",
+      "city": "Cairo",
+      "logo": "pyramid-scheme.webp",
+      "colors": {
+        "primary": "#7A1F1F",
+        "secondary": "#C9A227"
+      },
+      "rivalries": [
+        "pretoria-gold"
+      ]
+    },
+    {
+      "id": "pretoria-gold",
+      "name": "Pretoria Gold FC",
+      "shortName": "PRG",
+      "cardName": "Pretoria Gold",
+      "membership": "global",
+      "country": "South Africa",
+      "city": "Pretoria",
+      "logo": "pretoria-gold.webp",
+      "colors": {
+        "primary": "#D4A017",
+        "secondary": "#0B3D2E"
+      },
+      "rivalries": [
+        "pyramid-scheme"
+      ]
+    },
+    {
+      "id": "copacabana",
+      "name": "CR Copacabana",
+      "shortName": "COP",
+      "cardName": "Copacabana",
+      "membership": "global",
+      "country": "Brazil",
+      "city": "Rio de Janeiro",
+      "logo": "copacabana.webp",
+      "colors": {
+        "primary": "#C52613",
+        "secondary": "#1A1A1A"
+      },
+      "rivalries": [
+        "ba-millionaires"
+      ]
+    },
+    {
+      "id": "ba-millionaires",
+      "name": "Buenos Aires Millionaires",
+      "shortName": "BAM",
+      "cardName": "Millionaires",
+      "membership": "global",
+      "country": "Argentina",
+      "city": "Buenos Aires",
+      "logo": "ba-millionaires.webp",
+      "colors": {
+        "primary": "#D62828",
+        "secondary": "#FFFFFF"
+      },
+      "rivalries": [
+        "copacabana"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" width="100%" height="100%">
+  <defs>
+    <!-- Ground Shadow -->
+    <radialGradient id="groundShadowSilver" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#000000" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Chrome Cup Body Cylindrical Gradient -->
+    <linearGradient id="chromeCupBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="7%" stop-color="#475569"/>
+      <stop offset="18%" stop-color="#94a3b8"/>
+      <stop offset="30%" stop-color="#f8fafc"/>
+      <stop offset="38%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#f1f5f9"/>
+      <stop offset="68%" stop-color="#cbd5e1"/>
+      <stop offset="84%" stop-color="#475569"/>
+      <stop offset="94%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+
+    <!-- Chrome Dome Lid Gradient -->
+    <linearGradient id="chromeDomeLid" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="15%" stop-color="#64748b"/>
+      <stop offset="32%" stop-color="#ffffff"/>
+      <stop offset="52%" stop-color="#f1f5f9"/>
+      <stop offset="78%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <!-- Handle Chrome Gradients -->
+    <linearGradient id="handleChromeTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+
+    <linearGradient id="handleChromeVertical" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="25%" stop-color="#cbd5e1"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="80%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <!-- Stem & Rings Chrome Gradient -->
+    <linearGradient id="chromeStem" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="16%" stop-color="#64748b"/>
+      <stop offset="32%" stop-color="#ffffff"/>
+      <stop offset="52%" stop-color="#e2e8f0"/>
+      <stop offset="80%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <!-- Base Plinth Chrome Gradient -->
+    <linearGradient id="chromePlinth" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e2530"/>
+      <stop offset="12%" stop-color="#475569"/>
+      <stop offset="30%" stop-color="#f8fafc"/>
+      <stop offset="45%" stop-color="#cbd5e1"/>
+      <stop offset="75%" stop-color="#94a3b8"/>
+      <stop offset="90%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <linearGradient id="chromeBevel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+
+    <!-- Silver Plaque Surface -->
+    <linearGradient id="silverPlaque" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#f1f5f9"/>
+      <stop offset="70%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+
+    <!-- Embossed Silver Ribbons -->
+    <linearGradient id="silverKnotA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#e2e8f0"/>
+      <stop offset="75%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+
+    <linearGradient id="silverKnotB" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="45%" stop-color="#cbd5e1"/>
+      <stop offset="80%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <!-- Silver Rivet -->
+    <radialGradient id="silverRivet" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#cbd5e1"/>
+      <stop offset="85%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </radialGradient>
+
+    <filter id="dropShadowKnotSilver" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="1.2" dy="2.0" stdDeviation="1.6" flood-color="#0f172a" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <!-- ================= GROUND SHADOW ================= -->
+  <ellipse cx="250" cy="635" rx="145" ry="16" fill="url(#groundShadowSilver)"/>
+  <ellipse cx="250" cy="632" rx="100" ry="9" fill="url(#groundShadowSilver)"/>
+
+  <!-- ================= SQUARE SILVER PEDESTAL PLINTH ================= -->
+  <g id="silverPedestal">
+    <rect x="140" y="546" width="220" height="74" rx="2" fill="url(#chromePlinth)"/>
+    <line x1="140" y1="620" x2="360" y2="620" stroke="#0f172a" stroke-width="2"/>
+    <polygon points="140,546 168,532 332,532 360,546" fill="url(#chromeBevel)"/>
+    <line x1="168" y1="532" x2="332" y2="532" stroke="#ffffff" stroke-width="1.8"/>
+
+    <!-- Plaque on Base -->
+    <g id="cupPlaque">
+      <rect x="162" y="557" width="176" height="46" rx="2.5" fill="#0f172a" opacity="0.4"/>
+      <rect x="161" y="556" width="178" height="48" rx="2.5" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.8"/>
+      <rect x="163" y="558" width="174" height="44" rx="2" fill="url(#silverPlaque)"/>
+      <rect x="166" y="561" width="168" height="38" rx="1.5" fill="none" stroke="#64748b" stroke-width="0.8" opacity="0.6"/>
+
+      <circle cx="171" cy="566" r="2.2" fill="url(#silverRivet)"/>
+      <circle cx="329" cy="566" r="2.2" fill="url(#silverRivet)"/>
+      <circle cx="171" cy="594" r="2.2" fill="url(#silverRivet)"/>
+      <circle cx="329" cy="594" r="2.2" fill="url(#silverRivet)"/>
+
+      <text x="250" y="575" text-anchor="middle" font-family="Arial, 'Segoe UI', Helvetica, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.8" fill="#1e293b">SUPERIOR LEAGUE</text>
+      <text x="250" y="593" text-anchor="middle" font-family="Arial, 'Segoe UI', Helvetica, sans-serif" font-size="13.5" font-weight="900" letter-spacing="2" fill="#0f172a">CUP</text>
+    </g>
+  </g>
+
+  <!-- ================= STEM & SPREADING CIRCULAR FOOT ================= -->
+  <!-- Connected seamlessly to cup bowl base at y=440 without gap -->
+  <g id="silverFootAndStem">
+    <ellipse cx="250" cy="532" rx="72" ry="7" fill="#0f172a" opacity="0.38"/>
+
+    <path d="M 180,532 C 180,520 202,514 250,514 C 298,514 320,520 320,532 Z" fill="url(#chromeStem)"/>
+    <ellipse cx="250" cy="514" rx="70" ry="7.5" fill="url(#chromeStem)"/>
+    <ellipse cx="250" cy="514" rx="70" ry="7.5" fill="none" stroke="#ffffff" stroke-width="1.3"/>
+
+    <path d="M 202,514 C 202,505 218,498 250,498 C 282,498 298,505 298,514 Z" fill="url(#chromeStem)"/>
+    <ellipse cx="250" cy="498" rx="48" ry="6.5" fill="url(#chromeStem)"/>
+    <ellipse cx="250" cy="498" rx="48" ry="6.5" fill="none" stroke="#ffffff" stroke-width="1.3"/>
+
+    <path d="M 226,498 L 226,440 L 274,440 L 274,498 Z" fill="url(#chromeStem)"/>
+
+    <ellipse cx="250" cy="478" rx="27" ry="4.5" fill="url(#chromeStem)"/>
+    <ellipse cx="250" cy="478" rx="27" ry="4.5" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+    <ellipse cx="250" cy="454" rx="29" ry="5" fill="url(#chromeStem)"/>
+    <ellipse cx="250" cy="454" rx="29" ry="5" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  </g>
+
+  <!-- ================= CUP BOWL (CHALICE) ================= -->
+  <!-- Seamlessly joins stem at y=440 -->
+  <g id="silverCupBody">
+    <path d="M 172,236
+             L 178,350
+             C 182,395 212,434 238,440
+             L 262,440
+             C 288,434 318,395 322,350
+             L 328,236
+             Z"
+          fill="url(#chromeCupBody)"/>
+
+    <path d="M 205,236 L 210,350 C 213,380 226,416 242,434 L 248,434 C 232,416 222,380 218,350 L 214,236 Z" fill="#ffffff" opacity="0.35"/>
+
+    <ellipse cx="250" cy="236" rx="78" ry="10" fill="url(#chromeStem)"/>
+    <ellipse cx="250" cy="236" rx="78" ry="10" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+  </g>
+
+  <!-- ================= EMBOSSED KNOT ON CUP BODY ================= -->
+  <g id="embossedKnotSilver">
+    <path d="M 226.56,365.35 L 227.59,367.03 L 230.05,369.55 L 233.76,371.65 L 236.64,372.49 L 238.28,372.70 L 240.54,372.70 L 243.01,372.07 L 239.51,368.29 L 237.25,368.08 L 235.20,367.45 L 232.52,365.77 L 229.03,365.77 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 218.13,362.20 L 220.19,367.03 L 223.68,371.86 L 227.18,375.01 L 230.88,377.11 L 233.55,378.16 L 236.64,378.79 L 241.57,378.79 L 245.48,377.95 L 248.56,376.48 L 244.86,373.33 L 243.83,373.33 L 241.36,373.96 L 237.25,373.96 L 234.38,373.33 L 232.32,372.49 L 228.82,370.18 L 226.56,367.87 L 224.71,365.35 L 224.51,364.72 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 270.77,353.59 L 268.92,354.01 L 264.60,354.01 L 260.90,357.58 L 262.95,358.21 L 264.60,358.42 L 268.92,358.42 L 270.56,358.00 L 270.97,355.69 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 276.32,358.63 L 276.52,357.16 L 276.32,351.28 L 275.29,347.50 L 273.44,343.93 L 270.97,346.87 L 270.56,347.71 L 271.79,350.86 L 272.21,353.38 L 272.21,356.53 L 271.79,358.84 L 270.97,360.94 L 269.53,363.46 L 267.27,365.98 L 265.22,367.24 L 262.75,368.08 L 258.64,368.08 L 257.81,367.45 L 259.05,366.40 L 260.69,365.77 L 261.51,365.14 L 257.81,364.30 L 255.96,363.46 L 254.52,363.46 L 253.70,364.09 L 252.26,364.51 L 251.03,363.88 L 253.29,362.20 L 249.79,359.89 L 245.48,356.32 L 233.55,344.13 L 231.91,346.24 L 231.08,347.71 L 233.96,351.28 L 242.60,359.68 L 244.24,360.94 L 245.48,362.41 L 244.86,363.25 L 245.27,363.88 L 248.35,367.03 L 248.77,367.03 L 251.85,365.14 L 252.47,365.35 L 252.47,365.77 L 251.65,366.61 L 249.79,367.66 L 249.79,368.29 L 253.70,371.02 L 258.02,372.49 L 262.13,372.70 L 264.19,372.28 L 266.04,371.65 L 270.35,369.13 L 272.41,367.03 L 274.47,363.88 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 234.78,342.25 L 234.58,343.09 L 235.40,344.13 L 244.04,353.17 L 249.38,358.00 L 254.32,361.36 L 259.25,363.46 L 263.78,364.30 L 266.86,364.30 L 268.09,363.25 L 268.92,361.99 L 269.95,359.89 L 269.95,359.47 L 264.60,359.68 L 259.46,358.63 L 257.40,357.79 L 253.08,355.06 L 248.15,350.86 L 242.39,344.97 L 237.46,339.31 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 278.78,340.78 L 277.35,338.67 L 274.67,342.25 L 274.47,342.88 L 276.52,346.87 L 277.76,351.28 L 277.96,356.74 L 277.14,360.94 L 275.29,365.14 L 274.05,367.03 L 271.59,369.76 L 268.71,371.86 L 266.65,372.91 L 262.75,373.96 L 258.43,373.96 L 257.40,373.75 L 253.29,372.28 L 250.62,370.60 L 248.56,368.92 L 245.27,365.35 L 243.22,363.88 L 238.69,365.14 L 240.13,367.03 L 244.86,371.86 L 247.74,374.38 L 249.59,375.64 L 252.88,377.32 L 255.14,378.16 L 258.22,378.79 L 263.36,378.79 L 267.68,377.74 L 271.18,376.06 L 274.88,373.33 L 277.55,370.39 L 279.40,367.66 L 281.25,363.88 L 282.08,361.36 L 282.69,356.95 L 282.49,351.07 L 281.25,346.03 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 283.92,325.23 L 283.31,327.96 L 281.87,331.11 L 281.87,331.74 L 282.69,333.64 L 283.31,336.99 L 283.31,340.57 L 282.69,343.51 L 282.08,344.97 L 283.10,347.50 L 283.72,350.65 L 285.16,348.75 L 286.39,346.24 L 287.01,344.56 L 287.62,341.62 L 287.62,335.52 L 287.22,333.21 L 285.98,329.65 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 212.58,321.25 L 210.73,323.13 L 208.26,327.34 L 206.62,331.96 L 206.00,335.11 L 206.00,341.41 L 206.82,345.61 L 208.88,350.86 L 211.55,354.85 L 214.22,357.79 L 216.90,359.89 L 222.04,362.62 L 225.33,363.67 L 230.05,364.51 L 234.38,364.51 L 239.51,363.67 L 243.22,362.41 L 243.22,361.78 L 239.72,358.63 L 237.66,359.26 L 234.99,359.68 L 229.85,359.68 L 226.35,359.05 L 224.30,358.42 L 220.80,356.74 L 219.57,355.90 L 215.25,351.70 L 213.40,348.97 L 212.17,346.44 L 211.14,343.09 L 210.73,340.35 L 210.73,335.95 L 211.14,333.64 L 211.96,331.11 L 213.40,328.38 L 212.78,326.28 L 212.58,324.60 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 240.75,319.77 L 239.10,320.82 L 229.03,331.11 L 224.30,336.79 L 221.42,340.78 L 218.54,346.24 L 218.13,345.82 L 216.90,341.82 L 216.69,340.57 L 216.69,336.16 L 214.84,333.21 L 213.81,330.49 L 212.78,333.21 L 212.17,336.58 L 212.17,340.78 L 212.78,343.93 L 214.43,348.13 L 216.49,351.28 L 218.75,353.59 L 221.83,355.90 L 225.12,357.37 L 228.82,358.21 L 233.96,358.42 L 236.22,358.21 L 238.49,357.58 L 234.99,354.01 L 230.47,354.01 L 228.21,353.59 L 227.79,353.17 L 227.79,352.12 L 229.03,348.55 L 232.93,342.46 L 236.64,338.04 L 248.77,325.44 L 247.12,323.97 L 245.48,322.92 L 242.60,325.44 L 234.78,333.42 L 230.67,338.26 L 226.56,343.93 L 224.51,347.92 L 223.68,350.44 L 223.27,350.86 L 222.45,350.44 L 222.24,349.81 L 223.48,346.66 L 225.33,343.29 L 230.47,336.36 L 233.35,333.01 L 241.16,325.03 L 243.83,322.72 L 244.24,322.08 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 266.24,318.30 L 266.24,321.87 L 265.83,323.56 L 268.71,326.91 L 269.33,327.34 L 270.35,325.23 L 270.97,322.92 L 271.18,321.25 L 270.97,318.72 L 268.71,318.30 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 224.71,314.10 L 223.48,314.94 L 221.22,317.67 L 220.39,319.35 L 219.98,321.87 L 220.19,325.03 L 221.01,328.38 L 222.45,331.74 L 224.51,334.48 L 227.38,331.11 L 225.33,327.34 L 224.51,324.18 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 238.49,313.05 L 237.87,315.57 L 238.08,317.46 L 239.10,317.67 L 242.60,319.35 L 248.35,323.34 L 254.73,329.02 L 259.46,334.05 L 262.75,336.79 L 264.80,334.27 L 265.01,333.64 L 263.16,331.33 L 256.17,324.18 L 250.41,319.35 L 246.51,316.62 L 241.98,314.10 L 239.10,313.05 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 241.16,307.59 L 239.10,311.37 L 239.10,311.79 L 243.22,313.26 L 245.68,314.52 L 250.00,317.46 L 253.49,320.19 L 258.22,324.39 L 262.95,329.22 L 265.83,332.58 L 266.45,331.96 L 268.51,328.59 L 266.04,325.65 L 262.13,321.66 L 258.02,317.88 L 250.62,312.21 L 244.65,308.64 L 241.78,307.59 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 226.35,307.38 L 224.92,307.59 L 223.27,308.22 L 219.57,310.32 L 216.28,313.89 L 214.64,317.25 L 214.02,319.56 L 214.02,325.23 L 214.64,328.59 L 215.66,331.53 L 217.51,335.32 L 220.60,339.73 L 223.68,335.73 L 221.83,333.21 L 219.36,327.96 L 218.75,325.23 L 218.75,320.82 L 219.36,318.30 L 220.60,315.99 L 222.65,313.89 L 224.92,312.42 L 225.53,309.69 L 226.15,308.43 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 251.65,310.74 L 251.23,311.37 L 254.73,313.89 L 255.35,314.10 L 258.84,312.42 L 261.72,311.58 L 264.80,311.16 L 270.15,311.37 L 272.00,311.79 L 276.32,313.47 L 277.96,314.52 L 279.61,316.41 L 279.20,316.62 L 278.17,315.78 L 273.65,313.68 L 268.92,312.63 L 263.98,312.63 L 262.54,312.84 L 258.84,313.89 L 256.58,314.94 L 257.20,315.78 L 260.28,318.30 L 262.13,317.46 L 265.83,316.83 L 269.53,317.04 L 272.00,317.67 L 272.41,318.10 L 272.41,322.08 L 271.79,325.03 L 270.97,327.12 L 269.95,329.02 L 266.65,333.84 L 261.92,339.73 L 251.03,351.70 L 254.11,354.22 L 262.34,345.82 L 267.68,339.73 L 271.59,334.68 L 274.67,329.43 L 276.32,325.44 L 276.73,323.34 L 276.73,321.03 L 277.14,320.61 L 278.17,321.87 L 278.17,323.34 L 277.76,325.23 L 276.32,329.22 L 273.85,333.64 L 269.74,339.31 L 266.45,343.29 L 255.55,355.27 L 259.05,357.16 L 259.46,357.16 L 261.92,354.85 L 271.38,344.56 L 274.26,340.98 L 278.78,334.48 L 280.02,332.37 L 282.08,327.12 L 282.69,324.39 L 282.90,319.35 L 284.13,321.66 L 285.16,324.60 L 287.83,330.49 L 288.65,333.01 L 289.27,336.58 L 289.27,340.35 L 288.45,344.56 L 286.80,348.55 L 283.92,352.54 L 284.13,355.69 L 283.72,359.05 L 284.95,358.42 L 287.22,356.32 L 289.89,352.75 L 292.15,348.55 L 293.18,345.40 L 294.00,340.78 L 294.00,336.16 L 293.18,331.33 L 291.53,326.71 L 289.89,323.56 L 288.24,319.14 L 286.60,316.20 L 283.72,312.84 L 280.22,310.11 L 275.49,307.80 L 271.38,306.75 L 269.95,306.54 L 263.57,306.54 L 261.92,306.75 L 258.64,307.59 L 255.76,308.64 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 263.57,304.65 L 259.66,300.66 L 256.99,298.98 L 254.11,297.93 L 251.85,297.51 L 246.71,297.72 L 244.04,298.56 L 241.36,300.03 L 238.69,301.92 L 237.46,303.18 L 234.99,306.54 L 233.35,309.90 L 231.91,315.78 L 231.91,321.03 L 232.52,324.18 L 232.93,325.03 L 236.43,321.66 L 236.22,316.83 L 237.25,312.00 L 238.69,308.85 L 239.51,307.59 L 242.60,304.44 L 245.48,302.76 L 248.35,301.92 L 251.44,301.92 L 254.52,302.76 L 257.40,304.44 L 258.84,305.91 L 263.78,305.28 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 268.30,300.45 L 265.01,296.88 L 261.51,294.36 L 257.61,292.47 L 253.29,291.42 L 249.18,291.21 L 248.97,291.42 L 246.71,291.42 L 243.22,292.26 L 238.28,294.57 L 236.43,295.83 L 231.91,300.24 L 230.26,302.55 L 228.00,306.96 L 226.35,312.42 L 225.95,315.15 L 225.95,321.66 L 226.77,326.07 L 228.21,329.65 L 228.62,329.86 L 231.70,326.28 L 230.67,321.87 L 230.47,317.25 L 230.88,313.47 L 231.91,309.69 L 233.55,306.33 L 235.20,303.81 L 237.66,301.08 L 239.72,299.40 L 243.42,297.30 L 246.09,296.46 L 249.18,296.04 L 252.67,296.25 L 256.38,297.30 L 259.66,298.98 L 261.10,300.03 L 263.78,302.76 L 265.22,304.86 L 271.38,305.49 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.9" filter="url(#dropShadowKnotSilver)"/>
+  </g>
+
+  <!-- ================= GEOMETRIC RECTANGULAR HANDLES ================= -->
+  <g id="geometricHandles">
+    <!-- LEFT HANDLE -->
+    <path d="M 172,254 L 92,254 L 92,396 L 194,396 L 194,378 L 110,378 L 110,272 L 172,272 Z" fill="#0f172a" opacity="0.32" transform="translate(1.5, 2)"/>
+
+    <path d="M 170,252 L 90,252 L 90,396 L 194,396 L 194,378 L 108,378 L 108,270 L 170,270 Z"
+          fill="url(#handleChromeVertical)" stroke="#334155" stroke-width="1.2"/>
+
+    <polygon points="170,252 90,252 96,258 166,258" fill="url(#handleChromeTop)"/>
+    <line x1="90" y1="252" x2="170" y2="252" stroke="#ffffff" stroke-width="1.8"/>
+    <line x1="91" y1="252" x2="91" y2="396" stroke="#ffffff" stroke-width="1.5"/>
+    <polygon points="90,396 194,396 190,390 96,390" fill="#475569"/>
+
+    <!-- RIGHT HANDLE -->
+    <path d="M 328,254 L 408,254 L 408,396 L 306,396 L 306,378 L 390,378 L 390,272 L 328,272 Z" fill="#0f172a" opacity="0.32" transform="translate(1.5, 2)"/>
+
+    <path d="M 330,252 L 410,252 L 410,396 L 306,396 L 306,378 L 392,378 L 392,270 L 330,270 Z"
+          fill="url(#handleChromeVertical)" stroke="#334155" stroke-width="1.2"/>
+
+    <polygon points="330,252 410,252 404,258 334,258" fill="url(#handleChromeTop)"/>
+    <line x1="330" y1="252" x2="410" y2="252" stroke="#ffffff" stroke-width="1.8"/>
+    <line x1="409" y1="252" x2="409" y2="396" stroke="#ffffff" stroke-width="1.5"/>
+    <polygon points="410,396 306,396 310,390 404,390" fill="#475569"/>
+  </g>
+
+  <!-- ================= FLUTED DOMED LID ================= -->
+  <g id="domedLid">
+    <rect x="176" y="222" width="148" height="14" rx="2" fill="url(#chromeStem)"/>
+    <ellipse cx="250" cy="222" rx="74" ry="8" fill="url(#chromeStem)"/>
+    <ellipse cx="250" cy="222" rx="74" ry="8" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+
+    <path d="M 180,222
+             C 180,165 215,142 250,142
+             C 285,142 320,165 320,222
+             Z"
+          fill="url(#chromeDomeLid)"/>
+
+    <path d="M 250,142 L 180,222" stroke="#334155" stroke-width="1.2"/>
+    <path d="M 250,142 L 202,224" stroke="#ffffff" stroke-width="1.4" opacity="0.8"/>
+    <path d="M 250,142 L 226,225" stroke="#475569" stroke-width="1.2"/>
+    <path d="M 250,142 L 250,226" stroke="#ffffff" stroke-width="2" opacity="0.9"/>
+    <path d="M 250,142 L 274,225" stroke="#475569" stroke-width="1.2"/>
+    <path d="M 250,142 L 298,224" stroke="#ffffff" stroke-width="1.4" opacity="0.8"/>
+    <path d="M 250,142 L 320,222" stroke="#334155" stroke-width="1.2"/>
+
+    <ellipse cx="250" cy="142" rx="16" ry="4" fill="url(#chromeStem)"/>
+    <ellipse cx="250" cy="142" rx="16" ry="4" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  </g>
+
+  <!-- ================= STANDALONE 3D KNOT FINIAL ================= -->
+  <g id="medallionFinial">
+    <ellipse cx="250" cy="136" rx="9" ry="8" fill="url(#chromeStem)"/>
+    <circle cx="248" cy="133" r="3" fill="#ffffff" opacity="0.75"/>
+    <ellipse cx="250" cy="126" rx="5" ry="3" fill="url(#chromeStem)"/>
+
+    <g id="finialKnot">
+      <path d="M 239.35,113.79 L 239.81,114.56 L 240.93,115.70 L 242.62,116.66 L 243.93,117.04 L 244.67,117.14 L 245.70,117.14 L 246.82,116.85 L 245.23,115.13 L 244.21,115.04 L 243.27,114.75 L 242.06,113.99 L 240.47,113.99 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 235.51,112.36 L 236.45,114.56 L 238.04,116.75 L 239.63,118.19 L 241.31,119.14 L 242.52,119.62 L 243.93,119.90 L 246.17,119.90 L 247.94,119.52 L 249.35,118.85 L 247.66,117.42 L 247.20,117.42 L 246.07,117.71 L 244.21,117.71 L 242.90,117.42 L 241.96,117.04 L 240.37,115.99 L 239.35,114.94 L 238.50,113.79 L 238.41,113.51 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 259.44,108.45 L 258.60,108.64 L 256.64,108.64 L 254.95,110.26 L 255.89,110.55 L 256.64,110.64 L 258.60,110.64 L 259.35,110.45 L 259.53,109.40 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 261.96,110.74 L 262.06,110.07 L 261.96,107.40 L 261.50,105.68 L 260.65,104.06 L 259.53,105.39 L 259.35,105.78 L 259.91,107.21 L 260.09,108.35 L 260.09,109.79 L 259.91,110.84 L 259.53,111.79 L 258.88,112.94 L 257.85,114.08 L 256.92,114.65 L 255.79,115.04 L 253.93,115.04 L 253.55,114.75 L 254.11,114.27 L 254.86,113.99 L 255.23,113.70 L 253.55,113.32 L 252.71,112.94 L 252.06,112.94 L 251.68,113.22 L 251.03,113.41 L 250.47,113.13 L 251.50,112.36 L 249.91,111.31 L 247.94,109.69 L 242.52,104.15 L 241.78,105.11 L 241.40,105.78 L 242.71,107.40 L 246.64,111.22 L 247.38,111.79 L 247.94,112.46 L 247.66,112.84 L 247.85,113.13 L 249.25,114.56 L 249.44,114.56 L 250.84,113.70 L 251.12,113.79 L 251.12,113.99 L 250.75,114.37 L 249.91,114.84 L 249.91,115.13 L 251.68,116.37 L 253.64,117.04 L 255.51,117.14 L 256.45,116.95 L 257.29,116.66 L 259.25,115.51 L 260.19,114.56 L 261.12,113.13 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 243.08,103.29 L 242.99,103.68 L 243.36,104.15 L 247.29,108.26 L 249.72,110.45 L 251.96,111.98 L 254.21,112.94 L 256.26,113.32 L 257.66,113.32 L 258.22,112.84 L 258.60,112.27 L 259.07,111.31 L 259.07,111.12 L 256.64,111.22 L 254.30,110.74 L 253.36,110.36 L 251.40,109.12 L 249.16,107.21 L 246.54,104.53 L 244.30,101.96 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 263.08,102.63 L 262.43,101.67 L 261.21,103.29 L 261.12,103.58 L 262.06,105.39 L 262.62,107.40 L 262.71,109.88 L 262.34,111.79 L 261.50,113.70 L 260.93,114.56 L 259.81,115.80 L 258.50,116.75 L 257.57,117.23 L 255.79,117.71 L 253.83,117.71 L 253.36,117.61 L 251.50,116.95 L 250.28,116.18 L 249.35,115.42 L 247.85,113.79 L 246.92,113.13 L 244.86,113.70 L 245.51,114.56 L 247.66,116.75 L 248.97,117.90 L 249.81,118.47 L 251.31,119.24 L 252.34,119.62 L 253.74,119.90 L 256.07,119.90 L 258.04,119.43 L 259.63,118.66 L 261.31,117.42 L 262.52,116.09 L 263.36,114.84 L 264.21,113.13 L 264.58,111.98 L 264.86,109.98 L 264.77,107.30 L 264.21,105.01 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 265.42,95.56 L 265.14,96.80 L 264.49,98.23 L 264.49,98.52 L 264.86,99.38 L 265.14,100.91 L 265.14,102.53 L 264.86,103.87 L 264.58,104.53 L 265.05,105.68 L 265.33,107.11 L 265.98,106.25 L 266.54,105.11 L 266.82,104.34 L 267.10,103.01 L 267.10,100.24 L 266.92,99.19 L 266.36,97.57 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 232.99,93.75 L 232.15,94.61 L 231.03,96.52 L 230.28,98.62 L 230.00,100.05 L 230.00,102.91 L 230.37,104.82 L 231.31,107.21 L 232.52,109.02 L 233.74,110.36 L 234.95,111.31 L 237.29,112.55 L 238.79,113.03 L 240.93,113.41 L 242.90,113.41 L 245.23,113.03 L 246.92,112.46 L 246.92,112.17 L 245.33,110.74 L 244.39,111.03 L 243.18,111.22 L 240.84,111.22 L 239.25,110.93 L 238.32,110.64 L 236.73,109.88 L 236.17,109.50 L 234.21,107.59 L 233.36,106.35 L 232.80,105.20 L 232.34,103.68 L 232.15,102.43 L 232.15,100.43 L 232.34,99.38 L 232.71,98.23 L 233.36,96.99 L 233.08,96.04 L 232.99,95.27 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 245.79,93.08 L 245.05,93.56 L 240.47,98.23 L 238.32,100.81 L 237.01,102.63 L 235.70,105.11 L 235.51,104.92 L 234.95,103.10 L 234.86,102.53 L 234.86,100.53 L 234.02,99.19 L 233.55,97.95 L 233.08,99.19 L 232.80,100.72 L 232.80,102.63 L 233.08,104.06 L 233.83,105.97 L 234.77,107.40 L 235.79,108.45 L 237.20,109.50 L 238.69,110.17 L 240.37,110.55 L 242.71,110.64 L 243.74,110.55 L 244.77,110.26 L 243.18,108.64 L 241.12,108.64 L 240.09,108.45 L 239.91,108.26 L 239.91,107.78 L 240.47,106.16 L 242.24,103.39 L 243.93,101.38 L 249.44,95.66 L 248.69,94.99 L 247.94,94.51 L 246.64,95.66 L 243.08,99.28 L 241.21,101.48 L 239.35,104.06 L 238.41,105.87 L 238.04,107.02 L 237.85,107.21 L 237.48,107.02 L 237.38,106.73 L 237.94,105.30 L 238.79,103.77 L 241.12,100.62 L 242.43,99.09 L 245.98,95.47 L 247.20,94.42 L 247.38,94.13 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 257.38,92.41 L 257.38,94.03 L 257.20,94.80 L 258.50,96.32 L 258.79,96.52 L 259.25,95.56 L 259.53,94.51 L 259.63,93.75 L 259.53,92.60 L 258.50,92.41 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 238.50,90.50 L 237.94,90.88 L 236.92,92.12 L 236.54,92.89 L 236.36,94.03 L 236.45,95.47 L 236.82,96.99 L 237.48,98.52 L 238.41,99.76 L 239.72,98.23 L 238.79,96.52 L 238.41,95.08 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 244.77,90.02 L 244.49,91.17 L 244.58,92.03 L 245.05,92.12 L 246.64,92.89 L 249.25,94.70 L 252.15,97.28 L 254.30,99.57 L 255.79,100.81 L 256.73,99.67 L 256.82,99.38 L 255.98,98.33 L 252.80,95.08 L 250.19,92.89 L 248.41,91.65 L 246.36,90.50 L 245.05,90.02 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 245.98,87.54 L 245.05,89.26 L 245.05,89.45 L 246.92,90.12 L 248.04,90.69 L 250.00,92.03 L 251.59,93.27 L 253.74,95.18 L 255.89,97.37 L 257.20,98.90 L 257.48,98.62 L 258.41,97.09 L 257.29,95.75 L 255.51,93.94 L 253.64,92.22 L 250.28,89.64 L 247.57,88.02 L 246.26,87.54 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 239.25,87.45 L 238.60,87.54 L 237.85,87.83 L 236.17,88.78 L 234.67,90.41 L 233.93,91.93 L 233.64,92.98 L 233.64,95.56 L 233.93,97.09 L 234.39,98.42 L 235.23,100.14 L 236.64,102.15 L 238.04,100.33 L 237.20,99.19 L 236.07,96.80 L 235.79,95.56 L 235.79,93.56 L 236.07,92.41 L 236.64,91.36 L 237.57,90.41 L 238.60,89.74 L 238.88,88.50 L 239.16,87.92 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 250.75,88.97 L 250.56,89.26 L 252.15,90.41 L 252.43,90.50 L 254.02,89.74 L 255.33,89.36 L 256.73,89.16 L 259.16,89.26 L 260.00,89.45 L 261.96,90.21 L 262.71,90.69 L 263.46,91.55 L 263.27,91.65 L 262.80,91.26 L 260.75,90.31 L 258.60,89.83 L 256.36,89.83 L 255.70,89.93 L 254.02,90.41 L 252.99,90.88 L 253.27,91.26 L 254.67,92.41 L 255.51,92.03 L 257.20,91.74 L 258.88,91.84 L 260.00,92.12 L 260.19,92.32 L 260.19,94.13 L 259.91,95.47 L 259.53,96.42 L 259.07,97.28 L 257.57,99.47 L 255.42,102.15 L 250.47,107.59 L 251.87,108.74 L 255.61,104.92 L 258.04,102.15 L 259.81,99.86 L 261.21,97.47 L 261.96,95.66 L 262.15,94.70 L 262.15,93.65 L 262.34,93.46 L 262.80,94.03 L 262.80,94.70 L 262.62,95.56 L 261.96,97.37 L 260.84,99.38 L 258.97,101.96 L 257.48,103.77 L 252.52,109.21 L 254.11,110.07 L 254.30,110.07 L 255.42,109.02 L 259.72,104.34 L 261.03,102.72 L 263.08,99.76 L 263.64,98.81 L 264.58,96.42 L 264.86,95.18 L 264.95,92.89 L 265.51,93.94 L 265.98,95.27 L 267.20,97.95 L 267.57,99.09 L 267.85,100.72 L 267.85,102.43 L 267.48,104.34 L 266.73,106.16 L 265.42,107.97 L 265.51,109.40 L 265.33,110.93 L 265.89,110.64 L 266.92,109.69 L 268.13,108.07 L 269.16,106.16 L 269.63,104.73 L 270.00,102.63 L 270.00,100.53 L 269.63,98.33 L 268.88,96.23 L 268.13,94.80 L 267.38,92.79 L 266.64,91.46 L 265.33,89.93 L 263.74,88.69 L 261.59,87.64 L 259.72,87.16 L 259.07,87.06 L 256.17,87.06 L 255.42,87.16 L 253.93,87.54 L 252.62,88.02 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 256.17,86.21 L 254.39,84.39 L 253.18,83.63 L 251.87,83.15 L 250.84,82.96 L 248.50,83.05 L 247.29,83.44 L 246.07,84.11 L 244.86,84.96 L 244.30,85.54 L 243.18,87.06 L 242.43,88.59 L 241.78,91.26 L 241.78,93.65 L 242.06,95.08 L 242.24,95.47 L 243.83,93.94 L 243.74,91.74 L 244.21,89.55 L 244.86,88.11 L 245.23,87.54 L 246.64,86.11 L 247.94,85.35 L 249.25,84.96 L 250.65,84.96 L 252.06,85.35 L 253.36,86.11 L 254.02,86.78 L 256.26,86.49 Z" fill="url(#silverKnotA)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+      <path d="M 258.32,84.30 L 256.82,82.67 L 255.23,81.53 L 253.46,80.67 L 251.50,80.19 L 249.63,80.10 L 249.53,80.19 L 248.50,80.19 L 246.92,80.57 L 244.67,81.62 L 243.83,82.20 L 241.78,84.20 L 241.03,85.25 L 240.00,87.26 L 239.25,89.74 L 239.07,90.98 L 239.07,93.94 L 239.44,95.94 L 240.09,97.57 L 240.28,97.66 L 241.68,96.04 L 241.21,94.03 L 241.12,91.93 L 241.31,90.21 L 241.78,88.50 L 242.52,86.97 L 243.27,85.82 L 244.39,84.58 L 245.33,83.82 L 247.01,82.86 L 248.22,82.48 L 249.63,82.29 L 251.21,82.39 L 252.90,82.86 L 254.39,83.63 L 255.05,84.11 L 256.26,85.35 L 256.92,86.30 L 259.72,86.59 Z" fill="url(#silverKnotB)" stroke="#1e293b" stroke-width="0.8" filter="url(#dropShadowKnotSilver)"/>
+    </g>
+  </g>
+</svg>

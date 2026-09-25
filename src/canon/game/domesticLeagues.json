@@ -1,0 +1,67 @@
+{
+  "leagueName": "The Superior League",
+  "leagueNameShort": "Superior League",
+  "seasonLabel": "2036",
+  "cupName": "The Clawed AI Cup",
+  "cupNameShort": "Clawed AI Cup",
+  "legacyClubName": "████████",
+  "leagues": [
+    "English League",
+    "Spanish League",
+    "Italian League",
+    "German League",
+    "French League"
+  ],
+  "clubs": {
+    "English League": [
+      "Northport United",
+      "Kingsbridge Rovers",
+      "Seaton Albion",
+      "Harborough City",
+      "Ashfield Wanderers",
+      "Crownwell Athletic",
+      "Old Mill Town",
+      "Sparrow Lane FC"
+    ],
+    "Spanish League": [
+      "Real Alcanar",
+      "Deportivo Marisol",
+      "CD Peñablanca",
+      "Atlético Rivera",
+      "Sporting Valdés",
+      "UD Costamar",
+      "Racing Olivares",
+      "CF Montealto"
+    ],
+    "Italian League": [
+      "AC Fontebello",
+      "Calcio Verano",
+      "US Palmieri",
+      "AS Torrenova",
+      "Colle Nero FC",
+      "Vigore Adriatica",
+      "SS Lombarda",
+      "AC Ricciardi"
+    ],
+    "German League": [
+      "FC Rothenberg",
+      "SV Kaltbrunn",
+      "Eisenhain 04",
+      "SC Weidenfeld",
+      "VfB Lindhorst",
+      "TSV Nordhafen",
+      "Blau-Weiß Steinbach",
+      "FC Alsterheim"
+    ],
+    "French League": [
+      "AS Valmont",
+      "Olympique Trévier",
+      "FC Saint-Aubry",
+      "Stade Rochelieu",
+      "RC Beauclair",
+      "US Marnaval",
+      "Nord-Calais FC",
+      "AC Ferrand"
+    ]
+  }
+}

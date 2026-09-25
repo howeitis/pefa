@@ -1,0 +1,394 @@
+{
+  "armory": {
+    "ticker": "ARM.L",
+    "exchange": "London",
+    "listPrice": 151,
+    "valuationBn": 11.5,
+    "tokTokFollowers": 71400000,
+    "owner": "Armory Group Holdings (Delaware) / Kroenkecorp Legacy Trust",
+    "positioning": "A heritage asset with best-in-class patience metrics.",
+    "history": [
+      "Founded in 1886 by workers at a munitions factory, which the modern ownership describes in all filings as \"an early defence-sector partnership\". The club spent the 2010s and 2020s building a reputation for beautiful football and structural disappointment, a combination the Superior League’s brand team identified as its single most monetizable trait.",
+      "Granted a permanent seat in 2035 on the strength of what PEFA called \"unmatched supporter tolerance\". The trophy cabinet is now a subscription tier. The fanbase has been reclassified as an audience, and the audience has been assured this changes nothing."
+    ],
+    "riskFactor": "Historic tendency to lead the league until February is not modelled in forward guidance."
+  },
+  "kensington": {
+    "ticker": "KEN.L",
+    "exchange": "London",
+    "listPrice": 173,
+    "valuationBn": 12.8,
+    "tokTokFollowers": 63900000,
+    "owner": "Kensington Capital Partners VII LP",
+    "positioning": "Aggressive acquisition of youth. Aggressive amortisation of youth.",
+    "history": [
+      "A west London club whose identity was reorganised around a spreadsheet in 2023 and never reorganised back. Between 2023 and 2034 it signed one hundred and eleven players under the age of twenty-three on contracts averaging eight and a half years, a strategy the accounting profession described as \"creative\" and PEFA described as \"visionary\".",
+      "The permanent seat was awarded in 2035 without a vote, on the grounds that unwinding the amortisation schedule would have destabilised four sovereign wealth funds. The club’s stated ambition is to win the Superior League before its 2019 signings finish depreciating."
+    ],
+    "riskFactor": "Squad size exceeds the number of available shirt numbers."
+  },
+  "boston-reds": {
+    "ticker": "BRM.N",
+    "exchange": "New York",
+    "listPrice": 202,
+    "valuationBn": 14.8,
+    "tokTokFollowers": 94100000,
+    "owner": "Fenway Transatlantic Sporting Group",
+    "positioning": "A Merseyside institution, headquartered in Massachusetts.",
+    "history": [
+      "Six European cups, nineteen domestic titles, and one of the great supporter cultures in world football — an asset so valuable that the ownership commissioned a study into whether the singing could be licensed separately. It could. It now is.",
+      "The club joined the original 2021 breakaway, apologised, joined the 2035 breakaway, and did not. Its permanent seat is held by a holding company registered in Boston, which is why the crest now reads \"of Merseyside\" — a geographic clarification the marketing department insists is affectionate."
+    ],
+    "riskFactor": "Supporter protest merchandise is not currently captured in club revenue."
+  },
+  "citizens": {
+    "ticker": "MCC.AD",
+    "exchange": "Abu Dhabi",
+    "listPrice": 302,
+    "valuationBn": 26.6,
+    "tokTokFollowers": 88600000,
+    "owner": "City Football Multiverse (a subsidiary of a subsidiary)",
+    "positioning": "One club. Fourteen clubs. Legally, this is not a contradiction.",
+    "history": [
+      "The most successful football operation of the 2020s and the subject of one hundred and fifteen charges that were still being heard when the sport was dissolved and reconstituted around it. PEFA resolved the matter in 2035 by declaring the charges \"a legacy compliance framework\" and moving on.",
+      "The asterisk in the club’s registered name is a live legal artefact and cannot be removed until proceedings conclude, which the Superior League’s own filings estimate will be 2061. Supporters have adopted it as a badge of honour, and it now appears on the third kit."
+    ],
+    "riskFactor": "Ongoing proceedings in eleven jurisdictions. Provisions are held. Confidence is higher."
+  },
+  "red-devils": {
+    "ticker": "RDV.N",
+    "exchange": "New York",
+    "listPrice": 74,
+    "valuationBn": 10.6,
+    "tokTokFollowers": 128300000,
+    "owner": "Red Devils PLC (public float 12%; control 0%)",
+    "positioning": "The largest fanbase in football, monetised at a discount.",
+    "history": [
+      "For two decades the club’s primary product was hope, sold in annual instalments to a global audience of six hundred million. Twelve managers, four directors of football, and one nine-figure rebrand later, hope remains the highest-margin line on the balance sheet.",
+      "The permanent seat was never in doubt: PEFA’s modelling showed that a Superior League without this club retained 31% fewer subscribers in Asia. Nobody in the working group could bring themselves to say it out loud, but everybody had seen the number."
+    ],
+    "riskFactor": "The club has now appointed a \"manager of the future\" in each of eleven consecutive years."
+  },
+  "white-hart-loan": {
+    "ticker": "WHL.L",
+    "exchange": "London",
+    "listPrice": 68,
+    "valuationBn": 8.5,
+    "tokTokFollowers": 44200000,
+    "owner": "ENIC Structured Finance / stadium creditors (jointly)",
+    "positioning": "World-class facilities. Available for corporate hire.",
+    "history": [
+      "The finest stadium in Europe, a retractable pitch, a microbrewery, and a cheese room. Beneath it sits a debt instrument so elegant that two business schools teach it. The football is the smallest line item in the prospectus and always has been.",
+      "The renaming to White Hart Loan in 2034 was a naming-rights deal with the club’s own lenders, an arrangement PEFA’s legal team called \"the most honest thing in the sport\". The trophy drought is disclosed as a non-material operating condition."
+    ],
+    "riskFactor": "Revenue is concentrated in NFL fixtures, concerts, and the cheese room."
+  },
+  "almostico": {
+    "ticker": "ALM.MC",
+    "exchange": "Madrid",
+    "listPrice": 103,
+    "valuationBn": 7.4,
+    "tokTokFollowers": 39800000,
+    "owner": "Almostico Supporters’ Society (11%) / Quantum Pacific Sport (89%)",
+    "positioning": "Second place is a defensible market position.",
+    "history": [
+      "Built on a philosophy of suffering, discipline and the deep conviction that the ball is a liability. Two European finals lost in three years remains the club’s most-streamed content, and the anniversary edit is released every May.",
+      "PEFA awarded the permanent seat citing \"elite defensive intellectual property\". The club has since licensed its low block to four organisations in three continents, and the coaching manual outsells the shirt."
+    ],
+    "riskFactor": "Goals-for is treated as a discretionary expense."
+  },
+  "more-than-a-club": {
+    "ticker": "MTC.MC",
+    "exchange": "Madrid",
+    "listPrice": 133,
+    "valuationBn": 12.2,
+    "tokTokFollowers": 152700000,
+    "owner": "The members (147,000 of them, none of whom were consulted)",
+    "positioning": "More than a club™. The trademark is held offshore.",
+    "history": [
+      "A member-owned institution and a cathedral of possession football that, between 2021 and 2033, sold four separate future revenue streams to private equity in exchange for the ability to keep signing players. The economic levers were pulled so many times that one eventually came off in the president’s hand.",
+      "The motto was registered as a trademark in 2032, and the trademark was pledged as collateral in 2034. Members still vote annually. The votes are advisory. The academy, mercifully, still works."
+    ],
+    "riskFactor": "Four of the club’s next six seasons of television income are already recognised."
+  },
+  "vardrid": {
+    "ticker": "VAR.MC",
+    "exchange": "Madrid",
+    "listPrice": 378,
+    "valuationBn": 34.7,
+    "tokTokFollowers": 186500000,
+    "owner": "The members (in a manner of speaking)",
+    "positioning": "The most decorated club in football, and the loudest in the boardroom.",
+    "history": [
+      "Fifteen European titles, a hundred and twenty years of institutional certainty, and the single most persistent lobbying operation in the history of sport. The Superior League was, by the president’s own account, \"an idea we had in 2009 and simply waited for the world to catch up with\".",
+      "The refresh to Royal VARdrid in 2035 followed the club’s successful campaign to have all officiating decisions reviewed by an automated system it had helped specify. PEFA notes in its filings that this was a coincidence, and repeats the word \"coincidence\" three times."
+    ],
+    "riskFactor": "A meaningful share of enterprise value is attributable to a single stadium’s hospitality tiers."
+  },
+  "milano-runway": {
+    "ticker": "RUN.MI",
+    "exchange": "Milan",
+    "listPrice": 59,
+    "valuationBn": 6.5,
+    "tokTokFollowers": 51300000,
+    "owner": "RedBird Fashion Capital / a Luxembourg vehicle nobody has met",
+    "positioning": "A lifestyle brand with a competitive football division.",
+    "history": [
+      "Seven European Cups, a red-and-black shirt that outsells the team, and a pivot in 2031 to what the ownership called \"the wider Milanese opportunity\". The club now generates more revenue from fashion week than from matchdays, a fact disclosed cheerfully in every annual report.",
+      "The permanent seat came with a condition PEFA has never explained: the club must stage at least two fixtures per season inside a venue that is also a retail environment. It has complied every year, and the away end is now a flagship store."
+    ],
+    "riskFactor": "The first team is a marketing channel, and is accounted for as one."
+  },
+  "debito": {
+    "ticker": "DEB.MI",
+    "exchange": "Milan",
+    "listPrice": 52,
+    "valuationBn": 5.8,
+    "tokTokFollowers": 47900000,
+    "owner": "Oaktree (involuntarily) and whoever refinances next",
+    "positioning": "Where the football is excellent and the balance sheet is a genre of literature.",
+    "history": [
+      "A club that reached three continental finals in a decade while being owned, in sequence, by an electronics group, a holding company, a lender who did not want it, and a consortium formed specifically to sell it to someone else. The football never noticed.",
+      "PEFA awarded the seat because the club’s debt was, by 2035, a systemically important instrument. In a very real sense the Superior League exists partly so that this club’s creditors do not have to write anything down."
+    ],
+    "riskFactor": "Refinancing risk is disclosed annually and resolved annually, at higher interest."
+  },
+  "piemonte": {
+    "ticker": "PIE.MI",
+    "exchange": "Milan",
+    "listPrice": 83,
+    "valuationBn": 7.9,
+    "tokTokFollowers": 68100000,
+    "owner": "Agnelli family office (Turin) / Exor Sporting Assets",
+    "positioning": "Institutional continuity across every possible outcome.",
+    "history": [
+      "Nine consecutive domestic titles, two points deductions, one relegation to the third tier in living memory, and a family that has been in the room for every negotiation about the future of European football since 1985. The club has been sanctioned by three different governing bodies and outlasted two of them.",
+      "Piemonte was one of the three clubs that refused to leave the 2021 breakaway and spent the following fourteen years being proved correct. The permanent seat is, in the family’s telling, less an award than an overdue settlement."
+    ],
+    "riskFactor": "Capital-gains accounting on player trading is under review. It is always under review."
+  },
+  "saint-sovereign": {
+    "ticker": "PSS.QA",
+    "exchange": "Doha",
+    "listPrice": 277,
+    "valuationBn": 23.2,
+    "tokTokFollowers": 141800000,
+    "owner": "Qatar Sports Investments (Sovereign Division)",
+    "positioning": "A soft-power instrument that also plays football.",
+    "history": [
+      "Purchased in 2011 as a diplomatic project and operated ever since with a budget uncoupled from revenue, from results, and occasionally from arithmetic. It assembled the three most expensive attacking players in history, played them together, and won nothing that mattered — an outcome its owners describe as \"still excellent for awareness\".",
+      "PEFA’s permanent seat was never seriously in question, since the sovereign fund in question was also one of the Superior League’s four anchor investors. The club’s stated objective for 2036 is unchanged from 2012 and remains, in the ownership’s words, \"the big one\"."
+    ],
+    "riskFactor": "Sporting objectives and shareholder objectives are not required to align."
+  },
+  "bavarian-monopoly": {
+    "ticker": "BAV.DE",
+    "exchange": "Frankfurt",
+    "listPrice": 248,
+    "valuationBn": 20.2,
+    "tokTokFollowers": 79400000,
+    "owner": "Members (50%+1), Audi, Adidas, Allianz, and an insurance conglomerate",
+    "positioning": "A well-run football club, which is itself a form of aggression.",
+    "history": [
+      "Eleven consecutive domestic titles achieved partly through excellence and partly through the practice of simply buying the best player from whichever club finished second. The German press named the strategy; the club adopted the name; the name is now on a hospitality suite.",
+      "The 50+1 ownership rule survived every commercial assault of the 2020s and was finally resolved in 2035 by the elegant expedient of moving the competition somewhere the rule does not apply. Members retain control of a club that no longer plays in their country’s league."
+    ],
+    "riskFactor": "Domestic rivals are no longer available for acquisition, having been discontinued."
+  },
+  "borussia-export": {
+    "ticker": "BEX.DE",
+    "exchange": "Frankfurt",
+    "listPrice": 40,
+    "valuationBn": 4.3,
+    "tokTokFollowers": 42600000,
+    "owner": "Public float (a real one, unusually) / Signal Iduna",
+    "positioning": "Europe’s finest talent exporter. Not a selling club. An exporter.",
+    "history": [
+      "The best atmosphere in world football, an academy pipeline that has produced eleven nine-figure sales, and a boardroom that has never once been able to say no. The yellow wall is the most photographed structure in the sport and the most reliable feeder system in it.",
+      "The permanent seat was granted for what PEFA’s filings call \"supply-chain criticality\" — the Superior League needs somewhere for its stars to come from, and this is that somewhere. The club has accepted the role with good humour and a rolling sales target."
+    ],
+    "riskFactor": "Every season’s best player is contractually available every summer."
+  },
+  "retirement-fund": {
+    "ticker": "IRF.N",
+    "exchange": "New York",
+    "listPrice": 113,
+    "valuationBn": 7,
+    "tokTokFollowers": 112400000,
+    "owner": "Ares Sporting Legacy Fund II / celebrity limited partners",
+    "positioning": "Where legends come to be photographed.",
+    "history": [
+      "Founded in 2018 as an expansion franchise and rebuilt in 2023 around the single most photographed footballer alive. The strategy — sign a global icon at thirty-six, sell four hundred thousand shirts, worry about the football later — worked so completely that it became the template for an entire continent.",
+      "The club has never finished above eleventh in any competition it has entered, and has never once been outside the top three for merchandise revenue. Its Synergy Draft™ application is submitted annually by a management consultancy and has never been rejected."
+    ],
+    "riskFactor": "Average squad age is disclosed only in aggregate, and only on request."
+  },
+  "la-cameo": {
+    "ticker": "LAC.N",
+    "exchange": "New York",
+    "listPrice": 85,
+    "valuationBn": 5,
+    "tokTokFollowers": 86900000,
+    "owner": "A rotating cast of forty-one minority celebrity investors",
+    "positioning": "Every home fixture is a red carpet with a match attached.",
+    "history": [
+      "Built entirely on the insight that the football is the second-most interesting thing happening in the stadium. The club sells more courtside-equivalent seating than any organisation in the sport, and the tunnel walk is broadcast as a standalone programme with its own sponsor.",
+      "PEFA’s Global Inclusion Committee scored the club’s \"brand compatibility\" at 98, the highest figure ever recorded, and its \"previous footballing success where relevant\" at 4. The application was approved unanimously and within the hour."
+    ],
+    "riskFactor": "Ownership includes eleven parties contractually entitled to appear on the bench."
+  },
+  "ny-citizens": {
+    "ticker": "NYC.AD",
+    "exchange": "Abu Dhabi",
+    "listPrice": 104,
+    "valuationBn": 6.1,
+    "tokTokFollowers": 38200000,
+    "owner": "City Football Multiverse (see also: Manchester, Melbourne, Mumbai)",
+    "positioning": "The same club, in a different time zone, with the same asterisk.",
+    "history": [
+      "One node in a fourteen-club network that shares scouting, analytics, medical protocols, playing philosophy, kit template, badge geometry and — in three documented cases — players who were transferred between subsidiaries at a valuation set by the parent.",
+      "PEFA permits both this club and its Manchester counterpart to compete in the same league, having satisfied itself that they are \"operationally distinct\". The two boards are 60% identical. The finding stands."
+    ],
+    "riskFactor": "Intra-group transfer pricing is reviewed by the group."
+  },
+  "odiados": {
+    "ticker": "ODI.MX",
+    "exchange": "Mexico City",
+    "listPrice": 56,
+    "valuationBn": 3.4,
+    "tokTokFollowers": 74500000,
+    "owner": "Grupo Televisual (broadcast, club, and referee training, in one company)",
+    "positioning": "The most-watched and most-resented club in the Americas.",
+    "history": [
+      "The biggest fanbase in its country and the highest concentration of people who would like it to lose. Both figures are audited annually and both are used in the media rights pitch, because PEFA’s modelling shows that hatred converts to subscription at a marginally better rate than affection.",
+      "Its Synergy Draft™ entry is bankrolled by the broadcaster that owns it, shows its matches, and employs the analysts who explain them. The Global Inclusion Committee described this as \"vertical integration\" and moved to the next item."
+    ],
+    "riskFactor": "Domestic audience share is at a structural ceiling of everybody."
+  },
+  "rayados-industrial": {
+    "ticker": "RAY.MX",
+    "exchange": "Mexico City",
+    "listPrice": 49,
+    "valuationBn": 2.9,
+    "tokTokFollowers": 29800000,
+    "owner": "A cement conglomerate and a brewery, in a joint venture",
+    "positioning": "Industrial-grade football. Ten-year concrete warranty.",
+    "history": [
+      "A northern club funded by heavy industry and run with the pragmatism of a firm that also builds motorways. The stadium is genuinely magnificent, was completed ahead of schedule, and is the only venue in the Superior League whose construction did not require an investigation.",
+      "The club’s draft submission leads with logistics: freight capacity, hotel inventory, and a guarantee that any fixture can be staged within forty-eight hours of notice. PEFA found this so refreshing that it approved the application without reading the football section."
+    ],
+    "riskFactor": "Parent-company cement demand is cyclical. So, historically, is the defence."
+  },
+  "al-zaeem": {
+    "ticker": "ZAE.SR",
+    "exchange": "Riyadh",
+    "listPrice": 164,
+    "valuationBn": 11.2,
+    "tokTokFollowers": 96300000,
+    "owner": "The Public Investment Fund (75%) / heritage supporters’ trust (25%)",
+    "positioning": "A national institution operating at a strategic loss, on purpose.",
+    "history": [
+      "Sixty years of domestic history followed by eighteen months in which the club signed nine players whose combined wages exceeded the payroll of four European leagues. The football improved immediately; the accounting was never asked to.",
+      "PEFA’s filings list the club’s sovereign backer as both a Synergy Draft™ applicant and a Superior League anchor investor. A footnote confirms that the Global Inclusion Committee considered this and found no conflict, and a second footnote confirms who wrote the first footnote."
+    ],
+    "riskFactor": "Wage bill is uncoupled from revenue and expected to remain so indefinitely."
+  },
+  "al-alami": {
+    "ticker": "ALA.SR",
+    "exchange": "Riyadh",
+    "listPrice": 158,
+    "valuationBn": 10.4,
+    "tokTokFollowers": 104700000,
+    "owner": "The Public Investment Fund (75%) / see above",
+    "positioning": "Global from the name outward.",
+    "history": [
+      "Owned by the same fund as its fiercest rival, which has done nothing whatsoever to reduce the intensity of the derby and a great deal to improve its production values. Both dressing rooms are briefed by the same communications agency, and the pre-match press conferences are scheduled not to clash.",
+      "The club’s star signing arrived in 2023 on a contract that made him the highest-paid athlete in history and turned a domestic competition into a global one overnight. He is retired. The strategy is not."
+    ],
+    "riskFactor": "Competitive integrity of the derby is monitored by the derby’s owner."
+  },
+  "shanghai-supply": {
+    "ticker": "SSC.HK",
+    "exchange": "Hong Kong",
+    "listPrice": 65,
+    "valuationBn": 4.9,
+    "tokTokFollowers": 158900000,
+    "owner": "A logistics group, following the collapse of a property developer",
+    "positioning": "Same-day delivery. Also a football club.",
+    "history": [
+      "A survivor of the great domestic contraction of the mid-2020s, in which the league it played in lost two thirds of its clubs inside four seasons after the property sector that funded them stopped existing. This club was bought out of administration by its own shirt sponsor and never looked back.",
+      "It brings PEFA the largest single addressable audience of any Synergy Draft™ applicant, a fact that appears in the first line of its submission, the last line of its submission, and eleven times in between."
+    ],
+    "riskFactor": "Broadcast access in the club’s home market is reviewed quarterly by others."
+  },
+  "urawa-synthetic": {
+    "ticker": "URW.T",
+    "exchange": "Tokyo",
+    "listPrice": 34,
+    "valuationBn": 2,
+    "tokTokFollowers": 21400000,
+    "owner": "A precision manufacturing group / the supporters’ association (a real one)",
+    "positioning": "The best-organised support in world football, and it is not close.",
+    "history": [
+      "The loudest, most disciplined, most genuinely intimidating away following in Asia, attached to a club that has spent forty years refusing to behave like an asset. PEFA’s consultants flagged the supporter culture as \"high-engagement, low-monetisation\" and recommended addressing the second half of that.",
+      "The club accepted its Synergy Draft™ berth on the condition that the ultras retain their section, their flags and their veto over the kit design. PEFA agreed in writing, which is the only such written concession in the entire competition."
+    ],
+    "riskFactor": "Supporter group has previously refused a sponsor. Twice. Successfully."
+  },
+  "pyramid-scheme": {
+    "ticker": "PYR.CA",
+    "exchange": "Cairo",
+    "listPrice": 45,
+    "valuationBn": 2.5,
+    "tokTokFollowers": 88100000,
+    "owner": "A construction firm owned by a fund owned by the construction firm",
+    "positioning": "Structurally sound. Ask no further questions.",
+    "history": [
+      "A continental heavyweight with a support base measured in tens of millions and a corporate structure that four separate auditors have declined to sign off. The football is genuinely excellent, which is why nobody has pressed the point.",
+      "PEFA approved the Synergy Draft™ entry after the Global Inclusion Committee received a presentation it described as \"extremely persuasive\" and declined to summarise. The club’s name predates its ownership structure, and is now widely considered prophetic."
+    ],
+    "riskFactor": "Returns to early investors are funded by later investors. This is disclosed."
+  },
+  "pretoria-gold": {
+    "ticker": "PRG.JO",
+    "exchange": "Johannesburg",
+    "listPrice": 31,
+    "valuationBn": 1.6,
+    "tokTokFollowers": 34600000,
+    "owner": "A mining consortium and a former international, in unequal shares",
+    "positioning": "The continent’s best academy, and a board that keeps saying no.",
+    "history": [
+      "Built on a youth system that has sent players to eleven countries and a fanbase whose matchday sound has been sampled, without permission, into three continental broadcast packages. The club sued. The club won. The sound is still in use, now licensed.",
+      "Its Synergy Draft™ submission scored poorly on \"luxury hospitality demand\" and top-decile on everything a football person would care about, which is how it ended up in the pool rather than the founding fifteen. The board has framed the scoring sheet and hung it in the tunnel."
+    ],
+    "riskFactor": "Best three players are approached by founder members every January."
+  },
+  "copacabana": {
+    "ticker": "COP.SA",
+    "exchange": "São Paulo",
+    "listPrice": 79,
+    "valuationBn": 4.7,
+    "tokTokFollowers": 121300000,
+    "owner": "Converted to an SAF in 2029; controlling stake held offshore",
+    "positioning": "The most romantic football on earth, now available as an equity instrument.",
+    "history": [
+      "A club of forty million supporters, a continental pedigree, and a conversion into a corporation that its own members ratified in a vote held at eleven at night. The romance survived the restructuring; the debts, remarkably, did not.",
+      "Its Synergy Draft™ berth is the most popular in the pool by some distance — PEFA’s own data shows that neutral viewership rises 40% in weeks when this club is drawn. The competition needs it far more than it needs the competition, and both parties know it."
+    ],
+    "riskFactor": "Player sales to Europe are a revenue line, not an exception."
+  },
+  "ba-millionaires": {
+    "ticker": "BAM.BA",
+    "exchange": "Buenos Aires",
+    "listPrice": 70,
+    "valuationBn": 4,
+    "tokTokFollowers": 108800000,
+    "owner": "The socios, who have violently rejected four takeover attempts",
+    "positioning": "Member-owned, and it will stay that way, thank you.",
+    "history": [
+      "The last serious club in the competition still owned outright by its supporters, having repelled four separate acquisition attempts, one of them backed by a Superior League anchor investor. The membership votes at a turnout no democracy has matched since 1974.",
+      "PEFA admitted it to the Synergy Draft™ pool anyway, reasoning that a competition entirely composed of financial vehicles would eventually be noticed. The club is aware it is being used as evidence of something, and takes the berth regardless."
+    ],
+    "riskFactor": "Governance is subject to the will of one hundred thousand people who cannot be bought."
+  }
+}

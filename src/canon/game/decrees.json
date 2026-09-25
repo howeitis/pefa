@@ -1,0 +1,226 @@
+[
+  {
+    "id": "home-fortress",
+    "name": "Home Fortress",
+    "tagline": "Home advantage doubles. Every home side carries +2.5 strength.",
+    "description": "The Rules Committee has amplified home advantage this season, citing atmosphere metrics from the venues that still have an atmosphere. Every home side enters its fixtures with an extra strength bonus.",
+    "accent": "#0f766e"
+  },
+  {
+    "id": "away-bonus",
+    "name": "Away Bonus",
+    "tagline": "Away wins are worth four points. The road has a price.",
+    "description": "Away legs now span four time zones, so the Committee has priced them accordingly: every away victory this season counts for an extra league point. Nobody has asked the players.",
+    "accent": "#dc2626"
+  },
+  {
+    "id": "derby-stakes",
+    "name": "Derby Stakes",
+    "tagline": "Derby wins are worth six points, derby draws two.",
+    "description": "Rivalry is the product, so rivalry gets a thumb on the scale — a derby win is worth six points, a derby draw two. The fixture computer has never been watched so closely.",
+    "accent": "#9333ea"
+  },
+  {
+    "id": "giant-slayer",
+    "name": "Giant Slayer",
+    "tagline": "Beat a club two tiers above you: +2 manager reputation.",
+    "description": "Focus groups reported the league felt predictable. Beating a club ranked at least two tiers above you now earns the manager a reputation boost, and a segment named after the concept of hope.",
+    "accent": "#0891b2"
+  },
+  {
+    "id": "cup-chaos",
+    "name": "Cup Chaos",
+    "tagline": "Clawed AI Cup ties swing wildly. Knockouts get unpredictable.",
+    "description": "The knockout is sold separately and must therefore be more exciting. Cup ties this season carry a large extra swing in team strength, in both directions. Expect upsets, meltdowns and a great deal of promotional coverage.",
+    "accent": "#ea580c"
+  },
+  {
+    "id": "striker-supreme",
+    "name": "Striker Supreme",
+    "tagline": "The league top scorer adds +5 strength to their club.",
+    "description": "The leading scorer is the league's most valuable individual asset, and assets appreciate. Whoever tops the chart carries an outsized halo for their club until somebody takes it off them.",
+    "accent": "#facc15"
+  },
+  {
+    "id": "shutout-bonus",
+    "name": "Shutout Bonus",
+    "tagline": "Every clean sheet awards an extra league point.",
+    "description": "An unpopular decree with the highlights department. Each clean sheet this season counts as an extra league point — a quiet defensive reward that adds up over thirty-eight games.",
+    "accent": "#1e293b"
+  },
+  {
+    "id": "late-drama",
+    "name": "Late Drama",
+    "tagline": "Matches run hot to the whistle. Goal expectancy up across the board.",
+    "description": "Second-half drop-off was hurting retention, so the Committee extended the intensity mandate to the final whistle. Every fixture this season carries a higher goal threat on both sides; nobody leaves early any more.",
+    "accent": "#be185d"
+  },
+  {
+    "id": "youth-uprising",
+    "name": "Youth Uprising",
+    "tagline": "Young starting elevens carry +1.5 strength. The academies take over.",
+    "description": "The league has discovered that young players are cheaper and photograph well. Sides fielding a young starting eleven bring an extra edge to every fixture this season; the deepest academies feel it most.",
+    "accent": "#22c55e"
+  },
+  {
+    "id": "veteran-renaissance",
+    "name": "Veteran Renaissance",
+    "tagline": "Veteran starting elevens carry +1.5 strength. The old guard responds.",
+    "description": "Nostalgia tested extremely well. Sides fielding an experienced starting eleven get an outsized lift this season — somewhere out there, a 34-year-old on an eight-figure farewell contract is reading this and smiling.",
+    "accent": "#92400e"
+  },
+  {
+    "id": "austerity-window",
+    "name": "Austerity Window",
+    "tagline": "Transfer budgets cut 25%. The window tightens.",
+    "description": "A league-wide directive issued three weeks after the executive retreat. Clubs spend less this year, the bidding gets rougher, and that wonderkid you have been tracking is now somebody else's line item.",
+    "accent": "#475569"
+  },
+  {
+    "id": "comeback-spirit",
+    "name": "Comeback Spirit",
+    "tagline": "Win after conceding two or more: +3 manager reputation.",
+    "description": "Comebacks retain viewers through the advertising break, and the league is nothing if not evidence-led. Ship two goals and still win, and the manager takes a reputation boost.",
+    "accent": "#0ea5e9"
+  },
+  {
+    "id": "spotlight-fixtures",
+    "name": "Spotlight Fixtures",
+    "tagline": "Beating a top-six club awards +2 manager reputation.",
+    "description": "The prime slots are sold to the prime clubs, so beating a top-six side carries an outsized reputation lift. Losing one stings exactly as much as it always did, only in eleven territories at once.",
+    "accent": "#e11d48"
+  },
+  {
+    "id": "parity-clauses",
+    "name": "Parity Clauses",
+    "tagline": "Bottom-half clubs gain +2 strength at home.",
+    "description": "Competitive balance, as a marketing initiative. Clubs in the bottom half get a home-form boost, because dead rubbers in April are bad for everyone's numbers. Expect one famous afternoon from someone written off in October.",
+    "accent": "#7c3aed"
+  },
+  {
+    "id": "discipline-watch",
+    "name": "Discipline Watch",
+    "tagline": "Tackles tightened — injury risk up 40% league-wide.",
+    "description": "The officiating algorithm was retrained on archive footage and has come back with opinions. Cards climb, suspensions climb, and so does the medical room's workload. Squad depth matters more than ever.",
+    "accent": "#0f172a"
+  },
+  {
+    "id": "aesthetic-bonus",
+    "name": "Aesthetic Bonus",
+    "tagline": "Score four in a match: +1 manager reputation.",
+    "description": "A whim from the broadcast partner, who owns the highlight reel and therefore owns the definition of a good goal. Put four past someone and the responsible manager earns a reputation bump.",
+    "accent": "#d97706"
+  },
+  {
+    "id": "sponsored-substitutions",
+    "name": "Sponsored Substitutions",
+    "tagline": "Every change is read out by its sponsor. Both sides lose 1 strength.",
+    "description": "Each substitution is now introduced by name, brand and category exclusivity, read live over the venue system by a synthesised voice under licence. Eleven seconds of announcement, every change, both benches. Managers report that it has changed how they use the bench. The Committee has filed this feedback.",
+    "accent": "#0d9488"
+  },
+  {
+    "id": "micro-betting-window",
+    "name": "Micro-Betting™ Window",
+    "tagline": "Play stops on the hour. Matches swing unpredictably after it.",
+    "description": "On sixty minutes, the match stops. A ninety-second window opens in which supporters may stake on the remainder, and the players stand in the centre circle looking at the big screen with everyone else. Nobody restarts at the tempo they stopped at. Handle is up 340%.",
+    "accent": "#65a30d"
+  },
+  {
+    "id": "algorithmic-offside",
+    "name": "Algorithmic Offside",
+    "tagline": "Clawed AI rules on every margin. Goals down, variance up.",
+    "description": "Offside adjudication has been handed in full to the tactical inference partner, which returns a binary verdict in four milliseconds and no reasoning at any latency. Marginal goals are chalked off at a rate nobody can predict or appeal. The lines are no longer drawn on screen because there are no longer lines.",
+    "accent": "#7e22ce"
+  },
+  {
+    "id": "inventory-time",
+    "name": "Inventory Time",
+    "tagline": "Stoppage time runs until the ad inventory clears. More goals.",
+    "description": "Added time is calculated by the commercial department rather than the fourth official, and is set at whatever duration is required to place the evening's unsold impressions. Matches have ended in the 104th minute. One ended in the 112th. The Committee describes the mechanism as \"responsive\".",
+    "accent": "#b45309"
+  },
+  {
+    "id": "subscription-tiebreak",
+    "name": "Subscription Tiebreak",
+    "tagline": "Level on points? The table separates you on TokTok following.",
+    "description": "Goal difference has been retired as a tiebreaker on the grounds that it measures the wrong thing. Clubs level on points are now separated by social following in their registered markets. Two clubs have already appointed a Head of Tiebreak.",
+    "accent": "#0369a1"
+  },
+  {
+    "id": "engagement-clause",
+    "name": "Engagement Clause",
+    "tagline": "The month's widest win earns its manager +2 reputation.",
+    "description": "Reputation is awarded each month to whoever produced the most-shared footage, as measured by the platform partner — in practice, whoever won by the most. Two clubs have hired editors. One has hired a choreographer. The players receive nothing, which is considered part of the design.",
+    "accent": "#db2777"
+  },
+  {
+    "id": "live-valuation-boards",
+    "name": "Live Valuation Boards",
+    "tagline": "Players can read their own price mid-match. Form gets erratic.",
+    "description": "The pitchside displays carry a rolling ticker of each participant's valuation, updated in real time by the analytics partner as the match unfolds. The players can read it. Several have said so. The Committee has responded by increasing the refresh rate.",
+    "accent": "#15803d"
+  },
+  {
+    "id": "no-draws-please",
+    "name": "No Draws, Please",
+    "tagline": "Every draw goes to a shootout. One side takes a bonus point.",
+    "description": "Draws test catastrophically with the under-thirties, so every level match now goes straight to a five-kick shootout for a supplementary point. Both clubs keep their point from the draw itself, which means the shootout is for a point nobody needs, in front of an audience that will not leave.",
+    "accent": "#c2410c"
+  },
+  {
+    "id": "founder-veto",
+    "name": "Founder Veto",
+    "tagline": "Founder members carry +1 strength. Nobody argues with them.",
+    "description": "Permanent members are entitled to one formal challenge against a result they consider unrepresentative, heard by a panel of permanent members. Eleven challenges have been lodged and eleven upheld. Opponents have started playing accordingly, which is the actual effect.",
+    "accent": "#a16207"
+  },
+  {
+    "id": "assigned-rivalry",
+    "name": "Assigned Rivalry",
+    "tagline": "Derby fixtures turn feral — a large extra swing in derby ties.",
+    "description": "Organic rivalry does not scale, so the Committee has issued every derby a fresh set of grievances, a shared history and a trophy, then briefed both dressing rooms. Supporters are asked to feel it by the second leg. Merchandise ships in advance.",
+    "accent": "#9f1239"
+  },
+  {
+    "id": "broadcast-dimensions",
+    "name": "Broadcast Dimensions",
+    "tagline": "Pitches re-cut to 16:9. More space, more goals.",
+    "description": "Every Superior Venue™ playing surface has been re-marked to match the frame, on the finding that four percent of pitch width was never seen by anybody and therefore did not exist. The pitch is now wider than it is long by exactly the ratio of the screen. Wingers have opinions.",
+    "accent": "#334155"
+  },
+  {
+    "id": "wellness-breaks",
+    "name": "Financial Wellness Breaks",
+    "tagline": "Four stoppages a match. Rhythm — and results — get erratic.",
+    "description": "Play halts twice in each half so that supporters may receive complimentary financial wellness content through the venue system and the app simultaneously. Nobody holds a grip on a game through four interruptions. Players use the time to drink water and think about their contracts.",
+    "accent": "#0891b2"
+  },
+  {
+    "id": "armband-rights",
+    "name": "Armband Rights",
+    "tagline": "The armband is a sponsor asset now. Captain bonuses do not apply.",
+    "description": "The captain's armband has been unbundled from the captaincy and sold separately in each territory. The player wearing it is still the captain; the armband is simply no longer about him, and the dressing room can tell. One club sold its armband to a rival's sponsor and was congratulated.",
+    "accent": "#7c2d12"
+  },
+  {
+    "id": "synthetic-away-end",
+    "name": "Synthetic Away End",
+    "tagline": "Away support is generated, tireless, and worth +2 to the visitors.",
+    "description": "Travelling supporters have been identified as the least profitable cohort in the competition, so the away section is now filled by calibrated audio and a lighting rig. It sings on schedule, never criticises the manager, and never goes quiet at 2–0 down. It is very slightly better than the real thing, which is the disturbing part.",
+    "accent": "#475569"
+  },
+  {
+    "id": "retroactive-scoring",
+    "name": "Retroactive Scoring",
+    "tagline": "Results may be revised for 72 hours. Nothing is safe.",
+    "description": "The Committee reserves the right to amend any scoreline within three days of the final whistle, following review of the footage, the data, and any representations made by interested parties. Supporters are advised not to celebrate until Tuesday. Four clubs now employ someone whose entire job is Tuesday.",
+    "accent": "#1e1b4b"
+  },
+  {
+    "id": "second-ball-trial",
+    "name": "Second Ball Trial",
+    "tagline": "A second ball enters on eighty minutes. Goals go up sharply.",
+    "description": "From the eightieth minute a second ball is introduced from the touchline and both remain live until the whistle. Goals from either count. The Committee has stressed that this is a trial, that trials are reviewed annually, and that no trial in the history of the competition has ever been discontinued.",
+    "accent": "#e11d48"
+  }
+]
