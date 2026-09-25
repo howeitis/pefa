@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { clubsIn, decree, domestic, league, lore, scene } from '~/canon';
 import { CrestGrid } from '~/components/floodlight/CrestGrid';
+import { DraftConstellation } from '~/components/floodlight/DraftConstellation';
 import { Hero } from '~/components/floodlight/Hero';
 import { Section } from '~/components/floodlight/Section';
 import { StampedStat, StatRow } from '~/components/floodlight/StampedStat';
@@ -85,12 +86,9 @@ export default function SuperiorLeague() {
           </>
         }
       >
-        <CrestGrid clubs={clubsIn(league.globalIds)} lit={lore.intro.drawnClubIds} />
-        <div className="mt-12 flex flex-col gap-6 border-t border-rule pt-6 text-sm text-ink-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            Highlighted clubs are shown for illustration, as in PEFA™ promotional material. They are
-            not the result of a draw. {draft.footnote}
-          </p>
+        <DraftConstellation clubs={clubsIn(league.globalIds)} drawn={lore.intro.drawnClubIds} />
+        <div className="mt-10 flex flex-col gap-6 border-t border-rule pt-6 text-sm text-ink-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>{draft.footnote}</p>
           <Link to="/synergy-draft" className="shrink-0 font-semibold text-ink hover:text-accent">
             How the Synergy Draft™ works <span aria-hidden="true">→</span>
           </Link>

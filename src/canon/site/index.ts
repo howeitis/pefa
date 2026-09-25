@@ -182,4 +182,34 @@ export const SITE_CANON: SiteCanonEntry[] = [
     ],
     surfaces: ['/careers', '/support'],
   },
+  {
+    id: 'draft-weighting',
+    title: 'Synergy Draft™ eligibility weighting',
+    status: 'proposed-for-game',
+    facts: [
+      'Indicative weighting: subscription tier 50%, market size 30%, broadcast window alignment 20%, previous footballing success (where relevant) 0%.',
+      'Tiers: Bronze, Silver, Gold, Platinum, Sovereign. Every assessment recommends the next tier up; at Sovereign, a higher tier is being designed.',
+      'European applicants are redirected to the fifteen founders, as a courtesy.',
+    ],
+    surfaces: ['/synergy-draft#eligibility'],
+  },
+  {
+    id: 'market-board',
+    title: 'Indicative share board',
+    status: 'site-only',
+    facts: [
+      'The in-world calendar runs ten years ahead of the real one; the board is dated accordingly.',
+      'Indicative quotes drift within ±12% of listing price, the same for every visitor on a given day.',
+    ],
+    surfaces: ['/investors#board'],
+  },
+  {
+    id: 'disclosure',
+    title: 'Requests for disclosure',
+    status: 'site-only',
+    facts: [
+      'Each request for disclosure makes a PEFA document more redacted. Further requests are processed at a higher subscription tier.',
+    ],
+    surfaces: ['/investors/annual-report', '/governance/committee-minutes'],
+  },
 ];

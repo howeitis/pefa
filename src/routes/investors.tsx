@@ -1,21 +1,11 @@
 import { Link } from 'react-router';
-import {
-  type Club,
-  clubLore,
-  clubs,
-  crestThumb,
-  formatFollowers,
-  league,
-  lore,
-  scene,
-} from '~/canon';
+import { clubs, league, lore, scene } from '~/canon';
 import { FactList } from '~/components/filing/FactList';
 import { FilingDocument, FilingPage, FilingSection } from '~/components/filing/FilingPage';
-import { LedgerTable } from '~/components/filing/LedgerTable';
+import { ShareBoard } from '~/components/filing/ShareBoard';
 import { Stamp } from '~/components/filing/Stamp';
 import { Redacted } from '~/components/shared/Redacted';
 import { metaFor } from '~/meta';
-import { CLUB_PATH } from '~/site-map';
 
 export const meta = () => metaFor('/investors');
 
@@ -56,8 +46,6 @@ const FILINGS: Filing[] = [
     status: 'Pending',
   },
 ];
-
-const gbp = (n: number) => `£${n.toLocaleString('en-GB')}`;
 
 export default function Investors() {
   return (
@@ -121,55 +109,9 @@ export default function Investors() {
 
         <FilingSection number="3." heading="The board" id="board">
           <p className="text-ink-muted">
-            All {clubs.length} clubs in the Superior League universe, at their listing figures: the
-            {league.permanentIds.length} founder members first, then the {league.globalIds.length}{' '}
-            clubs in the Synergy Draft™ pool.
+            {`All ${clubs.length} clubs in the Superior League universe, with indicative daily quotes: the ${league.permanentIds.length} founder members first, then the ${league.globalIds.length} clubs in the Synergy Draft™ pool.`}
           </p>
-          <LedgerTable<Club>
-            caption="Listed clubs, at listing"
-            rows={clubs}
-            rowKey={(c) => c.id}
-            columns={[
-              {
-                key: 'club',
-                header: 'Club',
-                render: (c) => (
-                  <Link to={CLUB_PATH(c.id)} className="flex items-center gap-2 hover:text-accent">
-                    <img src={crestThumb(c)} alt="" width={17} height={20} className="h-5 w-auto" />
-                    <span className="sm:hidden">{c.cardName}</span>
-                    <span className="hidden sm:inline">{c.name}</span>
-                  </Link>
-                ),
-              },
-              {
-                key: 'm',
-                header: 'Seat',
-                wide: true,
-                render: (c) => (c.membership === 'permanent' ? 'Founder' : 'Draft pool'),
-              },
-              { key: 'ticker', header: 'Ticker', render: (c) => clubLore[c.id]!.ticker },
-              {
-                key: 'price',
-                header: 'Price',
-                align: 'right',
-                render: (c) => gbp(clubLore[c.id]!.listPrice),
-              },
-              {
-                key: 'val',
-                header: 'Valuation',
-                align: 'right',
-                wide: true,
-                render: (c) => `£${clubLore[c.id]!.valuationBn.toFixed(1)}bn`,
-              },
-              {
-                key: 'reach',
-                header: 'TokTok',
-                align: 'right',
-                render: (c) => formatFollowers(clubLore[c.id]!.tokTokFollowers),
-              },
-            ]}
-            footnote="Listing figures as filed on admission. Indicative daily quotes will be published on this board. Past performance is irrelevant."
-          />
+          <ShareBoard clubs={clubs} />
         </FilingSection>
 
         <div className="mt-12 flex justify-end">

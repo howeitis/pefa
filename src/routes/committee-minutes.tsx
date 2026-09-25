@@ -2,6 +2,7 @@ import { FactList } from '~/components/filing/FactList';
 import { FilingDocument, FilingPage, FilingSection } from '~/components/filing/FilingPage';
 import { Footnote } from '~/components/filing/Footnote';
 import { Stamp } from '~/components/filing/Stamp';
+import { DisclosureProvider, Redactable } from '~/components/shared/Disclosure';
 import { Redacted } from '~/components/shared/Redacted';
 import { metaFor } from '~/meta';
 
@@ -33,6 +34,13 @@ const ITEMS: { heading: string; body: string }[] = [
     heading: 'Publication of reasoning',
     body: 'The Committee resolved not to publish its reasoning. The reasoning for this resolution was not recorded.',
   },
+];
+
+/** Each request for disclosure redacts more of the one legible section. */
+const DISCLOSURE_RESPONSES = [
+  'Request received. The Committee has reviewed the minutes and adjusted them.',
+  'Request received. The minutes have been brought further into line with practice.',
+  'The minutes are now fully consistent with the Committee’s practice. Thank you for your interest.',
 ];
 
 export default function CommitteeMinutes() {
@@ -67,19 +75,29 @@ export default function CommitteeMinutes() {
         ))}
 
         <FilingSection number={`${ITEMS.length + 1}.`} heading="Any other business">
-          <p>
-            The Chair noted that the coffee machine in the Luxembourg office had been replaced with
-            a subscription model. The Committee approved the change unanimously. The machine was not
-            consulted.
-          </p>
-          <p>
-            A member asked whether the Committee’s minutes should be published. The Chair confirmed
-            that they would be, and that they now had been.
-          </p>
-          <p>
-            There being no further business, the meeting closed at{' '}
-            <Redacted>the end of the broadcast window</Redacted>.
-          </p>
+          <DisclosureProvider responses={DISCLOSURE_RESPONSES}>
+            <div className="space-y-4 leading-loose">
+              <p>
+                <Redactable from={2}>
+                  The Chair noted that the coffee machine in the Luxembourg office had been replaced
+                  with a subscription model. The Committee approved the change unanimously. The
+                  machine was not consulted.
+                </Redactable>
+              </p>
+              <p>
+                <Redactable from={1}>
+                  A member asked whether the Committee’s minutes should be published. The Chair
+                  confirmed that they would be, and that they now had been.
+                </Redactable>
+              </p>
+              <p>
+                <Redactable from={3}>
+                  There being no further business, the meeting closed at
+                </Redactable>{' '}
+                <Redacted>the end of the broadcast window</Redacted>.
+              </p>
+            </div>
+          </DisclosureProvider>
         </FilingSection>
 
         <div className="mt-12">

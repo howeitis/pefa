@@ -6,6 +6,7 @@ import { Footnote } from '~/components/filing/Footnote';
 import { LedgerTable } from '~/components/filing/LedgerTable';
 import { PullQuote } from '~/components/filing/PullQuote';
 import { Stamp } from '~/components/filing/Stamp';
+import { DisclosureProvider, Redactable } from '~/components/shared/Disclosure';
 import { Redacted } from '~/components/shared/Redacted';
 import { LETTER } from '~/content/leadership';
 import { metaFor } from '~/meta';
@@ -17,12 +18,19 @@ export const meta = () => metaFor('/investors/annual-report');
  * canon); the redacted text stays in the DOM, so screen readers hear it.
  * The objectives themselves are site canon (`annual-report`).
  */
-const OBJECTIVES: { text: string; redacted?: boolean }[] = [
+const OBJECTIVES: { text: string; redacted?: boolean; redactedFrom?: number }[] = [
   { text: 'Replace supporters with subscribers, without either group noticing.', redacted: true },
-  { text: 'Transparency.' },
+  { text: 'Transparency.', redactedFrom: 1 },
   { text: 'Acquire the word “football”.', redacted: true },
-  { text: 'Certainty.' },
+  { text: 'Certainty.', redactedFrom: 2 },
   { text: 'Remove relegation from all sport, starting with ours.', redacted: true },
+];
+
+/** What PEFA says each time disclosure is requested. The document gets more redacted. */
+const DISCLOSURE_RESPONSES = [
+  'Request received. In the interests of transparency, disclosure has been adjusted.',
+  'Further request received. Disclosure has been adjusted further.',
+  'Further requests will be processed at a higher subscription tier.',
 ];
 
 const combinedReach = Object.values(clubLore).reduce((sum, l) => sum + l.tokTokFollowers, 0);
@@ -133,16 +141,22 @@ export default function AnnualReport() {
 
         <FilingSection number="2." heading="Stated objectives">
           <p>PEFA has five stated objectives. Three are redacted in public filings.</p>
-          <ol className="space-y-3">
-            {OBJECTIVES.map((o, i) => (
-              <li key={o.text} className="flex gap-4 border-b border-rule pb-3">
-                <span className="figures w-6 shrink-0 font-semibold text-navy">{i + 1}.</span>
-                <span className="text-lg">
-                  {o.redacted ? <Redacted>{o.text}</Redacted> : o.text}
-                </span>
-              </li>
-            ))}
-          </ol>
+          <DisclosureProvider responses={DISCLOSURE_RESPONSES}>
+            <ol className="space-y-3">
+              {OBJECTIVES.map((o, i) => (
+                <li key={o.text} className="flex gap-4 border-b border-rule pb-3">
+                  <span className="figures w-6 shrink-0 font-semibold text-navy">{i + 1}.</span>
+                  <span className="text-lg">
+                    {o.redacted ? (
+                      <Redacted>{o.text}</Redacted>
+                    ) : (
+                      <Redactable from={o.redactedFrom!}>{o.text}</Redactable>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </DisclosureProvider>
         </FilingSection>
 
         <FilingSection number="3." heading="Key performance indicators">
