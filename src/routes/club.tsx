@@ -1,8 +1,12 @@
 import { Link } from 'react-router';
 import type { Route } from './+types/club';
-import { clubById, clubLore, crestSrc, formatFollowers } from '~/canon';
-import { pageMeta } from '~/meta';
+import { clubById, clubLore, clubs, crestSrc, crestThumb, formatFollowers } from '~/canon';
+import { FactList } from '~/components/filing/FactList';
+import { FilingDocument, FilingPage, FilingSection } from '~/components/filing/FilingPage';
+import { Footnote } from '~/components/filing/Footnote';
+import { Stamp } from '~/components/filing/Stamp';
 import { NotInvited, notInvitedMeta } from '~/components/shared/NotInvited';
+import { pageMeta } from '~/meta';
 import { CLUB_PATH } from '~/site-map';
 
 // No loader: the canon is static JSON bundled with the page, so the slug is
@@ -25,54 +29,135 @@ export const meta = ({ params }: Route.MetaArgs) => {
     : notInvitedMeta;
 };
 
-// Phase 0 listing page: the filing card essentials. Phase 2 builds the full
-// listing document (valuation ledger, risk factor, share quote).
+const gbp = (n: number) => `£${n.toLocaleString('en-GB')}`;
+
+/** A club's listing document, as filed with PEFA on admission. */
 export default function ClubListing({ params }: Route.ComponentProps) {
   const found = listing(params.slug);
   if (!found) return <NotInvited />;
   const { club, lore } = found;
+
+  const founder = club.membership === 'permanent';
+  const index = clubs.findIndex((c) => c.id === club.id);
+  const prev = clubs[(index - 1 + clubs.length) % clubs.length]!;
+  const next = clubs[(index + 1) % clubs.length]!;
+  const rivals = club.rivalries.map((id) => clubById(id)).filter((c) => c !== undefined);
+
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
-      <Link to="/superior-league" className="smallcaps text-ink-muted hover:text-accent">
-        ← The Superior League
-      </Link>
-      <article className="mt-6 border border-rule bg-surface p-6 sm:p-12">
-        <div className="flex items-start gap-6">
-          <img
-            src={crestSrc(club)}
-            alt=""
-            width={96}
-            height={96}
-            className="h-20 w-20 sm:h-24 sm:w-24"
-          />
-          <div>
-            <p className="smallcaps text-ink-muted">
-              {club.membership === 'permanent' ? 'Founder member' : 'Synergy Draft™ pool'} ·{' '}
-              {club.city}, {club.country}
-            </p>
-            <h1 className="mt-2 font-display text-3xl leading-tight sm:text-5xl">{club.name}</h1>
-            <p className="mt-3 italic text-ink-muted">{lore.positioning}</p>
-          </div>
+    <FilingPage back={{ to: '/investors', label: 'Investor Relations' }}>
+      <FilingDocument
+        issuer="PEFA™ · Listing document"
+        reference={lore.ticker}
+        title={
+          <span className="flex flex-col gap-6 sm:flex-row sm:items-center">
+            <img
+              src={crestSrc(club)}
+              alt=""
+              width={435}
+              height={512}
+              className="h-28 w-auto shrink-0 sm:h-32"
+            />
+            <span>{club.name}</span>
+          </span>
+        }
+        subtitle={<p className="font-display italic">{lore.positioning}</p>}
+        stamp={
+          <Stamp tone={founder ? 'accent' : 'navy'}>
+            {founder ? 'Founder · Un-relegatable' : 'Synergy Draft™ pool'}
+          </Stamp>
+        }
+      >
+        <FactList
+          columns={2}
+          rows={[
+            { label: 'Ticker', value: `${lore.ticker} · ${lore.exchange}` },
+            { label: 'Listing price', value: gbp(lore.listPrice) },
+            { label: 'Valuation', value: `£${lore.valuationBn.toFixed(1)}bn` },
+            {
+              label: 'TokTok reach',
+              value: (
+                <>
+                  {formatFollowers(lore.tokTokFollowers)}{' '}
+                  <span className="text-ink-muted">
+                    ({lore.tokTokFollowers.toLocaleString('en-GB')})
+                  </span>
+                </>
+              ),
+            },
+            {
+              label: 'Membership',
+              value: founder ? 'Permanent founder member' : 'Global partner, draft pool',
+            },
+            { label: 'Domicile', value: `${club.city}, ${club.country}` },
+            { label: 'Owner', value: lore.owner },
+            {
+              label: 'Colours',
+              value: (
+                <span className="flex items-center gap-2">
+                  {[club.colors.primary, club.colors.secondary].map((c) => (
+                    <span
+                      key={c}
+                      aria-hidden="true"
+                      className="h-4 w-4 rounded-full border border-rule"
+                      style={{ background: c }}
+                    />
+                  ))}
+                  <span className="font-mono text-xs uppercase text-ink-muted">
+                    {club.colors.primary} / {club.colors.secondary}
+                  </span>
+                </span>
+              ),
+            },
+          ]}
+        />
+
+        <FilingSection number="1." heading="History, as approved by the compliance team">
+          {lore.history.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </FilingSection>
+
+        {rivals.length > 0 && (
+          <FilingSection number="2." heading="Designated rivalries">
+            <ul className="flex flex-wrap gap-3">
+              {rivals.map((r) => (
+                <li key={r.id}>
+                  <Link
+                    to={CLUB_PATH(r.id)}
+                    className="flex items-center gap-2 border border-rule px-3 py-2 hover:border-accent"
+                  >
+                    <img src={crestThumb(r)} alt="" width={20} height={24} className="h-6 w-auto" />
+                    {r.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FilingSection>
+        )}
+
+        <FilingSection number={rivals.length > 0 ? '3.' : '2.'} heading="Disclosed risk factor">
+          <p className="border-l-4 border-accent bg-surface-2 px-5 py-4">{lore.riskFactor}</p>
+        </FilingSection>
+
+        <div className="mt-12">
+          <Footnote>
+            Figures are listing figures as filed on admission, stated after the 2036 broadcast
+            settlement. TokTok reach is printed on every asset, as the PEFA™ media kit requires.
+            Past performance is irrelevant.
+          </Footnote>
         </div>
-        <dl className="figures mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-rule pt-6 text-sm sm:grid-cols-4">
-          <div>
-            <dt className="smallcaps text-ink-muted">Ticker</dt>
-            <dd className="mt-1 text-lg">{lore.ticker}</dd>
-          </div>
-          <div>
-            <dt className="smallcaps text-ink-muted">List price</dt>
-            <dd className="mt-1 text-lg">£{lore.listPrice}</dd>
-          </div>
-          <div>
-            <dt className="smallcaps text-ink-muted">Valuation</dt>
-            <dd className="mt-1 text-lg">£{lore.valuationBn.toFixed(1)}bn</dd>
-          </div>
-          <div>
-            <dt className="smallcaps text-ink-muted">TokTok reach</dt>
-            <dd className="mt-1 text-lg">{formatFollowers(lore.tokTokFollowers)}</dd>
-          </div>
-        </dl>
-      </article>
-    </div>
+      </FilingDocument>
+
+      <nav aria-label="Other listings" className="mt-8 flex justify-between gap-4 text-sm">
+        <Link to={CLUB_PATH(prev.id)} className="hover:text-accent">
+          <span aria-hidden="true">← </span>
+          {prev.cardName}
+        </Link>
+        <Link to={CLUB_PATH(next.id)} className="text-right hover:text-accent">
+          {next.cardName}
+          <span aria-hidden="true"> →</span>
+        </Link>
+      </nav>
+    </FilingPage>
   );
 }

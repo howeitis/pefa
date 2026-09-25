@@ -1,11 +1,11 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { FICTION_NOTICE } from '../../src/components/shared/OocStrip';
-import { CLUB_PATH, materialFor, PAGES } from '../../src/site-map';
+import { CLUB_PATH, clubSlugs, materialFor, PAGES } from '../../src/site-map';
 
 const paths = [
   ...PAGES.map((p) => p.path),
-  CLUB_PATH('armory'),
+  ...clubSlugs().map(CLUB_PATH),
   '/newsroom/corporate-website-launch',
 ];
 
@@ -58,5 +58,13 @@ test('house inventory is always labelled as house content', async ({ page }) => 
   await expect(slots).not.toHaveCount(0);
   for (const slot of await slots.all()) {
     await expect(slot.getByText('PEFA™ house content')).toBeVisible();
+  }
+});
+
+test('every club listing prints its TokTok reach and owner', async ({ page }) => {
+  for (const slug of clubSlugs()) {
+    await page.goto(CLUB_PATH(slug));
+    await expect(page.getByText('TokTok reach', { exact: true })).toBeVisible();
+    await expect(page.getByText('Owner', { exact: true })).toBeVisible();
   }
 });

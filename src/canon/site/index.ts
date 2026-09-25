@@ -84,4 +84,28 @@ export const SITE_CANON: SiteCanonEntry[] = [
     ],
     surfaces: ['/superior-league/clubs/*'],
   },
+  {
+    id: 'governance-procedure',
+    title: 'Governance procedure',
+    status: 'proposed-for-game',
+    facts: [
+      'The decree register numbers the 32 decrees D-01 to D-32, in the game’s order.',
+      'Compliance officers in technical areas ensure instructions to players match the club’s commercial obligations.',
+      'Appeals against Algorithmic Offside rulings are reviewed by Clawed AI.',
+      'Global Inclusion Committee minutes will be filed with Investor Relations; its reasoning will not.',
+      'Pending the trademark review, PEFA uses the word “football” under licence from itself.',
+    ],
+    surfaces: ['/governance'],
+  },
+  {
+    id: 'corporate-record',
+    title: 'Corporate record',
+    status: 'site-only',
+    facts: [
+      'Infamtino has been President since incorporation; PEFA’s seat is Luxembourg.',
+      'Document references: MK-2035 (Media Kit), IR-2036, GOV-2036, LDR-2036, LGL-2036.',
+      'PEFA’s privacy position: “It has not collected any [data]. This is not a policy. It is a limitation, and it is under review.”',
+    ],
+    surfaces: ['/investors', '/leadership', '/legal'],
+  },
 ];
