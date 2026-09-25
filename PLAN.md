@@ -12,6 +12,11 @@ Drafted 2026-09-25. Decisions taken with the owner:
 | Content | **Expand the canon.** The site is a place to write new lore, not just re-host the prospectus |
 | Look | **Both, by section.** Dark "brand" pages for marketing, paper "Filing" pages for documents |
 
+> **Status, 2026-09-25:** all six build phases (0–5) are done and live at
+> [pefa-alpha.vercel.app](https://pefa-alpha.vercel.app). What remains is two tester links for
+> `/play`, one follow-up in the game repo, and a few small items. See **§9** for what changed
+> from this plan during the build and for the open list.
+
 ---
 
 ## 1. What we are building
@@ -222,14 +227,14 @@ Each piece earns its place as a joke you *do*, not just one you read. None of th
 
 Each phase ends with a deployable site and a review pass in the browser at desktop and 375px.
 
-| Phase | Scope | Done when |
-|---|---|---|
-| **0. Foundations** | `git init`, scaffold (Vite, RR7 prerender, Tailwind v4, MDX, lint/test), canon import script, `CANON.md`, both material token sets, header, footer, fiction notice, `/play` | Empty routes prerender, both materials render, canon test passes |
-| **1. Brand (Floodlight)** | Home, Superior League, Superior Venue™, Technology, Partners | The core pitch reads end to end on mobile and desktop |
-| **2. The Filing** | Prospectus, Investors hub, 28 club listing pages, Governance and decree register, Leadership, Legal | Every locked-canon document is on the site |
-| **3. New canon** | President's letter, bio, board, annual report, 8–12 press releases, committee minutes, careers, FAQ | `CANON.md` logs each new fact, with status |
-| **4. Interactions** | Draft calculator, share board, redaction and disclosure, crest constellation | Works with the keyboard and under reduced motion. Nothing is sent over the network |
-| **5. Polish & launch** | OG images per route, favicon and manifest for PEFA, sitemap, axe clean, Lighthouse ≥ 95, copy edit, Vercel project and domain | Live URL shared |
+| Phase | Scope | Done when | Status |
+|---|---|---|---|
+| **0. Foundations** | `git init`, scaffold (Vite, RR7 prerender, Tailwind v4, MDX, lint/test), canon import script, `CANON.md`, both material token sets, header, footer, fiction notice, `/play` | Empty routes prerender, both materials render, canon test passes | **Done** `8865780` (RR v8, not v7; see §9) |
+| **1. Brand (Floodlight)** | Home, Superior League, Superior Venue™, Technology, Partners | The core pitch reads end to end on mobile and desktop | **Done** `2205014` |
+| **2. The Filing** | Prospectus, Investors hub, 28 club listing pages, Governance and decree register, Leadership, Legal | Every locked-canon document is on the site | **Done** `9750264` (owner renames `d96bb36`) |
+| **3. New canon** | President's letter, bio, board, annual report, 8–12 press releases, committee minutes, careers, FAQ | `CANON.md` logs each new fact, with status | **Done** `d68afa9`. 11 releases; Annual Report and minutes are their own routes |
+| **4. Interactions** | Draft calculator, share board, redaction and disclosure, crest constellation | Works with the keyboard and under reduced motion. Nothing is sent over the network | **Done** `0075e04`. The Synergy Draft page itself was built here |
+| **5. Polish & launch** | OG images per route, favicon and manifest for PEFA, sitemap, axe clean, Lighthouse ≥ 95, copy edit, Vercel project and domain | Live URL shared | **Done** `29ec1f5`. Live Lighthouse: mobile performance 96–99, everything else 100 |
 
 ---
 
@@ -237,15 +242,15 @@ Each phase ends with a deployable site and a review pass in the browser at deskt
 
 The folder is a copy of the game's `public/`. What to keep and what to change:
 
-| Asset | Verdict |
-|---|---|
-| `brand-logo*`, `brand-emblem*`, `brand-text*`, `league-wordmark*` | **Keep.** These are the *Superior League* marks, PEFA's product. **PEFA itself has no mark yet**; I design one in Phase 0 (§8) |
-| `club-crests/*` (28) | **Keep.** These are the invented clubs |
-| `trophies/*` | **Keep** |
-| `national flags/*` | **Keep, but rename to `flags/`** (no spaces in URLs). Country flags aren't trademarks |
-| `National team logos/*` (69 SVGs from football-logos.cc) | **Do not ship.** These are real federation crests: real marks, which the game deliberately avoids. Remove them, or keep them out of the build |
-| `hero.webp` | **Don't use as-is.** It shows a Nike swoosh on the manager's coat and a Hyundai hoarding. Crop, repaint, or commission new art |
-| `og-image.jpg`, `favicon.png`, `icons/*`, `manifest.webmanifest` | **Replace** with PEFA versions. They currently identify the game (`"name": "Superior League 2036"`) |
+| Asset | Verdict | Status |
+|---|---|---|
+| `brand-logo*`, `brand-emblem*`, `brand-text*`, `league-wordmark*` | **Keep.** These are the *Superior League* marks, PEFA's product. **PEFA itself has no mark yet**; I design one in Phase 0 (§8) | Kept. PEFA mark designed, in `public/brand/` |
+| `club-crests/*` (28) | **Keep.** These are the invented clubs | Kept, plus `thumb/` (192px) and `mini/` (48px) |
+| `trophies/*` | **Keep** | Kept, not yet used |
+| `national flags/*` | **Keep, but rename to `flags/`** (no spaces in URLs). Country flags aren't trademarks | Renamed, not yet used. Source and licence unknown (§9) |
+| `National team logos/*` (69 SVGs from football-logos.cc) | **Do not ship.** These are real federation crests: real marks, which the game deliberately avoids. Remove them, or keep them out of the build | Moved to gitignored `_excluded/` |
+| `hero.webp` | **Don't use as-is.** It shows a Nike swoosh on the manager's coat and a Hyundai hoarding. Crop, repaint, or commission new art | Moved to `_excluded/`. The site uses no hero art |
+| `og-image.jpg`, `favicon.png`, `icons/*`, `manifest.webmanifest` | **Replace** with PEFA versions. They currently identify the game (`"name": "Superior League 2036"`) | Replaced; the game's copies are in `_excluded/game-identity/` |
 
 ---
 
@@ -272,7 +277,63 @@ Decided 2026-09-25:
   *PEFA™, the Superior League and everyone named here are fictional. This site is a satirical
   companion to Superior League 2036.*
 
-Still open:
+- **Real names in club lore** (decided during Phase 2): the game's owner lines named real companies
+  and funds. The site replaces them with satirical names in `src/canon/site/clubOverrides.ts`,
+  applied at build time so the originals never ship. The game is flagged to follow (§9).
 
-- **Tester links:** the Google Group join URL and the Play opt-in URL, once the closed-test track
-  is live. Until then, `/play` shows placeholders.
+---
+
+## 9. Where things stand (2026-09-25)
+
+### Done
+
+All phases in §6 are built, tested and deployed. The site has 17 pages, 28 club listings and
+11 press releases. 56 pages are prerendered, each with its own OG card and a sitemap entry.
+Unknown paths return a real 404.
+
+Checks that run on every change:
+
+- **Vitest:** canon lint, real-name lint (source and build output), the draft and market logic,
+  and build output (OG card, canonical URL and sitemap entry for every page).
+- **Playwright:** every page at desktop and 375px, including axe, the fiction notice, no overflow,
+  no off-site requests and no cookies. Also the interactions: keyboard use, reduced motion, and
+  nothing sent over the network.
+
+Lighthouse on the live site, 10 pages: mobile performance 96–99, desktop 100, and 100 for
+accessibility, best practices and SEO on both.
+
+### Changed from this plan during the build
+
+- **React Router v8**, not v7. v8 was current, and framework mode with prerender is unchanged.
+- **Filing text accent `#92400E`.** The `#B45309` foil failed AA contrast for text on paper, so it
+  is now used for stamps and rules only.
+- **Hosting:** `vercel.json` serves `build/client` as plain static files. Vercel's React Router
+  preset had answered unknown paths with a 200 status.
+- **Loaders:** club and press-release routes have none. They resolve their slug from bundled data,
+  so an unknown slug renders the 404 instead of failing to fetch data that was never built.
+- **Scroll reveal:** movement only, with no fade. A mid-fade element failed contrast.
+- **Fonts:** self-hosted, with only Playfair 400 and italic, and DM Sans 400 and 600.
+  Out-of-character blocks use the system font.
+- **In-world calendar:** runs ten years ahead of the real one. The share board is dated to match
+  (canon `market-board`).
+- **Draft result:** never named. The promo's five lit crests are captioned as not a result, and
+  the 2036 draft release reports the draw without naming clubs.
+- **Out of scope:** the Partners page names no real sponsors. Its inventory slots are labelled
+  "PEFA™ house content".
+
+### Still open
+
+- **Tester links (blocking the Play CTA):** the Google Group join URL and the Play opt-in URL,
+  once the closed-test track is live. Set them in `src/play-links.ts`; until then `/play` shows
+  "link coming soon".
+- **Game follow-up, owner renames:** the game's `src/data/clubLore.ts` still carries the real
+  names. The proposed replacements are in `CANON.md` under "Game follow-ups". This needs a
+  web-first content drop in the game; the site never edits the game repo.
+- **Game follow-up, proposed canon:** entries tagged `proposed-for-game` in `CANON.md` are
+  candidates for that same drop, if wanted: the mark, venue spec, partner roles, governance
+  procedure, the President's letter, the Board, the Annual Report and the draft weighting.
+- **Flags:** the source and licence of `public/flags/` are unrecorded. This only matters if the
+  site starts using them.
+- **Screenshots on `/play`:** none yet, pending the rights review (§8).
+- **Review the new canon:** names and jokes added in Phases 3–4 (Board, Annual Report
+  objectives, minutes, draft weighting) haven't had an owner read-through.
