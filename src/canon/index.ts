@@ -50,6 +50,11 @@ export const league = {
   globalIds: clubsJson.globalIds,
 };
 export const clubs = clubsJson.clubs as Club[];
+/**
+ * Club lore as the site renders it. The site overrides in
+ * site/clubOverrides.ts are applied at build time by vite.canon-overrides.ts,
+ * so the game's original owner names are never bundled.
+ */
 export const clubLore = clubLoreJson as Record<string, ClubLore>;
 export const decrees = decreesJson as Decree[];
 export const domestic = domesticJson;

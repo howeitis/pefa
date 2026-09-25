@@ -74,4 +74,14 @@ export const SITE_CANON: SiteCanonEntry[] = [
     ],
     surfaces: ['/superior-league', '/partners'],
   },
+  {
+    id: 'owner-renames',
+    title: 'Club owners without real names',
+    status: 'proposed-for-game',
+    facts: [
+      'Fifteen club owner lines, and one risk factor, are renamed so no real company or fund is named (see src/canon/site/clubOverrides.ts). Examples: Back Bay Transatlantic Sporting Group, Citizens Football Multiverse, Catwalk Capital Partners, Perpetual Runner-Up Holdings, The Sovereign Wealth Fund.',
+      'GAME FOLLOW-UP: the game’s clubLore.ts still carries the original names.',
+    ],
+    surfaces: ['/superior-league/clubs/*'],
+  },
 ];

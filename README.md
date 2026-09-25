@@ -28,6 +28,9 @@ and `CANON.md` for the lore rules.
   `bg-ground text-ink` resolve per material.
 - `src/canon/game/` is generated. Don't edit it: the canon test checks it against its checksums.
   Site-authored lore goes in `src/canon/site/` and gets a row in `CANON.md`.
+- `src/canon/site/clubOverrides.ts` replaces real company names in the game's club lore. The
+  overrides are applied at build time (`vite.canon-overrides.ts`), so the originals never ship, and
+  the canon test scans the build output for them. See "Game follow-ups" in `CANON.md`.
 - `src/content/newsroom/*.mdx` are press releases, with frontmatter.
 - `src/play-links.ts` holds the real, out-of-character links. The two Android closed-test URLs are
   still `null`, so `/play` shows placeholders until they are filled in.

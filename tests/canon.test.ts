@@ -3,14 +3,16 @@
  * locked canon (PLAN.md §2.1) or hand-edit the imported copy of it.
  */
 import { createHash } from 'node:crypto';
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import checksum from '~/canon/game/checksum.json';
 import clubsJson from '~/canon/game/clubs.json';
 import clubLore from '~/canon/game/clubLore.json';
 import decrees from '~/canon/game/decrees.json';
+import { clubLore as renderedLore } from '~/canon';
 import { SITE_CANON } from '~/canon/site';
+import { BANNED_REAL_NAMES, CLUB_LORE_OVERRIDES } from '~/canon/site/clubOverrides';
 
 const root = join(import.meta.dirname, '..');
 const gameDir = join(root, 'src', 'canon', 'game');
@@ -180,5 +182,40 @@ describe('site-authored canon', () => {
     const line = log.split('\n').find((l) => l.includes(`\`${id}\``));
     expect(line, `CANON.md has no row for \`${id}\``).toBeDefined();
     expect(line).toContain(status);
+  });
+});
+
+describe('real names from the game lore', () => {
+  const banned = new RegExp(`\\b(${BANNED_REAL_NAMES.join('|')})\\b`, 'g');
+  const hits = (text: string) => [...new Set(text.match(banned) ?? [])];
+
+  it('are only overridden for clubs that exist', () => {
+    for (const id of Object.keys(CLUB_LORE_OVERRIDES)) expect(clubLore).toHaveProperty(id);
+  });
+
+  it('do not appear in the club lore the site renders', () => {
+    expect(hits(JSON.stringify(renderedLore))).toEqual([]);
+  });
+
+  it('do not appear in site source', () => {
+    const found = siteSources()
+      .filter((p) => !p.endsWith('clubOverrides.ts'))
+      .flatMap((p) => hits(readFileSync(p, 'utf8')).map((h) => `${relative(root, p)}: ${h}`));
+    expect(found).toEqual([]);
+  });
+
+  // Runs after `npm run build`: the originals must not ship even inside JS.
+  const buildDir = join(root, 'build', 'client');
+  it.skipIf(!existsSync(buildDir))('do not appear anywhere in the build output', () => {
+    const files = (dir: string): string[] =>
+      readdirSync(dir).flatMap((name) => {
+        const path = join(dir, name);
+        if (statSync(path).isDirectory()) return files(path);
+        return /\.(html|js|json|data|css)$/.test(name) ? [path] : [];
+      });
+    const found = files(buildDir).flatMap((p) =>
+      hits(readFileSync(p, 'utf8')).map((h) => `${relative(buildDir, p)}: ${h}`),
+    );
+    expect(found).toEqual([]);
   });
 });

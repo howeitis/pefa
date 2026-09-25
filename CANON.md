@@ -52,3 +52,32 @@ game's own web-first content drop; the site never edits the game).
 | `venue-spec`     | 2026-09-25 | proposed-for-game | Every venue holds the pitch at 19°C under a closed roof. Prices track demand, form and the opponent's TokTok following. In-seat displays tuned per occupant; chants composed live and cleared for rights. Seats pulse on shots, tackles and price movements; financial wellness content at half-time                                 | `/superior-venue`                    |
 | `partner-roles`  | 2026-09-25 | proposed-for-game | Microsack's audio calibration raises under-attended atmosphere and lowers off-message crowds; it also supports the Synthetic Away End. Clawed AI shares opposition modeling with all clubs equally, at tiered rates. ChatGDP issues statements within four seconds of the whistle and generates supporter reaction before the result | `/technology`                        |
 | `commercial`     | 2026-09-25 | site-only         | TokTok is the league's official short-form platform. The trophy is also a subscription tier. PEFA calls the Clawed AI Cup heritage content. House inventory includes naming rights to the Brand Damage zone and a presenting partnership for the Second Ball                                                                         | `/superior-league`, `/partners`      |
+| `owner-renames`  | 2026-09-25 | proposed-for-game | Club owner lines renamed so no real company or fund is named; see Game follow-ups below                                                                                                                                                                                                                                              | `/superior-league/clubs/*`           |
+
+## Game follow-ups
+
+Things the site does differently from the game that the game should revisit, via its own web-first
+content drop. The site never edits the game repos.
+
+### `owner-renames`: real names in club owner lines (open)
+
+`src/data/clubLore.ts` in the game names real companies and funds as club owners, which breaks
+the game's own "no real marks" rule. The site overrides them at build time
+(`src/canon/site/clubOverrides.ts` via `vite.canon-overrides.ts`), and the canon test fails if any
+original name reaches the site or its build output. Proposed replacements:
+
+| Club                      | Game text (real name)                                 | Site replacement                                         |
+| ------------------------- | ----------------------------------------------------- | -------------------------------------------------------- |
+| `armory`                  | Kroenkecorp Legacy Trust                              | The Silent Partner Legacy Trust                          |
+| `boston-reds`             | Fenway Transatlantic Sporting Group                   | Back Bay Transatlantic Sporting Group                    |
+| `citizens`, `ny-citizens` | City Football Multiverse                              | Citizens Football Multiverse                             |
+| `white-hart-loan`         | ENIC Structured Finance; "NFL fixtures" (risk factor) | Lilywhite Structured Finance; "gridiron fixtures"        |
+| `almostico`               | Quantum Pacific Sport                                 | Perpetual Runner-Up Holdings                             |
+| `milano-runway`           | RedBird Fashion Capital                               | Catwalk Capital Partners                                 |
+| `debito`                  | Oaktree                                               | A distressed-debt fund                                   |
+| `piemonte`                | Agnelli family office / Exor Sporting Assets          | The family (Turin) / Dynastic Sporting Assets N.V.       |
+| `saint-sovereign`         | Qatar Sports Investments                              | Sovereign Sports Investments                             |
+| `bavarian-monopoly`       | Audi, Adidas, Allianz                                 | a carmaker, a bootmaker, an insurer, and another insurer |
+| `borussia-export`         | Signal Iduna                                          | a regional insurer with the naming rights                |
+| `retirement-fund`         | Ares Sporting Legacy Fund II                          | Olympus Sporting Legacy Fund II                          |
+| `al-zaeem`, `al-alami`    | The Public Investment Fund                            | The Sovereign Wealth Fund                                |
