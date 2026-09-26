@@ -36,6 +36,10 @@ and `CANON.md` for the lore rules.
 - `src/content/newsroom/*.mdx` are press releases, with frontmatter.
 - `src/play-links.ts` holds the real, out-of-character links. The two Android closed-test URLs are
   still `null`, so `/play` shows placeholders until they are filled in.
+- Search: a page's `seoTitle` in `src/site-map.ts` overrides its `<title>` for search results
+  without changing its in-world title. `/play` is the search landing page for "football manager
+  game" and "soccer simulator" queries, with VideoGame and FAQPage structured data.
+  `public/llms.txt` is the out-of-character summary for AI assistants and agents.
 - `_excluded/` (gitignored) holds assets that must not ship: real federation crests, the game's
   hero art (it shows real brands) and the game's own icons.
 

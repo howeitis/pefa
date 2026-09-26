@@ -1,9 +1,66 @@
 import type { ReactNode } from 'react';
 import { FICTION_NOTICE } from '~/components/shared/OocStrip';
-import { metaFor } from '~/meta';
+import { metaFor, SITE_URL } from '~/meta';
 import { PLAY_LINKS } from '~/play-links';
 
-export const meta = () => metaFor('/play');
+/**
+ * Plain answers to the questions people type into search engines and AI
+ * assistants. Rendered on the page and repeated as FAQPage structured data,
+ * so the two can't drift apart. Only facts the game's canon confirms.
+ */
+const FAQ: { q: string; a: string }[] = [
+  {
+    q: 'What kind of game is Superior League 2036?',
+    a: 'A football management simulator, or soccer manager game. You manage one club: you pick the team, set the tactics, work the transfer market and keep the board happy, and the match engine plays out the results.',
+  },
+  {
+    q: 'Is it a football simulator where I control the players?',
+    a: 'No. It is a management sim, in the tradition of football manager games, rather than an action game where you control players on the pitch. You make the decisions; the simulation plays the matches.',
+  },
+  {
+    q: 'Can I play it in my browser?',
+    a: 'Yes. The web version runs in any modern browser, on desktop or phone, with nothing to install. An Android app is in a closed test on Google Play.',
+  },
+  {
+    q: 'Are real clubs or players in the game?',
+    a: 'No. Every club, league and person is invented. There are 28 clubs in the Superior League world, plus five domestic leagues of invented clubs.',
+  },
+  {
+    q: 'What is PEFA™?',
+    a: 'PEFA™ (Private Equity Football Accelerate™) is the game’s fictional villain: a private equity fund that dissolved football and rebuilt it as a subscription product. This website is PEFA’s corporate site, written in character as satire.',
+  },
+];
+
+export const meta = () => [
+  ...metaFor('/play'),
+  {
+    'script:ld+json': [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'VideoGame',
+        name: 'Superior League 2036',
+        url: PLAY_LINKS.web,
+        description:
+          'A satirical football management simulator (soccer manager game). Manage a club in a closed, investor-owned super league and try to win anyway.',
+        genre: ['Sports', 'Simulation', 'Football management', 'Soccer manager', 'Satire'],
+        gamePlatform: ['Web browser', 'Android'],
+        applicationCategory: 'Game',
+        playMode: 'SinglePlayer',
+        inLanguage: 'en',
+        image: `${SITE_URL}/og-image.jpg`,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: FAQ.map(({ q, a }) => ({
+          '@type': 'Question',
+          name: q,
+          acceptedAnswer: { '@type': 'Answer', text: a },
+        })),
+      },
+    ],
+  },
+];
 
 /**
  * The one page written entirely out of character: plain type, flat colour,
@@ -18,12 +75,58 @@ export default function Play() {
       <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
         Play Superior League 2036
       </h1>
+      <p className="mt-4 text-xl font-semibold leading-snug">
+        A satirical football manager game. A soccer management simulator, if you’re reading this in
+        America. No real clubs, no download, and it plays in your browser.
+      </p>
       <p className="mt-6 text-lg leading-relaxed">
         This website is satire. PEFA™ is the villain of <strong>Superior League 2036</strong>, a
         football management game set after a fictional private equity fund dissolved the sport and
         rebuilt it as a subscription product. You take charge of a club in its closed league and try
         to win anyway.
       </p>
+      <ActionLink href={PLAY_LINKS.web}>Play the football manager game in your browser</ActionLink>
+
+      <Section title="What you do as manager">
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            <strong>Run a club</strong> in a 20-club super league, where 15 founders can never be
+            relegated and five places are redrawn every summer.
+          </li>
+          <li>
+            <strong>Pick the eleven and set the tactics</strong>, then watch the match engine decide
+            whether you were right.
+          </li>
+          <li>
+            <strong>Work the transfer market</strong> in an economy where every fee, budget and
+            valuation has been marked up for broadcast.
+          </li>
+          <li>
+            <strong>Survive the board</strong> and build your manager reputation over a 38-game
+            league season and a knockout cup, the Clawed AI Cup.
+          </li>
+          <li>
+            <strong>Adapt to league decrees</strong> that rewrite the rules each season: away wins
+            worth four points, derby wins worth six, algorithmic offside, sponsored substitutions
+            and 28 more.
+          </li>
+          <li>
+            <strong>Every club is invented.</strong> 28 clubs in the league’s world, each with a
+            share price, an owner and a history, plus five domestic leagues carrying on without
+            them.
+          </li>
+        </ul>
+      </Section>
+
+      <Section title="Football or soccer?">
+        <p>
+          Both. Superior League 2036 is a football simulator in the management sense: you make the
+          calls a manager makes, not the passes a player makes. If you came looking for a soccer
+          manager game, a football management sim or a browser football game with a sense of humour,
+          this is that game. If you came looking for a governing body, you have found a parody of
+          one.
+        </p>
+      </Section>
 
       <Section title="On Android" tag="Android only · closed test">
         <p>
@@ -46,6 +149,17 @@ export default function Play() {
       <Section title="In your browser">
         <p>The web version runs in any modern browser, on desktop or phone.</p>
         <ActionLink href={PLAY_LINKS.web}>Play on the web</ActionLink>
+      </Section>
+
+      <Section title="Questions">
+        <dl className="space-y-6">
+          {FAQ.map(({ q, a }) => (
+            <div key={q}>
+              <dt className="font-semibold">{q}</dt>
+              <dd className="mt-1 text-ink-muted">{a}</dd>
+            </div>
+          ))}
+        </dl>
       </Section>
 
       <Section title="About this site">

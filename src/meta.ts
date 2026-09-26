@@ -7,10 +7,10 @@ export const SITE_URL = 'https://pefa-alpha.vercel.app';
 
 /** Standard title/description/OG tags for a page. */
 export function pageMeta(
-  page: Pick<SitePage, 'title' | 'description' | 'path'>,
+  page: Pick<SitePage, 'title' | 'seoTitle' | 'description' | 'path'>,
   { image = ogImagePath(page.path) }: { image?: string } = {},
 ): MetaDescriptor[] {
-  const title = page.path === '/' ? page.title : `${page.title} · ${SITE_NAME}`;
+  const title = page.seoTitle ?? (page.path === '/' ? page.title : `${page.title} · ${SITE_NAME}`);
   const url = `${SITE_URL}${page.path === '/' ? '' : page.path}`;
   return [
     { title },

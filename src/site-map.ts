@@ -16,7 +16,15 @@ export interface SitePage {
   path: string;
   /** In-world page title (without the " · PEFA™" suffix). */
   title: string;
-  /** Meta description. In character unless the page is `ooc`. */
+  /**
+   * The search-result title, when it should differ from the in-world one.
+   * Used for <title> and og:title only; nav, headings and OG cards keep `title`.
+   */
+  seoTitle?: string;
+  /**
+   * Meta description. In character unless the page is `ooc`, except where a
+   * search snippet has to say, out of character, what the site is for.
+   */
   description: string;
   material: Material;
   /** Where the page is linked from. Pages with no nav are still prerendered. */
@@ -29,8 +37,9 @@ export const PAGES: SitePage[] = [
   {
     path: '/',
     title: 'Private Equity Football Accelerate™',
+    seoTitle: 'PEFA™ · Superior League 2036, the satirical football manager game',
     description:
-      'Football did not die. It was algorithmically optimized. PEFA™ is the owner and operator of the Superior League.',
+      'Football did not die. It was algorithmically optimized. PEFA™ is the villain of Superior League 2036, a satirical football (soccer) manager simulator for web and Android.',
     material: 'floodlight',
   },
   {
@@ -122,7 +131,8 @@ export const PAGES: SitePage[] = [
   {
     path: '/careers',
     title: 'Careers',
-    description: 'Join the team that removed sporting merit from football.',
+    description:
+      'Join the team that removed sporting merit from football. Featured role: Manager, filled by playing the football manager game Superior League 2036.',
     material: 'floodlight',
     nav: 'secondary',
   },
@@ -153,9 +163,10 @@ export const PAGES: SitePage[] = [
   {
     path: '/play',
     title: 'Play Superior League 2036',
+    seoTitle: 'Superior League 2036: Football Manager & Soccer Simulator Game',
     label: 'Play the game',
     description:
-      'This site is a satirical companion to Superior League 2036, a football management game. Here is how to play it.',
+      'Superior League 2036 is a satirical football management simulator (a soccer manager game) for your browser and Android. Pick the team, set tactics, trade players, win the league.',
     material: 'ooc',
   },
 ];
