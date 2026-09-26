@@ -47,6 +47,7 @@ and `CANON.md` for the lore rules.
 
 - Anything addressed to the real visitor wears the `.ooc` style. The fiction notice is in every
   page's footer, in its exact wording.
-- Nothing is sent anywhere. No cookies, no font CDN (fonts are self-hosted), no form submissions.
-  The e2e suite fails if a page makes a request off the site or sets a cookie.
+- Nothing is sent anywhere except cookieless page views to Vercel Web Analytics, which go to the
+  site's own `/_vercel/insights` path. No cookies, no font CDN (fonts are self-hosted), no form
+  submissions. The e2e suite fails if a page makes a request off the site or sets a cookie.
 - No real marks, and the satire is aimed at the breakaway, not at the clubs that stayed behind.

@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import type { ReactNode } from 'react';
 import {
   isRouteErrorResponse,
@@ -62,6 +63,9 @@ export function Layout({ children }: { children: ReactNode }) {
         <SiteFooter material={material} />
         <ScrollRestoration />
         <Scripts />
+        {/* Vercel Web Analytics: cookieless page views, sent to this site's own
+            /_vercel/insights endpoint, so it adds no cookie and no third party. */}
+        <Analytics />
       </body>
     </html>
   );

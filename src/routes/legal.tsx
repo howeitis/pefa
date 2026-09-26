@@ -101,10 +101,11 @@ export default function Legal() {
 
           <h3 className="mt-6 font-bold">Privacy</h3>
           <p className="mt-2">
-            This site sets no cookies, runs no analytics or trackers, and loads nothing from
-            third-party servers: fonts are served from this site. The forms on it work out their
-            answers in your browser and send nothing anywhere. The host, Vercel, may keep standard
-            request logs to run the service.
+            This site sets no cookies, runs no trackers, and loads nothing from third-party servers:
+            fonts are served from this site. It counts page views with Vercel Web Analytics, which
+            uses no cookies and stores no personal data. The forms on it work out their answers in
+            your browser and send nothing anywhere. The host, Vercel, may keep standard request logs
+            to run the service.
           </p>
 
           <h3 className="mt-6 font-bold">Credits and licences</h3>

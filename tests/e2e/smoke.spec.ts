@@ -79,6 +79,9 @@ test('every club listing prints its TokTok reach and owner', async ({ page }) =>
 
 test('supporter feedback replies in the browser and sends nothing', async ({ page }) => {
   await page.goto('/support');
+  // Start listening once the page has settled, so page-load traffic (the
+  // favicon, lazy images, the analytics script) isn't mistaken for the form.
+  await page.waitForLoadState('networkidle');
   const requests: string[] = [];
   page.on('request', (r) => requests.push(r.url()));
   await page.getByLabel('Topic').selectOption('offside');
