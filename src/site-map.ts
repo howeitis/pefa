@@ -37,9 +37,9 @@ export const PAGES: SitePage[] = [
   {
     path: '/',
     title: 'Private Equity Football Accelerate™',
-    seoTitle: 'PEFA™ · Superior League 2036, the satirical football manager game',
+    seoTitle: 'PEFA™ · Superior League 2036, the free satirical football manager game',
     description:
-      'Football did not die. It was algorithmically optimized. PEFA™ is the villain of Superior League 2036, a satirical football (soccer) manager simulator for web and Android.',
+      'Football did not die. It was algorithmically optimized. PEFA™ is the villain of Superior League 2036, a free, satirical football (soccer) manager simulator for web and Android.',
     material: 'floodlight',
   },
   {
@@ -132,7 +132,7 @@ export const PAGES: SitePage[] = [
     path: '/careers',
     title: 'Careers',
     description:
-      'Join the team that removed sporting merit from football. Featured role: Manager, filled by playing the football manager game Superior League 2036.',
+      'Join the team that removed sporting merit from football. Featured role: Manager, filled by playing the free football manager game Superior League 2036.',
     material: 'floodlight',
     nav: 'secondary',
   },
@@ -163,10 +163,10 @@ export const PAGES: SitePage[] = [
   {
     path: '/play',
     title: 'Play Superior League 2036',
-    seoTitle: 'Superior League 2036: Football Manager & Soccer Simulator Game',
+    seoTitle: 'Superior League 2036: Free Football Manager & Soccer Simulator',
     label: 'Play the game',
     description:
-      'Superior League 2036 is a satirical football management simulator (a soccer manager game) for your browser and Android. Pick the team, set tactics, trade players, win the league.',
+      'Superior League 2036 is a free, satirical football manager game and soccer simulator for your browser and Android. Pick the team, set tactics, trade players, win the league.',
     material: 'ooc',
   },
 ];

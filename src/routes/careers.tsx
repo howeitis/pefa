@@ -75,7 +75,7 @@ export default function Careers() {
         <div className="ooc flex flex-col gap-4 rounded-md p-6 sm:flex-row sm:items-center sm:justify-between">
           <p>
             <strong>Out of character:</strong> this one is real. The Manager’s job is Superior
-            League 2036, a football management simulator you can play in your browser.
+            League 2036, a free football management simulator you can play in your browser.
           </p>
           <Link
             to="/play"

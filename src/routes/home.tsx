@@ -171,13 +171,13 @@ export default function Home() {
           <p className="max-w-2xl">
             <strong>Out of character:</strong> PEFA™ is the villain of Superior League 2036, a
             satirical football manager game (a soccer management simulator, in American). Take a
-            club into PEFA’s league and try to win anyway. It plays in your browser.
+            club into PEFA’s league and try to win anyway. It’s free and plays in your browser.
           </p>
           <Link
             to="/play"
             className="shrink-0 rounded-md bg-ooc-ink px-5 py-3 text-center font-semibold text-ooc"
           >
-            Play the football manager game
+            Play the free football manager game
           </Link>
         </div>
       </OocStrip>

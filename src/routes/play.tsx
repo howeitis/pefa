@@ -18,6 +18,10 @@ const FAQ: { q: string; a: string }[] = [
     a: 'No. It is a management sim, in the tradition of football manager games, rather than an action game where you control players on the pitch. You make the decisions; the simulation plays the matches.',
   },
   {
+    q: 'Is Superior League 2036 free?',
+    a: 'Yes. Superior League 2036 is free to play.',
+  },
+  {
     q: 'Can I play it in my browser?',
     a: 'Yes. The web version runs in any modern browser, on desktop or phone, with nothing to install. An Android app is in a closed test on Google Play.',
   },
@@ -41,11 +45,13 @@ export const meta = () => [
         name: 'Superior League 2036',
         url: PLAY_LINKS.web,
         description:
-          'A satirical football management simulator (soccer manager game). Manage a club in a closed, investor-owned super league and try to win anyway.',
+          'A free, satirical football management simulator (soccer manager game). Manage a club in a closed, investor-owned super league and try to win anyway.',
         genre: ['Sports', 'Simulation', 'Football management', 'Soccer manager', 'Satire'],
         gamePlatform: ['Web browser', 'Android'],
         applicationCategory: 'Game',
         playMode: 'SinglePlayer',
+        isAccessibleForFree: true,
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP', url: PLAY_LINKS.web },
         inLanguage: 'en',
         image: `${SITE_URL}/og-image.jpg`,
       },
@@ -76,8 +82,8 @@ export default function Play() {
         Play Superior League 2036
       </h1>
       <p className="mt-4 text-xl font-semibold leading-snug">
-        A satirical football manager game. A soccer management simulator, if you’re reading this in
-        America. No real clubs, no download, and it plays in your browser.
+        A free, satirical football manager game. A soccer management simulator, if you’re reading
+        this in America. No real clubs, no download, and it plays in your browser.
       </p>
       <p className="mt-6 text-lg leading-relaxed">
         This website is satire. PEFA™ is the villain of <strong>Superior League 2036</strong>, a
@@ -85,7 +91,9 @@ export default function Play() {
         rebuilt it as a subscription product. You take charge of a club in its closed league and try
         to win anyway.
       </p>
-      <ActionLink href={PLAY_LINKS.web}>Play the football manager game in your browser</ActionLink>
+      <ActionLink href={PLAY_LINKS.web}>
+        Play the free football manager game in your browser
+      </ActionLink>
 
       <Section title="What you do as manager">
         <ul className="list-disc space-y-2 pl-5">
@@ -121,10 +129,10 @@ export default function Play() {
       <Section title="Football or soccer?">
         <p>
           Both. Superior League 2036 is a football simulator in the management sense: you make the
-          calls a manager makes, not the passes a player makes. If you came looking for a soccer
-          manager game, a football management sim or a browser football game with a sense of humour,
-          this is that game. If you came looking for a governing body, you have found a parody of
-          one.
+          calls a manager makes, not the passes a player makes. If you came looking for a free
+          soccer manager game, a football management sim or a browser football game with a sense of
+          humour, this is that game. If you came looking for a governing body, you have found a
+          parody of one.
         </p>
       </Section>
 
