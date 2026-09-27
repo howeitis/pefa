@@ -173,12 +173,20 @@ export default function Home() {
             satirical football manager game (a soccer management simulator, in American). Take a
             club into PEFA’s league and try to win anyway. It’s free and plays in your browser.
           </p>
-          <Link
-            to="/play"
-            className="shrink-0 rounded-md bg-ooc-ink px-5 py-3 text-center font-semibold text-ooc"
-          >
-            Play the free football manager game
-          </Link>
+          <div className="flex shrink-0 flex-col gap-3 sm:items-end">
+            <Link
+              to="/play"
+              className="rounded-md bg-ooc-ink px-5 py-3 text-center font-semibold text-ooc"
+            >
+              Play the free football manager game
+            </Link>
+            <Link
+              to="/play#trailer"
+              className="text-center font-semibold underline underline-offset-4"
+            >
+              Watch the trailer
+            </Link>
+          </div>
         </div>
       </OocStrip>
     </>
