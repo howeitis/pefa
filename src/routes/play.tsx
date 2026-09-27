@@ -95,6 +95,26 @@ export default function Play() {
         Play the free football manager game in your browser
       </ActionLink>
 
+      <Section title="Watch the trailer">
+        {/* The trailer is a self-contained page in public/ (fonts, art and
+            score inlined), so it sends nothing and needs no video host. */}
+        <figure id="trailer">
+          <div className="aspect-video w-full overflow-hidden rounded-lg border border-rule bg-black">
+            <iframe
+              src="/trailer.html"
+              title="Superior League 2036 trailer"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+              className="h-full w-full border-0"
+            />
+          </div>
+          <figcaption className="mt-3 text-sm text-ink-muted">
+            75 seconds, with sound. Press play inside the frame. The clubs and cards in it are the
+            game’s own.
+          </figcaption>
+        </figure>
+      </Section>
+
       <Section title="What you do as manager">
         <ul className="list-disc space-y-2 pl-5">
           <li>
