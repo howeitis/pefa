@@ -1060,6 +1060,8 @@ async function renderAudio(sr = 44100) {
 /* capture hook: every frame is a pure function of t */
 window.trailer = { DUR, SLOW, render, cues: CUES, seek, renderAudio };
 
+// Touchscreens have no Space bar; tapping the picture is how they pause.
+try { if (matchMedia('(pointer: coarse)').matches) $('poster').querySelector('p').textContent = '1:15 · Sound on · Tap to pause'; } catch (e) {}
 fit();
 const poster = () => { tHold = 0; render(58.7); syncUI(0); };
 (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(poster);

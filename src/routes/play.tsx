@@ -97,9 +97,11 @@ export default function Play() {
 
       <Section title="Watch the trailer">
         {/* The trailer is a self-contained page in public/ (fonts, art and
-            score inlined), so it sends nothing and needs no video host. */}
+            score inlined), so it sends nothing and needs no video host. It
+            lays itself out from its frame, so the 9:16 box on phones gets
+            its portrait cut. */}
         <figure id="trailer">
-          <div className="aspect-video w-full overflow-hidden rounded-lg border border-rule bg-black">
+          <div className="mx-auto aspect-[9/16] w-full max-w-sm overflow-hidden rounded-lg border border-rule bg-black sm:aspect-video sm:max-w-none">
             <iframe
               src="/trailer.html"
               title="Superior League 2036 trailer"
