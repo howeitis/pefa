@@ -52,6 +52,7 @@ export default function Governance() {
             Minutes of the Committee’s meetings are filed with Investor Relations. Its reasoning is
             not.{' '}
             <Link
+              viewTransition
               to="/governance/committee-minutes"
               className="underline underline-offset-4 hover:text-accent"
             >

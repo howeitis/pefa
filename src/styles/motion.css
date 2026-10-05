@@ -1,0 +1,518 @@
+/*
+ * The motion system.
+ *
+ * Content is never hidden waiting for React. The inline boot script in
+ * root.tsx (src/lib/boot.ts) sets `data-js` on <html> before first paint and
+ * watches every `.reveal` / `[data-reveal]` element, marking it `data-in`
+ * when it scrolls into view. Only `[data-js]` pages hide anything, only
+ * while motion is allowed, so prerendered HTML without script, and every
+ * reduced-motion visitor, gets the plain page.
+ *
+ * Text-bearing elements move or unmask; they never pass through partial
+ * opacity, which reads as a contrast failure (see PLAN.md §9). Only
+ * decorative pieces fade.
+ */
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-js] .reveal,
+  [data-js] [data-reveal] {
+    transition:
+      transform 1.1s var(--ease-out-expo),
+      clip-path 1.2s var(--ease-out-expo),
+      opacity 1.2s var(--ease-out-expo);
+    transition-delay: var(--delay, 0ms);
+  }
+  [data-js] .reveal:not([data-in]),
+  [data-js] [data-reveal='up']:not([data-in]) {
+    transform: translateY(2.75rem);
+  }
+  /* Unmasks top to bottom. A sliver stays visible: Chromium's
+     IntersectionObserver honours clip-path, and a fully clipped element
+     would never be seen to arrive. */
+  [data-js] [data-reveal='clip']:not([data-in]) {
+    clip-path: inset(0 0 97% 0);
+    transform: translateY(1.5rem);
+  }
+  /* Draws left to right: hairlines and bars. */
+  [data-js] [data-reveal='line']:not([data-in]) {
+    transform: scaleX(0);
+  }
+  [data-js] [data-reveal='scale']:not([data-in]) {
+    transform: scale(0.92);
+    clip-path: inset(6% 6% 6% 6% round 4px);
+  }
+  /* SVG strokes draw themselves (paths carry pathLength="1"). */
+  [data-js] [data-reveal='draw'] {
+    stroke-dasharray: 1;
+    transition: stroke-dashoffset 1.8s var(--ease-in-out-quart);
+    transition-delay: var(--delay, 0ms);
+  }
+  [data-js] [data-reveal='draw']:not([data-in]) {
+    stroke-dashoffset: 1;
+  }
+  /* Decorative only. */
+  [data-js] [data-reveal='fade']:not([data-in]) {
+    opacity: 0;
+  }
+
+  /* Split headings: every word rises out of its own mask. */
+  [data-js] .split .w > span {
+    transition: transform 1.15s var(--ease-out-expo);
+    transition-delay: calc(var(--delay, 0ms) + var(--i, 0) * 55ms);
+  }
+  [data-js] .split:not([data-in]) .w > span {
+    transform: translateY(108%);
+  }
+
+  /* A stamp lands: oversized, then down with a thud. */
+  [data-js] [data-reveal='stamp'] {
+    transition:
+      transform 0.45s cubic-bezier(0.5, 0, 0.75, 0),
+      opacity 0.2s linear;
+    transition-delay: var(--delay, 250ms);
+  }
+  [data-js] [data-reveal='stamp']:not([data-in]) {
+    transform: scale(2.2) rotate(-14deg);
+    opacity: 0;
+  }
+
+  /* Redaction bars are drawn on, like a marker pen. */
+  [data-js] .redacted {
+    background-image: linear-gradient(#050608, #050608);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: background-size 0.7s var(--ease-in-out-quart) 0.2s;
+  }
+  [data-js] .redacted:not([data-in]) {
+    background-size: 0% 100%;
+  }
+}
+
+.split .w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  /* Room for descenders and italic overhang inside the mask. */
+  padding: 0 0.04em 0.14em;
+  margin: 0 -0.04em -0.14em;
+}
+.split .w > span {
+  display: inline-block;
+}
+
+/* ---------- Marquees: two copies, scrolled by half ---------- */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 60s) linear infinite;
+}
+.marquee-track[data-direction='reverse'] {
+  animation-direction: reverse;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track,
+.marquee[data-paused] .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-fade {
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ---------- Ambient pieces ---------- */
+
+/* Film grain over the brand pages. A fixed tile, no blend mode, so it costs
+   one composited layer. */
+[data-material='floodlight']::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Architectural hairline grid behind heroes. */
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgb(246 244 238 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(246 244 238 / 0.05) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 75%);
+}
+
+/* Two floodlight beams, swaying slowly from the top corners. Drawn as
+   pseudo-elements of one full-size layer, so they can overhang the edges
+   (clipped by the hero) without any element sticking out of the page. */
+@keyframes beam-sway {
+  0%,
+  100% {
+    transform: rotate(var(--from));
+  }
+  50% {
+    transform: rotate(var(--to));
+  }
+}
+.beams {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.beams::before,
+.beams::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  width: 38vmax;
+  height: 140%;
+  transform-origin: 50% 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(255 236 186 / 0.16),
+    rgb(229 184 66 / 0.04) 55%,
+    transparent 80%
+  );
+  clip-path: polygon(46% 0, 54% 0, 100% 100%, 0 100%);
+  filter: blur(18px);
+  animation: beam-sway 14s ease-in-out infinite;
+}
+.beams::before {
+  left: 2%;
+  --from: -28deg;
+  --to: -14deg;
+}
+.beams::after {
+  right: 2%;
+  --from: 26deg;
+  --to: 12deg;
+  animation-delay: -7s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .beams::before,
+  .beams::after {
+    animation: none;
+    transform: rotate(var(--from));
+  }
+}
+
+@layer components {
+  /* The live dot: a pulse beside "live" labels. */
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+  .live-dot {
+    position: relative;
+    display: inline-block;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+  .live-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    animation: pulse-ring 1.8s var(--ease-out-expo) infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .live-dot::after {
+      animation: none;
+      opacity: 0;
+    }
+  }
+
+  /* Cards that catch the light where the pointer is (boot.ts sets --mx/--my). */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      var(--glow),
+      transparent 65%
+    );
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  /* Magnetic buttons (boot.ts sets --tx/--ty). */
+  [data-magnetic] {
+    transform: translate(var(--tx, 0), var(--ty, 0));
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+
+  /* Link underline that draws in from the left. */
+  .draw-link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s var(--ease-out-expo);
+  }
+  .draw-link:hover,
+  .draw-link:focus-visible,
+  .draw-link[aria-current='page'] {
+    background-size: 100% 1px;
+  }
+
+  /* Arrow that slides on hover of its parent group. */
+  .arrow {
+    display: inline-block;
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+  .group:hover .arrow,
+  .group:focus-visible .arrow {
+    transform: translateX(0.35rem);
+  }
+}
+
+/* Header reading progress, driven by scroll with no script where supported. */
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.scroll-progress {
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: grow-x linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+/* Hero scroll cue. */
+@keyframes cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(260%);
+  }
+}
+.scroll-cue::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40%;
+  background: var(--accent);
+  animation: cue 2.2s var(--ease-in-out-quart) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue::after {
+    animation: none;
+  }
+}
+
+/* Full-screen menu: links rise in sequence. */
+@keyframes menu-in {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes rise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .menu-panel:not([hidden]) {
+    animation: menu-in 0.7s var(--ease-in-out-quart) both;
+  }
+  .menu-panel:not([hidden]) .menu-rise {
+    animation: rise 0.9s var(--ease-out-expo) both;
+    animation-delay: calc(0.25s + var(--i, 0) * 45ms);
+  }
+}
+
+/* Count-up figures hold their width while they count. */
+.count {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* ---------- Page transitions (React Router viewTransition) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: vt-out 0.55s var(--ease-in-out-quart) both;
+  }
+  ::view-transition-new(root) {
+    animation: vt-in 0.8s var(--ease-in-out-quart) both;
+  }
+  ::view-transition-group(site-header) {
+    animation-duration: 0.5s;
+  }
+}
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+  height: 100%;
+}
+@keyframes vt-out {
+  to {
+    transform: translateY(-4%) scale(0.98);
+    filter: brightness(0.6);
+  }
+}
+@keyframes vt-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ---------- Scroll story (home "thesis") ---------- */
+.story-step {
+  transition:
+    transform 0.8s var(--ease-out-expo),
+    opacity 0.6s var(--ease-out-expo);
+}
+@media print {
+  [data-js] .reveal,
+  [data-js] [data-reveal],
+  [data-js] .split .w > span {
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Draft motif: five balls light in turn. */
+@keyframes motif-blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  8%,
+  45% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+}
+.motif-blink {
+  opacity: 0;
+  animation: motif-blink 3s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .motif-blink {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Crest orbit: rings turn, crests counter-turn to stay upright. */
+@keyframes orbit {
+  to {
+    rotate: 360deg;
+  }
+}
+.orbit-ring {
+  animation: orbit var(--orbit, 60s) linear infinite;
+}
+.orbit-counter {
+  animation: orbit var(--orbit, 60s) linear infinite reverse;
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-ring,
+  .orbit-counter {
+    animation: none;
+  }
+}
+
+/* Vertical rules that draw downwards (timelines). */
+@media (prefers-reduced-motion: no-preference) {
+  [data-js] [data-reveal='line-y'] {
+    transform-origin: 50% 0;
+    transition: transform 1.8s var(--ease-in-out-quart);
+  }
+  [data-js] [data-reveal='line-y']:not([data-in]) {
+    transform: scaleY(0);
+  }
+}
+
+/* Paper: a faint ledger grid behind Filing pages, fading down the sheet. */
+.paper-grid {
+  background-image:
+    linear-gradient(to right, rgb(15 30 54 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 30 54 / 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, #000, transparent);
+}
+
+/* Ledger rows settle into place. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-js] [data-reveal='row']:not([data-in]) {
+    transform: translateY(0.9rem);
+  }
+}
+
+/* A quote cell flashes once when the day's price arrives. */
+@keyframes tick-flash {
+  from {
+    background-color: rgb(229 184 66 / 0.35);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+.tick-flash {
+  animation: tick-flash 1.6s var(--ease-out-expo) both;
+  animation-delay: var(--flash-delay, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tick-flash {
+    animation: none;
+  }
+}
+
+/* Below-the-fold sections skip style and layout until they near the view. */
+.defer-render {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}

@@ -16,6 +16,9 @@
   --accent: #e5b842;
   --accent-ink: #0b0f19;
   --rule: rgb(246 244 238 / 0.14);
+  /* Dim, but still 3:1 on the ground: only ever used for large display type. */
+  --ink-faint: #6e7484;
+  --glow: rgb(229 184 66 / 0.18);
   --focus: #e5b842;
   color-scheme: dark;
 }
@@ -30,6 +33,8 @@
   --accent: #92400e;
   --accent-ink: #ffffff;
   --rule: #d5cfc4;
+  --ink-faint: #7a7f88;
+  --glow: rgb(15 30 54 / 0.08);
   --focus: #0f1e36;
   color-scheme: light;
 }
@@ -44,6 +49,8 @@
   --accent: #111111;
   --accent-ink: #d9f99d;
   --rule: #dcdcd6;
+  --ink-faint: #707070;
+  --glow: transparent;
   --focus: #1d4ed8;
   color-scheme: light;
 }
@@ -51,6 +58,7 @@
 @theme inline {
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
   --font-ooc: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 
   --color-ground: var(--ground);
@@ -61,6 +69,10 @@
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
   --color-rule: var(--rule);
+  --color-ink-faint: var(--ink-faint);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 
   /* Fixed brand colours, same on every material. */
   --color-navy: #0f1e36;
@@ -106,6 +118,15 @@
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  /* On the brand pages, labels read like a terminal: mono, tracked, caps. */
+  [data-material='floodlight'] .smallcaps,
+  .mono-caps {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
 
@@ -162,31 +183,6 @@
 .prose-filing a {
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-/*
- * Scroll reveal, with no JavaScript: a scroll-driven animation where the
- * browser supports it, and plain visible content everywhere else. Content
- * is never hidden waiting for script, so the prerendered HTML reads in full.
- */
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .reveal {
-      animation: reveal linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 60%;
-    }
-  }
-}
-/* Movement only, no fade: a half-faded element fails contrast, and text
-   should never pass through an unreadable state on its way in. */
-@keyframes reveal {
-  from {
-    transform: translateY(2rem);
-  }
-  to {
-    transform: none;
-  }
 }
 
 /* Floodlight: the stadium-light glow behind heroes. */

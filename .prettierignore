@@ -5,3 +5,4 @@ public
 src/canon/game
 package-lock.json
 PLAN.md
+src/data/land-dots.json

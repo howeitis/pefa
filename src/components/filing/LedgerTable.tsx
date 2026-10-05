@@ -44,7 +44,11 @@ export function LedgerTable<Row>({
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={rowKey(row)} className="border-b border-rule">
+            <tr
+              key={rowKey(row)}
+              data-reveal="row"
+              className="border-b border-rule transition-colors hover:bg-surface-2"
+            >
               {columns.map((c) => (
                 <td key={c.key} className={`px-2 py-2.5 first:pl-0 last:pr-0 ${cell(c)}`}>
                   {c.render(row)}

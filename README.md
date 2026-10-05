@@ -19,6 +19,7 @@ and `CANON.md` for the lore rules.
 | `npm run canon:import` | Re-imports locked canon from `../Superior League 2036/Howe to Manage` (read-only)                                    |
 | `npm run brand`        | Regenerates the PEFA™ mark, favicon, app icons, manifest and default OG image                                        |
 | `npm run og`           | Regenerates the per-page OG cards in `public/og/` (gitignored; runs before every build)                              |
+| `npm run land`         | Regenerates `src/data/land-dots.json`, the land mask for the home-page globe (committed; rarely needed)              |
 | `npm run thumbs`       | Regenerates the crest thumbnails and ledger minis from `public/club-crests/`                                         |
 
 ## Layout
@@ -42,6 +43,25 @@ and `CANON.md` for the lore rules.
   `public/llms.txt` is the out-of-character summary for AI assistants and agents.
 - `_excluded/` (gitignored) holds assets that must not ship: real federation crests, the game's
   hero art (it shows real brands) and the game's own icons.
+
+## Motion
+
+The site is built to move, without ever hiding content from someone who can't run it.
+
+- `src/lib/boot.ts` is inlined into `<head>` (`root.tsx`). It marks `<html data-js>` before first
+  paint and reveals `.reveal`, `[data-reveal]`, `.split` and `.redacted` elements as they scroll
+  in by setting `data-in`. It's started again at the end of `<body>`, so reveals never wait for the
+  JavaScript bundle. Elements are only hidden under `[data-js]` with motion allowed, so the
+  prerendered HTML and every reduced-motion visitor get the plain page.
+- `src/styles/motion.css` holds the reveal vocabulary (`up`, `clip`, `line`, `line-y`, `scale`,
+  `draw`, `stamp`, `row`, `fade`), marquees, beams, page transitions and the rest. Text moves or
+  unmasks; only decorative pieces fade, because a half-faded word fails contrast.
+- `src/components/motion/` has the React pieces: `SplitText` (headings rise word by word;
+  `*asterisks*` set gold italic), `CountUp`, `Marquee`, `TickerTape`, `FieldCanvas` (the hero's
+  data pitch), `Globe` and the scroll hooks. Canvases are decorative, pause off screen and stand
+  still under reduced motion. `FieldCanvas` starts only once the page is idle.
+- Internal links pass `viewTransition`, so client navigations wipe between pages.
+- Anything that loops sideways carries the `ticker` class, which the overflow test exempts.
 
 ## Rules
 

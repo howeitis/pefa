@@ -22,7 +22,7 @@ const FAQ: { q: string; a: ReactNode }[] = [
       <>
         Under the settlement with the domestic associations, no club that stayed behind may be named
         on a Superior League surface. See{' '}
-        <Link to="/governance#settlement" className="underline underline-offset-4">
+        <Link viewTransition to="/governance#settlement" className="underline underline-offset-4">
           Governance
         </Link>
         .
@@ -56,7 +56,11 @@ const FAQ: { q: string; a: ReactNode }[] = [
         An algorithmic lottery weighted by subscription tier, market size, brand compatibility and
         broadcast reach, assessed by the Global Inclusion Committee. The Committee does not publish
         its reasoning, but it does publish its{' '}
-        <Link to="/governance/committee-minutes" className="underline underline-offset-4">
+        <Link
+          viewTransition
+          to="/governance/committee-minutes"
+          className="underline underline-offset-4"
+        >
           minutes
         </Link>
         .

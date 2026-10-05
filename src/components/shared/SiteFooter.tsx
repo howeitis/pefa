@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { pageFor, type Material } from '~/site-map';
 import { LegalTicker } from './LegalTicker';
+import { LuxClock } from './LuxClock';
 import { FictionNotice } from './OocStrip';
 
 const COLUMNS: { heading: string; paths: string[] }[] = [
@@ -16,14 +17,15 @@ const COLUMNS: { heading: string; paths: string[] }[] = [
 ];
 
 export function SiteFooter({ material }: { material: Material }) {
-  const emblem =
-    material === 'floodlight' ? '/brand/pefa-emblem-on-dark.svg' : '/brand/pefa-emblem.svg';
+  const dark = material === 'floodlight';
+  const emblem = dark ? '/brand/pefa-emblem-on-dark.svg' : '/brand/pefa-emblem.svg';
+  const wordmark = dark ? '/brand/pefa-wordmark-on-dark.svg' : '/brand/pefa-wordmark.svg';
 
   return (
     <footer className="mt-auto">
       <LegalTicker />
-      <div className="bg-ground">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_repeat(3,1fr)] lg:px-8">
+      <div className="relative overflow-hidden bg-ground">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 pb-10 pt-16 sm:px-6 md:grid-cols-[1.4fr_repeat(3,1fr)] lg:px-8 lg:pt-24">
           <div className="max-w-xs">
             <img
               src={emblem}
@@ -31,23 +33,23 @@ export function SiteFooter({ material }: { material: Material }) {
               width={48}
               height={48}
               loading="lazy"
-              className="mb-4 h-12 w-12"
+              className="mb-6 h-12 w-12"
             />
-            <p className="font-display text-lg leading-snug">
+            <p className="font-display text-2xl leading-snug">
               Results remain unscripted.
               <br />
-              Revenue does not.
+              <span className="text-accent">Revenue does not.</span>
             </p>
           </div>
           {COLUMNS.map((col) => (
             <nav key={col.heading} aria-label={col.heading}>
-              <h2 className="smallcaps mb-3 text-ink-muted">{col.heading}</h2>
-              <ul className="space-y-2 text-sm">
+              <h2 className="smallcaps mb-5 text-ink-muted">{col.heading}</h2>
+              <ul className="space-y-3 text-sm">
                 {col.paths.map((path) => {
                   const page = pageFor(path);
                   return (
                     <li key={path}>
-                      <Link to={path} className="hover:text-accent">
+                      <Link to={path} viewTransition className="draw-link hover:text-accent">
                         {page?.label ?? page?.title ?? path}
                       </Link>
                     </li>
@@ -57,9 +59,30 @@ export function SiteFooter({ material }: { material: Material }) {
             </nav>
           ))}
         </div>
-        <div className="mx-auto max-w-7xl border-t border-rule px-4 py-5 text-xs text-ink-muted sm:px-6 lg:px-8">
-          © PEFA™ Private Equity Football Accelerate™. All rights reserved, and several others
-          acquired.
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-hidden="true">
+          <img
+            src={wordmark}
+            alt=""
+            width={296}
+            height={104}
+            loading="lazy"
+            data-reveal="clip"
+            className="w-full opacity-[0.07] [mask-image:linear-gradient(to_bottom,#000_40%,transparent)]"
+          />
+        </div>
+
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-rule px-4 py-6 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <p>
+            © PEFA™ Private Equity Football Accelerate™. All rights reserved, and several others
+            acquired.
+          </p>
+          <p className="flex items-center gap-5">
+            <LuxClock />
+            <a href="#main" className="font-mono uppercase tracking-wider hover:text-ink">
+              Top <span aria-hidden="true">↑</span>
+            </a>
+          </p>
         </div>
       </div>
       <FictionNotice />

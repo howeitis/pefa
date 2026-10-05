@@ -4,8 +4,10 @@ import { clubById, clubLore, clubs, crestMini, crestThumb, formatFollowers } fro
 import { FactList } from '~/components/filing/FactList';
 import { FilingDocument, FilingPage, FilingSection } from '~/components/filing/FilingPage';
 import { Footnote } from '~/components/filing/Footnote';
+import { PriceChart } from '~/components/filing/PriceChart';
 import { Stamp } from '~/components/filing/Stamp';
 import { NotInvited, notInvitedMeta } from '~/components/shared/NotInvited';
+import { history } from '~/lib/market';
 import { pageMeta } from '~/meta';
 import { CLUB_PATH } from '~/site-map';
 
@@ -55,7 +57,8 @@ export default function ClubListing({ params }: Route.ComponentProps) {
               alt=""
               width={435}
               height={512}
-              className="h-28 w-auto shrink-0 self-start sm:h-32 sm:self-center"
+              data-reveal="scale"
+              className="h-28 w-auto shrink-0 self-start drop-shadow-[0_12px_20px_rgb(15_30_54/0.25)] sm:h-32 sm:self-center"
             />
             <span>{club.name}</span>
           </span>
@@ -111,6 +114,14 @@ export default function ClubListing({ params }: Route.ComponentProps) {
           ]}
         />
 
+        <div className="mt-10">
+          <PriceChart
+            label={`${lore.ticker} · indicative price`}
+            series={(today, days) => history(lore.ticker, lore.listPrice, today, days)}
+            format={(n) => `£${n.toFixed(2)}`}
+          />
+        </div>
+
         <FilingSection number="1." heading="History, as approved by the compliance team">
           {lore.history.map((p) => (
             <p key={p}>{p}</p>
@@ -123,6 +134,7 @@ export default function ClubListing({ params }: Route.ComponentProps) {
               {rivals.map((r) => (
                 <li key={r.id}>
                   <Link
+                    viewTransition
                     to={CLUB_PATH(r.id)}
                     className="flex items-center gap-2 border border-rule px-3 py-2 hover:border-accent"
                   >
@@ -156,11 +168,11 @@ export default function ClubListing({ params }: Route.ComponentProps) {
       </FilingDocument>
 
       <nav aria-label="Other listings" className="mt-8 flex justify-between gap-4 text-sm">
-        <Link to={CLUB_PATH(prev.id)} className="hover:text-accent">
+        <Link viewTransition to={CLUB_PATH(prev.id)} className="hover:text-accent">
           <span aria-hidden="true">← </span>
           {prev.cardName}
         </Link>
-        <Link to={CLUB_PATH(next.id)} className="text-right hover:text-accent">
+        <Link viewTransition to={CLUB_PATH(next.id)} className="text-right hover:text-accent">
           {next.cardName}
           <span aria-hidden="true"> →</span>
         </Link>

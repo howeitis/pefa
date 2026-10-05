@@ -12,6 +12,7 @@ import {
 import type { Route } from './+types/root';
 import { SiteFooter } from './components/shared/SiteFooter';
 import { SiteHeader } from './components/shared/SiteHeader';
+import { BOOT_SCRIPT, REVEAL_SCRIPT } from './lib/boot';
 import { materialFor } from './site-map';
 // Imported as a URL so it can also be preloaded: React Router emits the
 // stylesheet link after the JS module preloads, and a preload at the top of
@@ -47,11 +48,14 @@ export function Layout({ children }: { children: ReactNode }) {
   const material = materialFor(pathname);
 
   return (
-    <html lang="en-GB">
+    <html lang="en-GB" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content={material === 'floodlight' ? '#0B0F19' : '#EDE9E2'} />
+        {/* Runs before first paint: marks the page as scripted and starts the
+            scroll reveals, independent of hydration (styles/motion.css). */}
+        <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
         <Meta />
         <Links />
       </head>
@@ -61,6 +65,7 @@ export function Layout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <SiteFooter material={material} />
+        <script dangerouslySetInnerHTML={{ __html: REVEAL_SCRIPT }} />
         <ScrollRestoration />
         <Scripts />
         {/* Vercel Web Analytics: cookieless page views, sent to this site's own

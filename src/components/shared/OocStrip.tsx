@@ -14,10 +14,14 @@ export function PlayLink({ className = '' }: { className?: string }) {
   return (
     <Link
       to="/play"
-      className={`ooc inline-flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold ${className}`}
+      viewTransition
+      data-magnetic
+      className={`ooc group inline-flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold ${className}`}
     >
       Play the game
-      <span aria-hidden="true">→</span>
+      <span aria-hidden="true" className="arrow">
+        →
+      </span>
     </Link>
   );
 }
@@ -35,7 +39,11 @@ export function FictionNotice() {
     <OocStrip label="Fiction notice">
       <div className="flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
         <p>{FICTION_NOTICE}</p>
-        <Link to="/play" className="shrink-0 font-semibold underline underline-offset-4">
+        <Link
+          to="/play"
+          viewTransition
+          className="shrink-0 font-semibold underline underline-offset-4"
+        >
           Play Superior League 2036
         </Link>
       </div>

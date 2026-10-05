@@ -17,10 +17,12 @@
     "brand": "node scripts/build-brand.mjs",
     "thumbs": "node scripts/build-thumbs.mjs",
     "og": "node scripts/build-og.mjs",
-    "prebuild": "node scripts/build-og.mjs"
+    "prebuild": "node scripts/build-og.mjs",
+    "land": "node scripts/build-land-dots.mjs"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
     "@fontsource/playfair-display": "^5.3.0",
     "@react-router/node": "^8.4.0",
     "@vercel/analytics": "^2.0.1",
@@ -37,10 +39,13 @@
     "@playwright/test": "^1.63.0",
     "@react-router/dev": "^8.4.0",
     "@tailwindcss/vite": "^4.3.3",
+    "@types/d3-geo": "^3.1.1",
     "@types/mdx": "^2.0.14",
     "@types/node": "^26.6.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@types/topojson-client": "^3.1.5",
+    "d3-geo": "^3.1.1",
     "esbuild": "^0.28.2",
     "eslint": "^10.11.0",
     "eslint-plugin-react-hooks": "^7.1.1",
@@ -52,9 +57,11 @@
     "serve": "^14.2.6",
     "sharp": "^0.35.4",
     "tailwindcss": "^4.3.3",
+    "topojson-client": "^3.1.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.1",
     "vite": "^8.3.1",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.11",
+    "world-atlas": "^2.0.2"
   }
 }

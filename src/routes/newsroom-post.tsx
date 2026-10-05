@@ -24,7 +24,7 @@ export default function NewsroomPost({ params }: Route.ComponentProps) {
   const { Content } = release;
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-      <Link to="/newsroom" className="smallcaps text-ink-muted hover:text-accent">
+      <Link viewTransition to="/newsroom" className="smallcaps text-ink-muted hover:text-accent">
         ← Newsroom
       </Link>
       <article className="mt-6 border border-rule bg-surface p-6 sm:p-12">

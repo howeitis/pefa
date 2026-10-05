@@ -82,8 +82,17 @@ test('supporter feedback replies in the browser and sends nothing', async ({ pag
   // Start listening once the page has settled, so page-load traffic (the
   // favicon, lazy images, the analytics script) isn't mistaken for the form.
   await page.waitForLoadState('networkidle');
+  // Anything that could carry data out: off-site, not a GET, or a GET with a
+  // query string. Same-site static assets that load as the form scrolls into
+  // view (the footer's lazy logo images) are not sending. Same rule as
+  // interactions.spec.ts.
   const requests: string[] = [];
-  page.on('request', (r) => requests.push(r.url()));
+  page.on('request', (r) => {
+    const url = new URL(r.url());
+    if (url.host !== 'localhost:4174' || r.method() !== 'GET' || url.search !== '') {
+      requests.push(`${r.method()} ${r.url()}`);
+    }
+  });
   await page.getByLabel('Topic').selectOption('offside');
   await page.getByLabel('Your feedback').fill('That was never offside.');
   await page.getByRole('button', { name: 'Submit feedback' }).click();

@@ -8,24 +8,30 @@ export interface Pillar {
   cta: string;
 }
 
-/** Three product pillars, each a card that links through. */
+/** Product pillars: tall cards that catch the light and lift on hover. */
 export function PillarRow({ pillars }: { pillars: Pillar[] }) {
   return (
-    <ul className="grid gap-6 md:grid-cols-3">
-      {pillars.map((p) => (
-        <li key={p.to} className="reveal">
+    <ul className="grid gap-px overflow-hidden rounded-sm border border-rule bg-rule md:grid-cols-3">
+      {pillars.map((p, i) => (
+        <li key={p.to} data-reveal="clip" className="bg-ground">
           <Link
             to={p.to}
-            className="group flex h-full flex-col rounded-sm border border-rule bg-surface p-8 transition-colors hover:border-accent"
+            viewTransition
+            className="spotlight group flex h-full min-h-[26rem] flex-col p-8 transition-colors duration-500 hover:bg-surface sm:p-10"
           >
-            <p className="smallcaps text-accent">{p.kicker}</p>
-            <h3 className="mt-4 font-display text-3xl">{p.title}</h3>
-            <p className="mt-4 flex-1 text-ink-muted">{p.body}</p>
-            <p className="mt-8 text-sm font-semibold">
-              {p.cta}{' '}
+            <div className="flex items-center justify-between">
+              <p className="smallcaps text-accent">{p.kicker}</p>
+              <p className="smallcaps figures text-ink-muted">0{i + 1}</p>
+            </div>
+            <h3 className="mt-auto pt-16 font-display text-4xl leading-tight transition-transform duration-700 [transition-timing-function:var(--ease-out-expo)] group-hover:-translate-y-2">
+              {p.title}
+            </h3>
+            <p className="mt-5 text-ink-muted">{p.body}</p>
+            <p className="mt-10 flex items-center justify-between border-t border-rule pt-5 text-sm font-semibold">
+              {p.cta}
               <span
                 aria-hidden="true"
-                className="inline-block transition-transform group-hover:translate-x-1"
+                className="arrow flex h-9 w-9 items-center justify-center rounded-full border border-rule transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-accent-ink"
               >
                 →
               </span>

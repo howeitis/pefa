@@ -50,7 +50,8 @@ export default function Careers() {
     <>
       <Hero
         kicker="Careers at PEFA™"
-        title="Join the team that removed sporting merit from football."
+        title="Join the team that removed sporting merit from *football.*"
+        backdrop="grid"
         lede={
           <p>
             We are always looking for people who share our belief that the best outcome is the one
@@ -60,6 +61,7 @@ export default function Careers() {
       />
 
       <Section
+        index="01"
         id="manager"
         kicker="Featured role"
         title="Manager"
@@ -78,6 +80,7 @@ export default function Careers() {
             League 2036, a free football management simulator you can play in your browser.
           </p>
           <Link
+            viewTransition
             to="/play"
             className="shrink-0 rounded-md bg-ooc-ink px-5 py-3 text-center font-semibold text-ooc"
           >
@@ -86,12 +89,13 @@ export default function Careers() {
         </div>
       </Section>
 
-      <Section id="roles" kicker="Open roles" title="Other opportunities.">
+      <Section index="02" id="roles" kicker="Open roles" title="Other *opportunities.*">
         <ul className="grid gap-6 md:grid-cols-2">
           {ROLES.map((r) => (
             <li
               key={r.title}
-              className="reveal flex flex-col rounded-sm border border-rule bg-surface p-8"
+              data-reveal="clip"
+              className="spotlight flex flex-col rounded-sm border border-rule bg-surface/60 p-8 transition-colors duration-500 hover:border-accent/60 sm:p-10"
             >
               <p className="smallcaps text-accent">{r.team}</p>
               <h3 className="mt-3 font-display text-2xl">{r.title}</h3>

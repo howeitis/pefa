@@ -1,0 +1,28 @@
+/** Coordinates for the cities in the game's club list, and PEFA's registered office. */
+export const HQ = { name: 'Luxembourg', lat: 49.61, lng: 6.13 };
+
+export const CITY_COORDS: Record<string, [lat: number, lng: number]> = {
+  London: [51.51, -0.13],
+  Liverpool: [53.41, -2.98],
+  Manchester: [53.48, -2.24],
+  Madrid: [40.42, -3.7],
+  Barcelona: [41.39, 2.17],
+  Milan: [45.46, 9.19],
+  Turin: [45.07, 7.69],
+  Paris: [48.86, 2.35],
+  Munich: [48.14, 11.58],
+  Dortmund: [51.51, 7.47],
+  Miami: [25.76, -80.19],
+  'Los Angeles': [34.05, -118.24],
+  'New York': [40.71, -74.01],
+  'Mexico City': [19.43, -99.13],
+  Monterrey: [25.69, -100.32],
+  Riyadh: [24.71, 46.68],
+  Jeddah: [21.49, 39.19],
+  Shanghai: [31.23, 121.47],
+  Tokyo: [35.68, 139.69],
+  Cairo: [30.04, 31.24],
+  Pretoria: [-25.75, 28.19],
+  'Rio de Janeiro': [-22.91, -43.17],
+  'Buenos Aires': [-34.6, -58.38],
+};

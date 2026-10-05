@@ -1,15 +1,21 @@
 import { Link } from 'react-router';
-import { clubs, league, lore, scene } from '~/canon';
+import { clubLore, clubs, league, lore, scene } from '~/canon';
 import { FactList } from '~/components/filing/FactList';
 import { FilingDocument, FilingPage, FilingSection } from '~/components/filing/FilingPage';
+import { PriceChart } from '~/components/filing/PriceChart';
 import { ShareBoard } from '~/components/filing/ShareBoard';
 import { Stamp } from '~/components/filing/Stamp';
 import { Redacted } from '~/components/shared/Redacted';
+import { indexHistory } from '~/lib/market';
 import { metaFor } from '~/meta';
 
 export const meta = () => metaFor('/investors');
 
 const genesis = scene('genesis');
+const tickers = Object.values(clubLore).map((l) => l.ticker);
+const index = (today: string, days: number) => indexHistory(tickers, today, days);
+const points = (n: number) =>
+  n.toLocaleString('en-GB', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
 
 type Filing = { title: string; detail: string } & (
   { to: string; status: 'Available' } | { to?: undefined; status: 'Pending' }
@@ -71,13 +77,25 @@ export default function Investors() {
           ]}
         />
 
-        <FilingSection number="1." heading="Filings">
+        <FilingSection number="1." heading="The PEFA™ Superior Index" id="index">
+          <p className="text-ink-muted">
+            All {clubs.length} listed clubs, equally weighted, rebased to 1,000 at listing, with the
+            admission mark-up applied. The index has been designed to go one way.
+          </p>
+          <PriceChart label="PEFA™ Superior Index · indicative" series={index} format={points} />
+        </FilingSection>
+
+        <FilingSection number="2." heading="Filings">
           <ul className="divide-y divide-rule border-y border-rule">
             {FILINGS.map((f) => (
-              <li key={f.title} className="flex items-start justify-between gap-6 py-4">
+              <li
+                key={f.title}
+                data-reveal="row"
+                className="group flex items-start justify-between gap-6 py-4"
+              >
                 <div>
                   {f.to ? (
-                    <Link to={f.to} className="font-semibold hover:text-accent">
+                    <Link viewTransition to={f.to} className="font-semibold hover:text-accent">
                       {f.title}
                     </Link>
                   ) : (
@@ -95,7 +113,7 @@ export default function Investors() {
           </ul>
         </FilingSection>
 
-        <FilingSection number="2." heading={genesis.filingTitle!}>
+        <FilingSection number="3." heading={genesis.filingTitle!}>
           <FactList
             rows={genesis.filing!.map((row) => ({
               label: row.label,
@@ -107,7 +125,7 @@ export default function Investors() {
           </p>
         </FilingSection>
 
-        <FilingSection number="3." heading="The board" id="board">
+        <FilingSection number="4." heading="The board" id="board">
           <p className="text-ink-muted">
             {`All ${clubs.length} clubs in the Superior League universe, with indicative daily quotes: the ${league.permanentIds.length} founder members first, then the ${league.globalIds.length} clubs in the Synergy Draft™ pool.`}
           </p>

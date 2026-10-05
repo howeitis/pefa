@@ -3,6 +3,8 @@ import { clubsIn, league, lore, scene } from '~/canon';
 import { DraftCalculator } from '~/components/floodlight/DraftCalculator';
 import { DraftConstellation } from '~/components/floodlight/DraftConstellation';
 import { Hero } from '~/components/floodlight/Hero';
+import { DraftMotif } from '~/components/home/Motifs';
+import { ScrollQuote } from '~/components/home/ScrollQuote';
 import { Section } from '~/components/floodlight/Section';
 import { metaFor } from '~/meta';
 
@@ -37,6 +39,12 @@ export default function SynergyDraft() {
       <Hero
         kicker={draft.kicker!}
         title={draft.headline!}
+        backdrop="grid"
+        aside={
+          <div className="hidden h-[26rem] w-[26rem] rounded-full border border-rule p-12 lg:block">
+            <DraftMotif />
+          </div>
+        }
         lede={
           <>
             <p>{draft.body}</p>
@@ -45,11 +53,21 @@ export default function SynergyDraft() {
         }
       />
 
-      <Section id="how" kicker="How it works" title="Four steps to inclusion.">
-        <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <Section index="01" id="how" kicker="How it works" title="Four steps to *inclusion.*">
+        <ol className="relative grid gap-px overflow-hidden rounded-sm border border-rule bg-rule md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (
-            <li key={s.title} className="reveal rounded-sm border border-rule bg-surface p-7">
-              <p className="figures font-display text-5xl text-accent">{i + 1}</p>
+            <li
+              key={s.title}
+              data-reveal="clip"
+              className="spotlight relative bg-ground p-8 transition-colors duration-500 hover:bg-surface"
+            >
+              <span
+                aria-hidden="true"
+                data-reveal="line"
+                style={{ '--delay': `${300 + i * 250}ms` } as React.CSSProperties}
+                className="absolute inset-x-0 top-0 block h-0.5 origin-left bg-accent"
+              />
+              <p className="figures font-display text-6xl text-accent">0{i + 1}</p>
               <h3 className="mt-4 font-display text-2xl">{s.title}</h3>
               <p className="mt-3 text-ink-muted">{s.body}</p>
             </li>
@@ -59,6 +77,7 @@ export default function SynergyDraft() {
       </Section>
 
       <Section
+        index="02"
         id="pool"
         kicker="The pool"
         title={`${league.globalIds.length} global partners. ${league.rotatingSlots} berths.`}
@@ -67,9 +86,10 @@ export default function SynergyDraft() {
       </Section>
 
       <Section
+        index="03"
         id="eligibility"
         kicker="Eligibility"
-        title="Is your club included?"
+        title="Is your club *included?*"
         intro={
           <p>
             Answer four questions for an indicative assessment, weighted exactly as the Committee
@@ -80,18 +100,23 @@ export default function SynergyDraft() {
         <DraftCalculator />
       </Section>
 
-      <Section id="committee" kicker="The Committee">
-        <figure className="reveal max-w-4xl">
-          <blockquote className="font-display text-4xl leading-tight sm:text-5xl">
-            “{globalGame.body[3]}”
-          </blockquote>
+      <Section index="04" id="committee" kicker="The Committee">
+        <figure className="max-w-4xl">
+          <ScrollQuote
+            text={globalGame.body[3]!}
+            className="font-display text-4xl leading-tight sm:text-6xl"
+          />
           <figcaption className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-ink-muted">
             <span>The Global Inclusion Committee</span>
             <Link
+              viewTransition
               to="/governance/committee-minutes"
-              className="font-semibold text-ink hover:text-accent"
+              className="group font-semibold text-ink hover:text-accent"
             >
-              Read the minutes <span aria-hidden="true">→</span>
+              Read the minutes{' '}
+              <span aria-hidden="true" className="arrow">
+                →
+              </span>
             </Link>
           </figcaption>
         </figure>

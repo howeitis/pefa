@@ -2,7 +2,8 @@ import { useSyncExternalStore } from 'react';
 import { Link } from 'react-router';
 import { type Club, clubLore, crestMini, formatFollowers } from '~/canon';
 import { formatReleaseDate } from '~/content/newsroom';
-import { inWorldDate, quote, todayUtc } from '~/lib/market';
+import { Sparkline } from '~/components/motion/TickerTape';
+import { history, inWorldDate, quote, todayUtc } from '~/lib/market';
 import { CLUB_PATH } from '~/site-map';
 import { LedgerTable } from './LedgerTable';
 
@@ -38,7 +39,11 @@ export function ShareBoard({ clubs }: { clubs: Club[] }) {
           key: 'club',
           header: 'Club',
           render: (c) => (
-            <Link to={CLUB_PATH(c.id)} className="flex items-center gap-2 hover:text-accent">
+            <Link
+              viewTransition
+              to={CLUB_PATH(c.id)}
+              className="flex items-center gap-2 hover:text-accent"
+            >
               <img
                 src={crestMini(c)}
                 alt=""
@@ -66,9 +71,15 @@ export function ShareBoard({ clubs }: { clubs: Club[] }) {
           align: 'right',
           render: (c) => {
             const lore = clubLore[c.id]!;
-            return today
-              ? gbp(quote(lore.ticker, lore.listPrice, today).price)
-              : `£${lore.listPrice}`;
+            if (!today) return `£${lore.listPrice}`;
+            return (
+              <span
+                className="tick-flash -mx-1 rounded-sm px-1"
+                style={{ '--flash-delay': `${clubs.indexOf(c) * 40}ms` } as React.CSSProperties}
+              >
+                {gbp(quote(lore.ticker, lore.listPrice, today).price)}
+              </span>
+            );
           },
         },
         {
@@ -87,6 +98,24 @@ export function ShareBoard({ clubs }: { clubs: Club[] }) {
                 <span className="sr-only">{up ? 'up' : 'down'}</span>
                 {Math.abs(dayChange).toFixed(1)}%
               </span>
+            );
+          },
+        },
+        {
+          key: 'trend',
+          header: '30D',
+          align: 'right',
+          wide: true,
+          render: (c) => {
+            if (!today) return null;
+            const lore = clubLore[c.id]!;
+            return (
+              <Sparkline
+                values={history(lore.ticker, lore.listPrice, today, 30)}
+                width={72}
+                height={18}
+                className="ml-auto"
+              />
             );
           },
         },

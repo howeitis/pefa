@@ -43,12 +43,19 @@ export default function Technology() {
       <Hero
         kicker={partners.kicker!}
         title={partners.headline!}
+        backdrop="field"
         lede={<p>{techSection.body[0]}</p>}
       />
 
-      <Section id="partners" kicker="Technology leadership" title="Three partners. One match.">
+      <Section
+        index="01"
+        id="partners"
+        kicker="Technology leadership"
+        title="Three partners. *One* match."
+      >
         <div className="grid gap-6 lg:grid-cols-3">
           <PartnerPanel
+            index="01"
             name="Microsack"
             role={role('Microsack')}
             footer={
@@ -67,6 +74,7 @@ export default function Technology() {
           </PartnerPanel>
 
           <PartnerPanel
+            index="02"
             name="Clawed AI"
             role={role('Clawed AI')}
             footer={
@@ -87,6 +95,7 @@ export default function Technology() {
           </PartnerPanel>
 
           <PartnerPanel
+            index="03"
             name="ChatGDP"
             role={role('ChatGDP')}
             footer={
@@ -107,24 +116,38 @@ export default function Technology() {
         </div>
       </Section>
 
-      <Section id="production" kicker="Production" title="How a Superior League match is made.">
-        <ol className="relative space-y-10 border-l border-rule pl-8">
+      <Section
+        index="02"
+        id="production"
+        kicker="Production"
+        title="How a Superior League match is *made.*"
+      >
+        <ol className="relative space-y-12 border-l border-rule pl-10">
+          <li
+            aria-hidden="true"
+            data-reveal="line-y"
+            className="absolute -left-px top-0 block h-full w-px bg-accent"
+          />
           {PIPELINE.map((step, i) => (
             <li key={i} className="reveal relative">
-              <span
-                aria-hidden="true"
-                className="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full bg-accent"
-              />
+              <span aria-hidden="true" className="live-dot absolute -left-[45px] top-2" />
               <p className="smallcaps text-accent">
                 {step.when} · {step.who}
               </p>
-              <p className="mt-2 max-w-2xl text-lg">{step.what}</p>
+              <p className="mt-3 max-w-2xl font-display text-2xl leading-snug">{step.what}</p>
             </li>
           ))}
         </ol>
-        <p className="reveal mt-16 font-display text-3xl">{partners.footnote}</p>
-        <Link to="/partners" className="mt-8 inline-block font-semibold hover:text-accent">
-          All PEFA™ partners <span aria-hidden="true">→</span>
+        <p className="reveal mt-20 font-display text-4xl text-accent">{partners.footnote}</p>
+        <Link
+          viewTransition
+          to="/partners"
+          className="group mt-8 inline-block font-semibold hover:text-accent"
+        >
+          All PEFA™ partners{' '}
+          <span aria-hidden="true" className="arrow">
+            →
+          </span>
         </Link>
       </Section>
     </>

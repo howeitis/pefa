@@ -130,6 +130,7 @@ export default function AnnualReport() {
             associations was concluded, the Superior Venue™ programme was certified, and the first
             Synergy Draft™ was held on schedule.{' '}
             <Link
+              viewTransition
               to="/leadership#letter"
               className="underline underline-offset-4 hover:text-accent"
             >

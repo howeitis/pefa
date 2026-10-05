@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { decree, lore } from '~/canon';
 import { Hero } from '~/components/floodlight/Hero';
+import { VenueMotif } from '~/components/home/Motifs';
 import { Section } from '~/components/floodlight/Section';
 import { metaFor } from '~/meta';
 
@@ -49,7 +50,13 @@ export default function SuperiorVenue() {
     <>
       <Hero
         kicker="Superior Venue™ · Infrastructure by Microsack"
-        title="The football stadium has been replaced."
+        title="The football stadium has been *replaced.*"
+        backdrop="grid"
+        aside={
+          <div className="hidden h-[26rem] w-[26rem] lg:block">
+            <VenueMotif />
+          </div>
+        }
         lede={
           <p>
             Every Superior League fixture is played in a Superior Venue™: a climate-controlled,
@@ -60,16 +67,21 @@ export default function SuperiorVenue() {
       />
 
       <Section
+        index="01"
         id="features"
         kicker="Specification"
-        title="Standard in every venue."
+        title="Standard in every *venue.*"
         intro={<p>{matchday.body[0]}</p>}
       >
         <ol className="grid gap-px overflow-hidden rounded-sm border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
           {matchday.bullets!.map((name, i) => (
-            <li key={name} className="reveal bg-surface p-8">
+            <li
+              key={name}
+              data-reveal="clip"
+              className="spotlight bg-ground p-8 transition-colors duration-500 hover:bg-surface sm:p-10"
+            >
               <p className="smallcaps figures text-accent">{String(i + 1).padStart(2, '0')}</p>
-              <h3 className="mt-3 font-display text-2xl">{name}</h3>
+              <h3 className="mt-6 font-display text-2xl">{name}</h3>
               <p className="mt-3 text-ink-muted">{COPY[name]}</p>
             </li>
           ))}
@@ -77,6 +89,7 @@ export default function SuperiorVenue() {
       </Section>
 
       <Section
+        index="02"
         id="regulations"
         kicker="Matchday regulations"
         title="Decrees that shape the experience."
@@ -89,18 +102,35 @@ export default function SuperiorVenue() {
       >
         <ul className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {MATCHDAY_DECREES.map((d) => (
-            <li key={d.id} className="reveal border-l-2 border-accent pl-6">
+            <li key={d.id} className="reveal relative border-l border-rule pl-6">
+              <span
+                aria-hidden="true"
+                data-reveal="line-y"
+                className="absolute -left-px top-0 h-full w-0.5 bg-accent"
+              />
               <h3 className="font-display text-2xl">{d.name}</h3>
               <p className="mt-2 text-ink-muted">{d.tagline}</p>
             </li>
           ))}
         </ul>
-        <Link to="/governance" className="mt-12 inline-block font-semibold hover:text-accent">
-          The full decree register <span aria-hidden="true">→</span>
+        <Link
+          viewTransition
+          to="/governance"
+          className="group mt-12 inline-block font-semibold hover:text-accent"
+        >
+          The full decree register{' '}
+          <span aria-hidden="true" className="arrow">
+            →
+          </span>
         </Link>
       </Section>
 
-      <Section id="app" kicker="Superior League app™" title="Participation is encouraged.">
+      <Section
+        index="03"
+        id="app"
+        kicker="Superior League app™"
+        title="Participation is *encouraged.*"
+      >
         <div className="reveal grid gap-10 lg:grid-cols-[1.4fr_1fr]">
           <p className="font-display text-3xl leading-snug">{matchday.footnote}</p>
           <div className="space-y-4 text-ink-muted">
@@ -109,10 +139,14 @@ export default function SuperiorVenue() {
               Microsack. Valuations are provided by Clawed AI.
             </p>
             <Link
+              viewTransition
               to="/technology"
-              className="inline-block font-semibold text-ink hover:text-accent"
+              className="group inline-block font-semibold text-ink hover:text-accent"
             >
-              Meet the technology partners <span aria-hidden="true">→</span>
+              Meet the technology partners{' '}
+              <span aria-hidden="true" className="arrow">
+                →
+              </span>
             </Link>
           </div>
         </div>

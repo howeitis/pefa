@@ -93,7 +93,7 @@ export default function Legal() {
               Superior League 2036
             </a>
             , a football management game.{' '}
-            <Link to="/play" className="font-semibold underline underline-offset-4">
+            <Link viewTransition to="/play" className="font-semibold underline underline-offset-4">
               How to play
             </Link>
             .
