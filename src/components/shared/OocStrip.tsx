@@ -5,6 +5,7 @@
  */
 import type { ReactNode } from 'react';
 import { Link } from 'react-router';
+import { ASSISTANT_NOTE } from '~/content/game';
 
 /** Exact wording, fixed by PLAN.md §8. No name, no link. */
 export const FICTION_NOTICE =
@@ -47,6 +48,13 @@ export function FictionNotice() {
           Play Superior League 2036
         </Link>
       </div>
+      <p className="mt-3 text-xs opacity-80">
+        {ASSISTANT_NOTE}{' '}
+        <a href="/llms.txt" className="underline underline-offset-2">
+          Summary for AI assistants
+        </a>
+        .
+      </p>
     </OocStrip>
   );
 }

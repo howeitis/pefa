@@ -5,12 +5,18 @@
  *   renders the not-invited page, so it doubles as the 404.
  * - sitemap.xml and robots.txt, from the pages that were actually
  *   prerendered, so the sitemap can never list a page that doesn't exist.
+ *   robots.txt also names the AI search and assistant crawlers: `*` already
+ *   allows them, but a group addressed to them by name is unambiguous.
+ * - llms.txt, from src/content/llms.md with the FAQ /play renders
+ *   (src/content/game.ts) and the origin in src/site.json, so a domain move
+ *   is one edit.
  */
-import { copyFile, readdir, writeFile } from 'node:fs/promises';
+import { copyFile, readdir, readFile, writeFile } from 'node:fs/promises';
 import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { FAQ, SITE_URL } from '../src/content/game.ts';
+import { PLAY_LINKS } from '../src/play-links.ts';
 
-const SITE_URL = 'https://pefa-alpha.vercel.app';
 const dir = fileURLToPath(new URL('../build/client/', import.meta.url));
 
 await copyFile(join(dir, '__spa-fallback.html'), join(dir, '404.html'));
@@ -42,9 +48,39 @@ ${urls.map((u) => `  <url><loc>${u}</loc><lastmod>${today}</lastmod></url>`).joi
 `,
 );
 
+const AI_CRAWLERS = [
+  'GPTBot',
+  'OAI-SearchBot',
+  'ChatGPT-User',
+  'ClaudeBot',
+  'Claude-SearchBot',
+  'Claude-User',
+  'PerplexityBot',
+  'Perplexity-User',
+  'Google-Extended',
+  'Applebot-Extended',
+  'CCBot',
+];
 await writeFile(
   join(dir, 'robots.txt'),
-  `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`,
+  [
+    'User-agent: *',
+    'Allow: /',
+    '',
+    ...AI_CRAWLERS.map((bot) => `User-agent: ${bot}`),
+    'Allow: /',
+    '',
+    `Sitemap: ${SITE_URL}/sitemap.xml`,
+    '',
+  ].join('\n'),
 );
 
-console.log(`postbuild: wrote 404.html, robots.txt and sitemap.xml (${urls.length} URLs)`);
+const llms = (await readFile(new URL('../src/content/llms.md', import.meta.url), 'utf8'))
+  .replaceAll('{{SITE_URL}}', SITE_URL)
+  .replaceAll('{{PLAY_URL}}', PLAY_LINKS.web)
+  .replace('{{FAQ}}', FAQ.map(({ q, a }) => `### ${q}\n\n${a}`).join('\n\n'));
+await writeFile(join(dir, 'llms.txt'), llms);
+
+console.log(
+  `postbuild: wrote 404.html, robots.txt, llms.txt and sitemap.xml (${urls.length} URLs)`,
+);

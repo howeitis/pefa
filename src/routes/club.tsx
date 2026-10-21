@@ -26,7 +26,7 @@ export const meta = ({ params }: Route.MetaArgs) => {
     ? pageMeta({
         path: CLUB_PATH(found.club.id),
         title: `${found.club.name} (${found.lore.ticker})`,
-        description: found.lore.positioning,
+        description: `${found.lore.positioning} ${found.club.name} is a fictional club in Superior League 2036, a free satirical football manager game.`,
       })
     : notInvitedMeta;
 };

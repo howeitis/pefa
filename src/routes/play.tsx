@@ -1,60 +1,14 @@
 import type { ReactNode } from 'react';
 import { FICTION_NOTICE } from '~/components/shared/OocStrip';
-import { metaFor, SITE_URL } from '~/meta';
+import { FAQ, GAME_LD } from '~/content/game';
+import { metaFor } from '~/meta';
 import { PLAY_LINKS } from '~/play-links';
-
-/**
- * Plain answers to the questions people type into search engines and AI
- * assistants. Rendered on the page and repeated as FAQPage structured data,
- * so the two can't drift apart. Only facts the game's canon confirms.
- */
-const FAQ: { q: string; a: string }[] = [
-  {
-    q: 'What kind of game is Superior League 2036?',
-    a: 'A football management simulator, or soccer manager game. You manage one club: you pick the team, set the tactics, work the transfer market and keep the board happy, and the match engine plays out the results.',
-  },
-  {
-    q: 'Is it a football simulator where I control the players?',
-    a: 'No. It is a management sim, in the tradition of football manager games, rather than an action game where you control players on the pitch. You make the decisions; the simulation plays the matches.',
-  },
-  {
-    q: 'Is Superior League 2036 free?',
-    a: 'Yes. Superior League 2036 is free to play.',
-  },
-  {
-    q: 'Can I play it in my browser?',
-    a: 'Yes. The web version runs in any modern browser, on desktop or phone, with nothing to install. An Android app is in a closed test on Google Play.',
-  },
-  {
-    q: 'Are real clubs or players in the game?',
-    a: 'No. Every club, league and person is invented. There are 28 clubs in the Superior League world, plus five domestic leagues of invented clubs.',
-  },
-  {
-    q: 'What is PEFA™?',
-    a: 'PEFA™ (Private Equity Football Accelerate™) is the game’s fictional villain: a private equity fund that dissolved football and rebuilt it as a subscription product. This website is PEFA’s corporate site, written in character as satire.',
-  },
-];
 
 export const meta = () => [
   ...metaFor('/play'),
   {
     'script:ld+json': [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'VideoGame',
-        name: 'Superior League 2036',
-        url: PLAY_LINKS.web,
-        description:
-          'A free, satirical football management simulator (soccer manager game). Manage a club in a closed, investor-owned super league and try to win anyway.',
-        genre: ['Sports', 'Simulation', 'Football management', 'Soccer manager', 'Satire'],
-        gamePlatform: ['Web browser', 'Android'],
-        applicationCategory: 'Game',
-        playMode: 'SinglePlayer',
-        isAccessibleForFree: true,
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP', url: PLAY_LINKS.web },
-        inLanguage: 'en',
-        image: `${SITE_URL}/og-image.jpg`,
-      },
+      GAME_LD,
       {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -138,10 +92,10 @@ export default function Play() {
           <li>
             <strong>Adapt to league decrees</strong> that rewrite the rules each season: away wins
             worth four points, derby wins worth six, algorithmic offside, sponsored substitutions
-            and 28 more.
+            and 32 more.
           </li>
           <li>
-            <strong>Every club is invented.</strong> 28 clubs in the league’s world, each with a
+            <strong>Every club is invented.</strong> 30 clubs in the league’s world, each with a
             share price, an owner and a history, plus five domestic leagues carrying on without
             them.
           </li>

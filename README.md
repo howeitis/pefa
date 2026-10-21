@@ -40,7 +40,11 @@ and `CANON.md` for the lore rules.
 - Search: a page's `seoTitle` in `src/site-map.ts` overrides its `<title>` for search results
   without changing its in-world title. `/play` is the search landing page for "football manager
   game" and "soccer simulator" queries, with VideoGame and FAQPage structured data.
-  `public/llms.txt` is the out-of-character summary for AI assistants and agents.
+  Home carries WebSite + VideoGame structured data. The FAQ, the VideoGame object and the
+  footer's labelled note for AI assistants live in `src/content/game.ts`; the build writes
+  `llms.txt` from `src/content/llms.md` with that FAQ, and `robots.txt` names the AI crawlers.
+- Domain: the site's origin is `src/site.json` and nothing else. Change it there when the new
+  domain lands (and add the old one as a redirect in Vercel).
 - `_excluded/` (gitignored) holds assets that must not ship: real federation crests, the game's
   hero art (it shows real brands) and the game's own icons.
 

@@ -15,10 +15,11 @@ import { TickerTape } from '~/components/motion/TickerTape';
 import { OocStrip, PlayLink } from '~/components/shared/OocStrip';
 import { LETTER } from '~/content/leadership';
 import { formatReleaseDate, RELEASES } from '~/content/newsroom';
+import { GAME_LD, WEBSITE_LD } from '~/content/game';
 import { metaFor } from '~/meta';
 import { NEWS_PATH } from '~/site-map';
 
-export const meta = () => metaFor('/');
+export const meta = () => [...metaFor('/'), { 'script:ld+json': [WEBSITE_LD, GAME_LD] }];
 
 const close = scene('close');
 const globalGame = lore.prospectus.sections.find((s) => s.heading === 'The Global Game')!;
@@ -186,8 +187,8 @@ export default function Home() {
               <SplitText text={`${clubs.length} listed clubs. *Zero* relegations.`} />
             </h2>
             <p data-reveal="up" className="mt-7 max-w-2xl text-lg text-ink-muted">
-              Fifteen founders in perpetuity and thirteen global partners in the Synergy Draft™
-              pool, each listed with a ticker, an exchange and a risk factor.
+              Fifteen founders in perpetuity and fifteen global partners in the Synergy Draft™ pool,
+              each listed with a ticker, an exchange and a risk factor.
             </p>
           </div>
         </div>

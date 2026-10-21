@@ -1,9 +1,11 @@
 import type { MetaDescriptor } from 'react-router';
+import { SITE_URL } from './content/game';
 import { ogImagePath } from './og';
 import { pageFor, type SitePage } from './site-map';
 
 export const SITE_NAME = 'PEFA™';
-export const SITE_URL = 'https://pefa-alpha.vercel.app';
+/** The site's origin lives in src/site.json, so a domain move is one edit. */
+export { SITE_URL };
 
 /** Standard title/description/OG tags for a page. */
 export function pageMeta(
