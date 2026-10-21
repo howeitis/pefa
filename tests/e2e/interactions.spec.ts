@@ -112,7 +112,7 @@ test.describe('share board', () => {
     await page.goto('/investors');
     const requests = watchRequests(page);
     await expect(page.getByText(/Indicative quotes · \d{1,2} \w+ 20\d\d/)).toBeVisible();
-    await expect(page.locator('#board tbody tr')).toHaveCount(28);
+    await expect(page.locator('#board tbody tr')).toHaveCount(30);
     expect(requests).toEqual([]);
   });
 

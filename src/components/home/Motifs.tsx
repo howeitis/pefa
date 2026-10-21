@@ -45,16 +45,14 @@ export function LeagueMotif() {
   );
 }
 
-/** The draft: thirteen balls, five lighting in turn. */
+/** The draft: fifteen balls, five lighting in turn. */
 export function DraftMotif() {
-  const lit = [1, 4, 6, 9, 11];
+  const lit = [1, 5, 8, 11, 13];
   return (
     <svg viewBox="0 0 200 200" aria-hidden="true" className="h-full w-full">
-      {Array.from({ length: 13 }, (_, i) => {
-        const row = i < 4 ? 0 : i < 9 ? 1 : 2;
-        const inRow = row === 1 ? 5 : 4;
-        const idx = row === 0 ? i : row === 1 ? i - 4 : i - 9;
-        const cx = 100 + (idx - (inRow - 1) / 2) * 34;
+      {Array.from({ length: 15 }, (_, i) => {
+        const row = Math.floor(i / 5);
+        const cx = 100 + ((i % 5) - 2) * 34;
         const cy = 62 + row * 38;
         const on = lit.indexOf(i);
         return (

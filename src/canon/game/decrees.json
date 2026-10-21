@@ -222,5 +222,33 @@
     "tagline": "A second ball enters on eighty minutes. Goals go up sharply.",
     "description": "From the eightieth minute a second ball is introduced from the touchline and both remain live until the whistle. Goals from either count. The Committee has stressed that this is a trial, that trials are reviewed annually, and that no trial in the history of the competition has ever been discontinued.",
     "accent": "#e11d48"
+  },
+  {
+    "id": "open-books",
+    "name": "Open Books",
+    "tagline": "Every club must publish its player data. No ratings are hidden this season.",
+    "description": "Following a complaint from a broadcaster who could not tell two midfielders apart, every club is required to upload its full player data to a shared portal before the season starts. The portal is public, searchable and sponsored. Scouts still draw their fees; nobody can say what for.",
+    "accent": "#0e7490"
+  },
+  {
+    "id": "scouting-moratorium",
+    "name": "Scouting Moratorium",
+    "tagline": "Scouting is suspended. No assignment can start or report this season.",
+    "description": "An investigation into a scout who filed the same report to nine clubs has led the Committee to suspend scouting league-wide while it drafts a code of conduct. The code is expected to run to four hundred pages, three of them about expenses. Until then, clubs buy on reputation and highlight reels, like it is 2009.",
+    "accent": "#7c2d12"
+  },
+  {
+    "id": "unlimited-scouting",
+    "name": "Unlimited Scouting",
+    "tagline": "The cap on scouting staff is lifted. Hire as many scouts as you can pay.",
+    "description": "The Committee has ruled that limiting the number of scouts a club may employ is an unreasonable restraint on the data economy. Clubs may now hire every scout on the market, and several intend to, chiefly so that nobody else can. The scouts have been asked to stop forming a union.",
+    "accent": "#4d7c0f"
+  },
+  {
+    "id": "scout-levy",
+    "name": "Scout Levy",
+    "tagline": "Every scouting engagement costs double this season.",
+    "description": "A levy on scouting engagements now funds the Committee’s own Talent Identification Unit, which has not identified any talent but has identified the levy as an excellent idea. Fees are doubled at the point of hire. The Unit’s first report is due in 2041.",
+    "accent": "#a16207"
   }
 ]

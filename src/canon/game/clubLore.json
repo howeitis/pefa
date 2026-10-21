@@ -390,5 +390,33 @@
       "PEFA admitted it to the Synergy Draft™ pool anyway, reasoning that a competition entirely composed of financial vehicles would eventually be noticed. The club is aware it is being used as evidence of something, and takes the berth regardless."
     ],
     "riskFactor": "Governance is subject to the will of one hundred thousand people who cannot be bought."
+  },
+  "red-star-beijing": {
+    "ticker": "RSB.SS",
+    "exchange": "Shanghai",
+    "listPrice": 291,
+    "valuationBn": 26.4,
+    "tokTokFollowers": 212000000,
+    "owner": "Beijing Municipal Sports Development Group (a state-owned enterprise, held in trust for the people)",
+    "positioning": "Built by the city. Backed by the state.",
+    "history": [
+      "Founded in 2036 by municipal decree, on the site of a club that had existed since 1951. That club was dissolved the same morning, so its history could be transferred to the new entity at book value. The first squad was assembled by recalling every Chinese international playing abroad. Each received a letter, a contract and a strong recommendation, in that order.",
+      "PEFA admitted the club to the Synergy Draft™ pool after a single meeting. Its minutes record the meeting as \"productive\" and its attendees decline to describe it. Red Star does not sell Chinese players: a clause in its articles reclassifies them as strategic national assets. Exporting one requires approval from a committee that has never been convened."
+    ],
+    "riskFactor": "Player registrations may be subject to export controls outside the discretion of the club or PEFA."
+  },
+  "dc-diplomats": {
+    "ticker": "DIP.N",
+    "exchange": "New York",
+    "listPrice": 288,
+    "valuationBn": 25.9,
+    "tokTokFollowers": 96500000,
+    "owner": "Federal City Sports Partners LP (two lobbying firms, a defence contractor and a former Secretary of State)",
+    "positioning": "Football, finally, in the sense the rest of the world means it.",
+    "history": [
+      "Formed in 2036 by a congressional subcommittee that met for eleven minutes and agreed on nothing else that session. The name was chosen by a bipartisan focus group, the first thing in the city's recent history to be described that way.",
+      "Every American player in the club's system is registered as accredited embassy staff. The club's lawyers argue this gives each of them diplomatic immunity from transfer bids. PEFA has not ruled on the argument, and the club regards silence as ratification."
+    ],
+    "riskFactor": "Bids for American players may be treated as a diplomatic incident and answered accordingly."
   }
 }

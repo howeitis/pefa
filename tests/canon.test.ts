@@ -48,7 +48,9 @@ const WORDS: Record<string, number> = {
   nineteen: 19,
   twenty: 20,
   'twenty-eight': 28,
+  thirty: 30,
   'thirty-two': 32,
+  'thirty-six': 36,
   forty: 40,
 };
 /** A figure as digits or words; NaN for anything else ("not redacted" is not a count). */
@@ -74,12 +76,12 @@ const LOCKED: { fact: string; pattern: RegExp; expected: number | string }[] = [
   {
     fact: 'global draft pool',
     pattern: new RegExp(`\\b${N}[- ]club (?:global )?(?:draft )?pool`, 'gi'),
-    expected: 13,
+    expected: 15,
   },
   {
     fact: 'global partners in the pool',
     pattern: new RegExp(`\\b${N} global partners`, 'gi'),
-    expected: 13,
+    expected: 15,
   },
   { fact: 'league size', pattern: new RegExp(`\\b${N} clubs in total`, 'gi'), expected: 20 },
   { fact: 'viewership drop', pattern: /[−-](\d+)% viewership/gi, expected: 69 },
@@ -127,17 +129,17 @@ describe('imported game canon', () => {
     }
   });
 
-  it('matches the locked structure: 15 founders + 13 pool, 20 play, 5 drawn', () => {
+  it('matches the locked structure: 15 founders + 15 pool, 20 play, 5 drawn', () => {
     expect(clubsJson.permanentIds).toHaveLength(15);
-    expect(clubsJson.globalIds).toHaveLength(13);
+    expect(clubsJson.globalIds).toHaveLength(15);
     expect(clubsJson.leagueSize).toBe(20);
     expect(clubsJson.rotatingSlots).toBe(5);
-    expect(clubsJson.clubs).toHaveLength(28);
+    expect(clubsJson.clubs).toHaveLength(30);
   });
 
-  it('has lore for every club and all 32 decrees', () => {
+  it('has lore for every club and all 36 decrees', () => {
     for (const club of clubsJson.clubs) expect(clubLore).toHaveProperty(club.id);
-    expect(decrees).toHaveLength(32);
+    expect(decrees).toHaveLength(36);
   });
 });
 

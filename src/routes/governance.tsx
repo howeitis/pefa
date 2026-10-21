@@ -9,7 +9,7 @@ export const meta = () => metaFor('/governance');
 const governance = lore.prospectus.sections.find((s) => s.heading === 'Governance')!;
 const globalGame = lore.prospectus.sections.find((s) => s.heading === 'The Global Game')!;
 
-/** Register numbers are site canon (`decree-register`): D-01 to D-32, in the game's order. */
+/** Register numbers are site canon (`decree-register`): D-01 to D-36, in the game's order. */
 const ref = (i: number) => `D-${String(i + 1).padStart(2, '0')}`;
 
 const SECTIONS = [

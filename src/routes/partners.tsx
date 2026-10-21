@@ -9,7 +9,7 @@ export const meta = () => metaFor('/partners');
 
 const partners = scene('partners');
 
-/** Combined TokTok following of all 28 clubs, from their listing figures. */
+/** Combined TokTok following of all 30 clubs, from their listing figures. */
 const combinedReach = Object.values(clubLore).reduce((sum, l) => sum + l.tokTokFollowers, 0);
 
 const PRODUCTS = [

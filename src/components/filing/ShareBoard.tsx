@@ -21,7 +21,7 @@ const useToday = () =>
 const gbp = (n: number) =>
   `£${n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-/** All 28 clubs with indicative daily quotes. Deterministic; no feed, no requests. */
+/** All 30 clubs with indicative daily quotes. Deterministic; no feed, no requests. */
 export function ShareBoard({ clubs }: { clubs: Club[] }) {
   const today = useToday();
 

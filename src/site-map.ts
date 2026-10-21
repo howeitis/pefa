@@ -80,7 +80,7 @@ export const PAGES: SitePage[] = [
     title: 'Investor Relations',
     label: 'Investors',
     description:
-      'Filings, the Official Media Kit, the Annual Report and an indicative board of all twenty-eight listed clubs.',
+      'Filings, the Official Media Kit, the Annual Report and an indicative board of all thirty listed clubs.',
     material: 'filing',
     nav: 'primary',
   },
@@ -171,7 +171,7 @@ export const PAGES: SitePage[] = [
   },
 ];
 
-/** Club listing pages: one per club in the game's 28-club universe. */
+/** Club listing pages: one per club in the game's 30-club universe. */
 export const CLUB_PATH = (slug: string) => `/superior-league/clubs/${slug}`;
 export const clubSlugs = (): string[] => clubsCanon.clubs.map((c) => c.id);
 

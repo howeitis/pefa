@@ -30,7 +30,7 @@ function Holding({ club }: { club: Club }) {
   );
 }
 
-/** All 28 holdings, in two rows running opposite ways. */
+/** All 30 holdings, in two rows running opposite ways. */
 export function CrestMarquee() {
   const founders = clubs.filter((c) => c.membership === 'permanent');
   const pool = clubs.filter((c) => c.membership === 'global');

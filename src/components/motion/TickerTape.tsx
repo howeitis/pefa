@@ -6,7 +6,7 @@ import { useToday } from './hooks';
 import { Marquee } from './Marquee';
 
 /**
- * A terminal-style tape of all 28 listed clubs. Prerendered at listing
+ * A terminal-style tape of all 30 listed clubs. Prerendered at listing
  * prices; on hydration it switches to the day's indicative quotes (the same
  * deterministic numbers as the Investor Relations board).
  */

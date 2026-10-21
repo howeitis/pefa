@@ -26,7 +26,7 @@ const PRODUCTS: Product[] = [
     index: '02',
     kicker: 'The global game',
     title: 'Synergy Draft™',
-    body: 'Each summer, five berths are drawn from thirteen global partners by an algorithmic lottery weighted by subscription tier. Every continent is represented. Every continent pays.',
+    body: 'Each summer, five berths are drawn from fifteen global partners by an algorithmic lottery weighted by subscription tier. Every continent is represented. Every continent pays.',
     to: '/synergy-draft',
     cta: 'How the draft works',
     motif: <DraftMotif />,

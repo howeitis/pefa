@@ -5,7 +5,7 @@ import { CrestGrid } from './CrestGrid';
 const STEP_MS = 650;
 
 /**
- * The draft pool, as in the game's intro reel: thirteen crests, five of which
+ * The draft pool, as in the game's intro reel: fifteen crests, five of which
  * light up. The five are the reel's fixed promo picks, never a draw result,
  * and the caption says so. Rendered fully lit, so it reads the same without
  * JavaScript; "Replay" lights them one at a time, or all at once under

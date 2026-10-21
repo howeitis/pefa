@@ -1,6 +1,6 @@
 /**
  * Crest thumbnails for grids: the source crests are 435×512 (~64KB each),
- * and the league page shows all twenty-eight. Thumbs are 2× a 96px display
+ * and the league page shows all thirty. Thumbs are 2× a 96px display
  * height, plus 48px minis for ledger rows. Output is committed; rerun after the game adds or changes a crest.
  */
 import { mkdir, readdir } from 'node:fs/promises';

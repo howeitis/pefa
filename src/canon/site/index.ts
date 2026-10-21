@@ -89,7 +89,7 @@ export const SITE_CANON: SiteCanonEntry[] = [
     title: 'Governance procedure',
     status: 'proposed-for-game',
     facts: [
-      'The decree register numbers the 32 decrees D-01 to D-32, in the game’s order.',
+      'The decree register numbers the 36 decrees D-01 to D-36, in the game’s order.',
       'Compliance officers in technical areas ensure instructions to players match the club’s commercial obligations.',
       'Appeals against Algorithmic Offside rulings are reviewed by Clawed AI.',
       'Global Inclusion Committee minutes will be filed with Investor Relations; its reasoning will not.',
@@ -158,7 +158,7 @@ export const SITE_CANON: SiteCanonEntry[] = [
     status: 'site-only',
     facts: [
       'Launch address delivered 21 May 2035. Founding fifteen confirmed 30 June 2035. Domestic settlement concluded 1 September 2035. “Football” trademark clarification 12 November 2035.',
-      'Clawed AI named Official Referee Partner 20 January 2036. Supporter-trust statement 3 March 2036. First Superior Venues™ certified 15 April 2036. Synergy Draft™ 2036 completed 20 June 2036 (the drawn clubs are not named).',
+      'Clawed AI named Official Referee Partner 20 January 2036. Supporter-trust statement 3 March 2036. First Superior Venues™ certified 15 April 2036. Red Star Beijing and DC Diplomats FC admitted to the draft pool 7 May 2036, taking it from thirteen to fifteen global partners; both are eligible from the 2036 draw and may be drawn in the same summer. Synergy Draft™ 2036 completed 20 June 2036 (the drawn clubs are not named).',
     ],
     surfaces: ['/newsroom'],
   },

@@ -30,7 +30,7 @@ const FILINGS: Filing[] = [
   },
   {
     title: 'League decree register',
-    detail: 'All thirty-two decrees available to the Rules Committee.',
+    detail: 'All thirty-six decrees available to the Rules Committee.',
     to: '/governance#decrees',
     status: 'Available',
   },

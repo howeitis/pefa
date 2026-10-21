@@ -31,7 +31,9 @@
     "pyramid-scheme",
     "pretoria-gold",
     "copacabana",
-    "ba-millionaires"
+    "ba-millionaires",
+    "red-star-beijing",
+    "dc-diplomats"
   ],
   "clubs": [
     {
@@ -316,7 +318,8 @@
       },
       "rivalries": [
         "la-cameo",
-        "ny-citizens"
+        "ny-citizens",
+        "red-star-beijing"
       ]
     },
     {
@@ -333,7 +336,8 @@
         "secondary": "#1A1A1A"
       },
       "rivalries": [
-        "retirement-fund"
+        "retirement-fund",
+        "red-star-beijing"
       ]
     },
     {
@@ -351,7 +355,8 @@
       },
       "rivalries": [
         "retirement-fund",
-        "citizens"
+        "citizens",
+        "red-star-beijing"
       ]
     },
     {
@@ -368,7 +373,8 @@
         "secondary": "#B31217"
       },
       "rivalries": [
-        "rayados-industrial"
+        "rayados-industrial",
+        "dc-diplomats"
       ]
     },
     {
@@ -385,7 +391,8 @@
         "secondary": "#FFFFFF"
       },
       "rivalries": [
-        "odiados"
+        "odiados",
+        "dc-diplomats"
       ]
     },
     {
@@ -436,7 +443,8 @@
         "secondary": "#FFFFFF"
       },
       "rivalries": [
-        "urawa-synthetic"
+        "urawa-synthetic",
+        "dc-diplomats"
       ]
     },
     {
@@ -453,7 +461,8 @@
         "secondary": "#FFFFFF"
       },
       "rivalries": [
-        "shanghai-supply"
+        "shanghai-supply",
+        "red-star-beijing"
       ]
     },
     {
@@ -522,6 +531,47 @@
       },
       "rivalries": [
         "copacabana"
+      ]
+    },
+    {
+      "id": "red-star-beijing",
+      "name": "Red Star Beijing",
+      "shortName": "RSB",
+      "cardName": "Red Star",
+      "membership": "global",
+      "country": "China",
+      "city": "Beijing",
+      "logo": "red-star-beijing.webp",
+      "colors": {
+        "primary": "#D02510",
+        "secondary": "#D4AF37"
+      },
+      "rivalries": [
+        "dc-diplomats",
+        "retirement-fund",
+        "la-cameo",
+        "ny-citizens",
+        "urawa-synthetic"
+      ]
+    },
+    {
+      "id": "dc-diplomats",
+      "name": "DC Diplomats FC",
+      "shortName": "DIP",
+      "cardName": "The Dips",
+      "membership": "global",
+      "country": "USA",
+      "city": "Washington",
+      "logo": "dc-diplomats.webp",
+      "colors": {
+        "primary": "#111111",
+        "secondary": "#D7182A"
+      },
+      "rivalries": [
+        "red-star-beijing",
+        "shanghai-supply",
+        "odiados",
+        "rayados-industrial"
       ]
     }
   ]
