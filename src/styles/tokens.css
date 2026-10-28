@@ -136,6 +136,9 @@
     background: var(--color-ooc);
     color: var(--color-ooc-ink);
   }
+  [data-launch-dismissed] .launch-strip {
+    display: none;
+  }
 }
 
 /* Legal ticker marquee: two copies of the text, scrolled by half. */
