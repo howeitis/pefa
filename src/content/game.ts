@@ -29,7 +29,11 @@ export const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'Can I play it in my browser?',
-    a: 'Yes. The web version runs in any modern browser, on desktop or phone, with nothing to install. An Android app is in a closed test on Google Play.',
+    a: 'Yes. The web version runs in any modern browser, on desktop or phone, with nothing to install. There is also a free Android app on Google Play.',
+  },
+  {
+    q: 'Is Superior League 2036 on Android?',
+    a: 'Yes. The Android app is live on Google Play and free to install.',
   },
   {
     q: 'Are real clubs or players in the game?',
@@ -57,10 +61,13 @@ export const GAME_LD = {
   applicationCategory: 'Game',
   playMode: 'SinglePlayer',
   isAccessibleForFree: true,
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP', url: PLAY_LINKS.web },
+  offers: [
+    { '@type': 'Offer', price: '0', priceCurrency: 'GBP', url: PLAY_LINKS.web },
+    { '@type': 'Offer', price: '0', priceCurrency: 'GBP', url: PLAY_LINKS.android },
+  ],
   inLanguage: 'en',
   image: `${SITE_URL}/og-image.jpg`,
-  sameAs: [`${SITE_URL}/play`],
+  sameAs: [`${SITE_URL}/play`, PLAY_LINKS.android],
 };
 
 /** schema.org WebSite for this site, declared as being about the game. */

@@ -17,6 +17,14 @@
 export function boot() {
   const root = document.documentElement;
   root.setAttribute('data-js', '');
+  // Keep a closed launch strip closed (components/shared/OocStrip.tsx).
+  try {
+    if (localStorage.getItem('pefa:launch-strip-dismissed')) {
+      root.setAttribute('data-launch-dismissed', '');
+    }
+  } catch {
+    // Storage blocked: show the strip.
+  }
 
   const SELECTOR = '.reveal,[data-reveal],.split,.redacted';
   const reveal = (el: Element) => el.setAttribute('data-in', '');

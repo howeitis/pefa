@@ -37,7 +37,7 @@ export default function Play() {
       </h1>
       <p className="mt-4 text-xl font-semibold leading-snug">
         A free, satirical football manager game. A soccer management simulator, if you’re reading
-        this in America. No real clubs, no download, and it plays in your browser.
+        this in America. No real clubs, and it plays in your browser or on Android.
       </p>
       <p className="mt-6 text-lg leading-relaxed">
         This website is satire. PEFA™ is the villain of <strong>Superior League 2036</strong>, a
@@ -45,9 +45,15 @@ export default function Play() {
         rebuilt it as a subscription product. You take charge of a club in its closed league and try
         to win anyway.
       </p>
-      <ActionLink href={PLAY_LINKS.web}>
-        Play the free football manager game in your browser
-      </ActionLink>
+      <p className="mt-6 flex w-fit items-center gap-2 rounded-full bg-ooc px-3 py-1 text-xs font-semibold text-ooc-ink">
+        New · Now live on Google Play
+      </p>
+      <div className="flex flex-wrap gap-x-3">
+        <ActionLink href={PLAY_LINKS.web}>
+          Play the free football manager game in your browser
+        </ActionLink>
+        <ActionLink href={PLAY_LINKS.android}>Get the Android app on Google Play</ActionLink>
+      </div>
 
       <Section title="Watch the trailer">
         {/* The trailer is a self-contained page in public/ (fonts, art and
@@ -112,22 +118,12 @@ export default function Play() {
         </p>
       </Section>
 
-      <Section title="On Android" tag="Android only · closed test">
+      <Section title="On Android" tag="Now live on Google Play">
         <p>
-          The Android app is in a closed test on Google Play. Joining takes two steps, in this
-          order:
+          The Android app is out on Google Play. It is free, and anyone can install it from the
+          store page, no test sign-up needed.
         </p>
-        <ol className="mt-5 space-y-4">
-          <Step n={1} title="Join the testers’ group">
-            Joining the Google Group is what gives your Google account access to the test.
-            <ActionLink href={PLAY_LINKS.testerGroup}>Join the testers’ group</ActionLink>
-          </Step>
-          <Step n={2} title="Opt in on Google Play and install">
-            Open the opt-in link with the same Google account, accept the invitation, then install
-            the app from the Play Store page it links to.
-            <ActionLink href={PLAY_LINKS.playOptIn}>Open the Play opt-in page</ActionLink>
-          </Step>
-        </ol>
+        <ActionLink href={PLAY_LINKS.android}>Get it on Google Play</ActionLink>
       </Section>
 
       <Section title="In your browser">
@@ -173,36 +169,7 @@ function Section({ title, tag, children }: { title: string; tag?: string; childr
   );
 }
 
-function Step({ n, title, children }: { n: number; title: string; children: ReactNode }) {
-  return (
-    <li className="flex gap-4 rounded-lg border border-rule bg-surface p-5">
-      <span
-        aria-hidden="true"
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink font-bold text-ground"
-      >
-        {n}
-      </span>
-      <div>
-        <h3 className="font-semibold">
-          <span className="sr-only">Step {n}: </span>
-          {title}
-        </h3>
-        <div className="mt-1 text-ink-muted">{children}</div>
-      </div>
-    </li>
-  );
-}
-
-/** A real link, or — while the URL is still unknown — a clearly disabled placeholder. */
-function ActionLink({ href, children }: { href: string | null; children: ReactNode }) {
-  if (!href) {
-    return (
-      <span className="mt-3 flex w-fit items-center gap-2 rounded-md border border-dashed border-rule px-4 py-2 text-sm text-ink-muted">
-        {children}
-        <span className="font-semibold">· link coming soon</span>
-      </span>
-    );
-  }
+function ActionLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <a
       href={href}

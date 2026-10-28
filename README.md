@@ -35,8 +35,8 @@ and `CANON.md` for the lore rules.
   overrides are applied at build time (`vite.canon-overrides.ts`), so the originals never ship, and
   the canon test scans the build output for them. See "Game follow-ups" in `CANON.md`.
 - `src/content/newsroom/*.mdx` are press releases, with frontmatter.
-- `src/play-links.ts` holds the real, out-of-character links. The two Android closed-test URLs are
-  still `null`, so `/play` shows placeholders until they are filled in.
+- `src/play-links.ts` holds the real, out-of-character links: the web build and the Google Play
+  listing. `/play`, the site-wide launch strip, the structured data and `llms.txt` all read them.
 - Search: a page's `seoTitle` in `src/site-map.ts` overrides its `<title>` for search results
   without changing its in-world title. `/play` is the search landing page for "football manager
   game" and "soccer simulator" queries, with VideoGame and FAQPage structured data.

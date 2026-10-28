@@ -10,6 +10,7 @@ import {
   useLocation,
 } from 'react-router';
 import type { Route } from './+types/root';
+import { LaunchStrip } from './components/shared/OocStrip';
 import { SiteFooter } from './components/shared/SiteFooter';
 import { SiteHeader } from './components/shared/SiteHeader';
 import { BOOT_SCRIPT, REVEAL_SCRIPT } from './lib/boot';
@@ -60,6 +61,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <Links />
       </head>
       <body data-material={material} className="flex min-h-dvh flex-col">
+        <LaunchStrip />
         <SiteHeader material={material} />
         <main id="main" className="flex-1">
           {children}
