@@ -269,6 +269,8 @@ Decided 2026-09-25:
   ("Android only · closed test"). If testers are added through a Google Group, joining takes two
   steps: join the group, then open the Play opt-in link. `/play` walks through both. The
   closed-test risk note still applies: no screenshots that haven't cleared the rights review.
+  *Superseded 2026-10-28:* the app is live on Google Play, so `/play` links straight to the store
+  listing and a launch strip above the header announces it on every other page.
 
 - **Canon flow-back:** site lore stays **site only** for now. Pieces that could later join the
   game are tagged `proposed-for-game` and listed in `CANON.md`. Nothing moves into the game

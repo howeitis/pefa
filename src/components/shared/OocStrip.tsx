@@ -4,8 +4,9 @@
  * so a reader always knows when the site has stepped out of the joke.
  */
 import type { ReactNode } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { ASSISTANT_NOTE } from '~/content/game';
+import { PLAY_LINKS } from '~/play-links';
 
 /** Exact wording, fixed by PLAN.md §8. No name, no link. */
 export const FICTION_NOTICE =
@@ -32,6 +33,31 @@ export function OocStrip({ children, label }: { children: ReactNode; label: stri
     <section aria-label={label} className="ooc">
       <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">{children}</div>
     </section>
+  );
+}
+
+/**
+ * The launch announcement above the header on every page except /play, which
+ * makes the same point in its own hero.
+ */
+export function LaunchStrip() {
+  const { pathname } = useLocation();
+  if (pathname === '/play') return null;
+  return (
+    <aside aria-label="Now on Google Play" className="ooc font-ooc">
+      <p className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-2 text-center text-sm sm:px-6 lg:px-8">
+        <span>
+          <strong>Out of character:</strong> Superior League 2036 is now live on Google Play.
+        </span>
+        <a
+          href={PLAY_LINKS.android}
+          rel="noopener"
+          className="font-semibold underline underline-offset-4"
+        >
+          Get the Android app
+        </a>
+      </p>
+    </aside>
   );
 }
 
