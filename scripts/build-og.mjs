@@ -71,9 +71,15 @@ async function font(pkg, file) {
   const buf = await readFile(join(root, 'node_modules/@fontsource', pkg, 'files', file));
   return opentype.parse(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength));
 }
+async function localFont(file) {
+  const buf = await readFile(join(root, 'src/assets/fonts', file));
+  return opentype.parse(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength));
+}
 const serif = await font('playfair-display', 'playfair-display-latin-400-normal.woff');
 const sans = await font('dm-sans', 'dm-sans-latin-400-normal.woff');
 const sansBold = await font('dm-sans', 'dm-sans-latin-600-normal.woff');
+const gabarito = await localFont('gabarito-variable.ttf');
+const monoBold = await localFont('space-mono-bold.ttf');
 
 const n2 = (v) => String(Math.round(v * 100) / 100);
 function pathData(path) {
@@ -90,21 +96,26 @@ function pathData(path) {
     .join('');
 }
 
-const glyphs = (f, text) =>
-  [...text].map((ch) => f.charToGlyph(ch)).filter((g) => g.index !== 0 || g.unicode === 32);
+const glyphs = (f, text, variation) =>
+  [...text]
+    .map((ch) => {
+      const g = f.charToGlyph(ch);
+      return variation && f.variation ? f.variation.getTransform(g, variation) : g;
+    })
+    .filter((g) => g.index !== 0 || g.unicode === 32);
 
-function measure(f, text, size, tracking = 0) {
-  const gs = glyphs(f, text);
+function measure(f, text, size, tracking = 0, variation) {
+  const gs = glyphs(f, text, variation);
   return (
     gs.reduce((w, g) => w + (g.advanceWidth * size) / f.unitsPerEm + tracking, 0) -
     (gs.length ? tracking : 0)
   );
 }
 
-function line(f, text, x, y, size, color, tracking = 0) {
+function line(f, text, x, y, size, color, tracking = 0, variation) {
   let cursor = x;
   const parts = [];
-  for (const g of glyphs(f, text)) {
+  for (const g of glyphs(f, text, variation)) {
     parts.push(pathData(g.getPath(cursor, y, size)));
     cursor += (g.advanceWidth * size) / f.unitsPerEm + tracking;
   }
@@ -112,13 +123,13 @@ function line(f, text, x, y, size, color, tracking = 0) {
 }
 
 /** Greedy word wrap; the last allowed line gets an ellipsis if text remains. */
-function wrap(f, text, size, maxWidth, maxLines) {
+function wrap(f, text, size, maxWidth, maxLines, tracking = 0, variation) {
   const words = text.split(/\s+/);
   const lines = [];
   let current = '';
   for (let i = 0; i < words.length; i++) {
     const next = current ? `${current} ${words[i]}` : words[i];
-    if (measure(f, next, size) <= maxWidth) {
+    if (measure(f, next, size, tracking, variation) <= maxWidth) {
       current = next;
       continue;
     }
@@ -137,16 +148,22 @@ function wrap(f, text, size, maxWidth, maxLines) {
   return lines;
 }
 
-function block(f, text, { x, y, size, width, maxLines, color, leading = 1.18 }) {
-  const lines = wrap(f, text, size, width, maxLines);
+function block(
+  f,
+  text,
+  { x, y, size, width, maxLines, color, leading = 1.18, tracking = 0, variation },
+) {
+  const lines = wrap(f, text, size, width, maxLines, tracking, variation);
   return {
-    svg: lines.map((l, i) => line(f, l, x, y + i * size * leading, size, color)).join(''),
+    svg: lines
+      .map((l, i) => line(f, l, x, y + i * size * leading, size, color, tracking, variation))
+      .join(''),
     bottom: y + (lines.length - 1) * size * leading,
   };
 }
 
-const smallcaps = (text, x, y, color, size = 17) =>
-  line(sansBold, text.toUpperCase(), x, y, size, color, size * 0.16);
+const smallcaps = (text, x, y, color, size = 15) =>
+  line(monoBold, text.toUpperCase(), x, y, size, color, size * 0.12);
 
 // ─── Materials ───
 
@@ -194,13 +211,15 @@ function background(material, t) {
 
 /**
  * Render one card. `crest` is an optional path to a club crest composited
- * on the right; `stamp` an optional rubber stamp on Filing cards.
+ * on the right; `wordmark` an optional club wordmark composited as the title
+ * lockup; `stamp` an optional rubber stamp on Filing cards.
  */
-async function card({ file, material, kicker, title, subtitle, footer, crest, stamp }) {
+async function card({ file, material, kicker, title, subtitle, footer, crest, wordmark, stamp }) {
   const t = THEMES[material];
   const left = material === 'filing' ? 96 : 80;
-  const textWidth = crest ? 700 : W - left * 2;
+  const textWidth = crest ? 680 : W - left * 2;
   let svg = background(material, t);
+  const layers = [];
 
   if (material === 'filing') {
     svg += smallcaps(kicker, left, 76, t.muted, 15);
@@ -210,23 +229,40 @@ async function card({ file, material, kicker, title, subtitle, footer, crest, st
     svg += smallcaps('Out of character', left, 120, t.muted);
   }
 
-  const titleTop = material === 'filing' ? 190 : material === 'floodlight' ? 268 : 210;
-  const titleSize = title.length > 48 ? 58 : 70;
-  const titleFont = material === 'ooc' ? sansBold : serif;
-  const tb = block(titleFont, title, {
-    x: left,
-    y: titleTop,
-    size: titleSize,
-    width: textWidth,
-    maxLines: 3,
-    color: t.ink,
-  });
-  svg += tb.svg;
+  let contentBottom;
+  if (wordmark) {
+    const png = await sharp(join(root, 'public/club-wordmarks', wordmark))
+      .resize({ width: textWidth, height: 155, fit: 'inside', withoutEnlargement: true })
+      .png()
+      .toBuffer();
+    const wmMeta = await sharp(png).metadata();
+    const wmTop = 148;
+    layers.push({ input: png, left, top: wmTop });
+    contentBottom = wmTop + wmMeta.height;
+  } else {
+    const titleTop = material === 'filing' ? 190 : material === 'floodlight' ? 268 : 210;
+    const titleSize = title.length > 48 ? 58 : 70;
+    const titleFont = material === 'floodlight' ? gabarito : material === 'ooc' ? sansBold : serif;
+    const titleVariation = material === 'floodlight' ? { wght: 800 } : undefined;
+    const titleTracking = material === 'floodlight' ? -titleSize * 0.02 : 0;
+    const tb = block(titleFont, title, {
+      x: left,
+      y: titleTop,
+      size: titleSize,
+      width: textWidth,
+      maxLines: 3,
+      color: t.ink,
+      tracking: titleTracking,
+      variation: titleVariation,
+    });
+    svg += tb.svg;
+    contentBottom = tb.bottom;
+  }
 
   if (subtitle) {
-    svg += block(sans, subtitle, {
+    svg += block(material === 'floodlight' ? gabarito : sans, subtitle, {
       x: left,
-      y: tb.bottom + 64,
+      y: contentBottom + (wordmark ? 54 : 64),
       size: 27,
       width: textWidth,
       maxLines: 2,
@@ -236,16 +272,22 @@ async function card({ file, material, kicker, title, subtitle, footer, crest, st
   }
 
   if (stamp) {
-    const sw = measure(sansBold, stamp.toUpperCase(), 17, 17 * 0.16) + 36;
+    const sw = measure(monoBold, stamp.toUpperCase(), 15, 15 * 0.12) + 36;
     svg += `<g transform="rotate(-3 ${left + sw / 2} ${H - 128})">
       <rect x="${left}" y="${H - 150}" width="${sw}" height="40" fill="none" stroke="${t.accent}" stroke-width="2.5"/>
-      ${smallcaps(stamp, left + 18, H - 123, t.accent)}</g>`;
+      ${smallcaps(stamp, left + 18, H - 124, t.accent)}</g>`;
   }
 
   const footY = material === 'filing' ? H - 64 : H - 48;
-  svg += line(sans, footer ?? FICTION, left, footY, 17, t.muted);
+  svg += line(
+    material === 'floodlight' ? gabarito : sans,
+    footer ?? FICTION,
+    left,
+    footY,
+    17,
+    t.muted,
+  );
 
-  const layers = [];
   if (t.lockup) {
     const h = material === 'filing' ? 34 : 64;
     const png = await lockupPng(t, h);
@@ -292,7 +334,10 @@ for (const page of siteMap.PAGES) {
     kicker: KICKERS[page.material] ?? '',
     title: home ? 'Football did not die. It was algorithmically optimized.' : page.title,
     subtitle: home ? 'PEFA™ owns and operates the Superior League.' : page.description,
-    footer: page.material === 'ooc' ? 'A football management game. Web and Android.' : undefined,
+    footer:
+      page.material === 'ooc'
+        ? 'A football management game. Web, Android and iOS (TestFlight).'
+        : undefined,
   });
 }
 
@@ -309,6 +354,7 @@ for (const club of clubs) {
     title: club.name,
     subtitle: `${l.ticker} · ${l.exchange} · £${l.listPrice} · TokTok reach ${reach}`,
     crest: club.logo,
+    wordmark: `${club.id}-light.webp`,
     stamp: club.membership === 'permanent' ? 'Founder · Un-relegatable' : 'Synergy Draft™ pool',
   });
 }

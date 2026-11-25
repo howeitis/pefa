@@ -19,20 +19,35 @@ const MARKS = [
 
 const CREDITS: { what: string; who: string; licence: string }[] = [
   {
+    what: 'Gabarito (typeface)',
+    who: 'The Gabarito Project Authors (Naipe Foundry)',
+    licence: 'SIL Open Font License 1.1',
+  },
+  {
+    what: 'Space Mono (typeface)',
+    who: 'Colophon Foundry',
+    licence: 'SIL Open Font License 1.1',
+  },
+  {
     what: 'Playfair Display (typeface)',
     who: 'Claus Eggers Sørensen',
     licence: 'SIL Open Font License 1.1',
   },
   { what: 'DM Sans (typeface)', who: 'Colophon Foundry', licence: 'SIL Open Font License 1.1' },
   {
-    what: 'Club crests, Superior League marks and trophy artwork',
+    what: 'Club crests, bespoke club wordmarks and Superior League artwork',
     who: 'Superior League 2036',
     licence: 'By the game’s author, who also made this site. All rights reserved',
   },
   {
-    what: 'React, React Router, Vite, Tailwind CSS',
+    what: 'React, React Router, Vite, Tailwind CSS, Motion',
     who: 'Their respective authors',
     licence: 'MIT License',
+  },
+  {
+    what: 'd3-geo, topojson-client, world-atlas (home globe)',
+    who: 'Mike Bostock and contributors',
+    licence: 'ISC License',
   },
 ];
 

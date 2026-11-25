@@ -19,15 +19,16 @@ import { materialFor } from './site-map';
 // stylesheet link after the JS module preloads, and a preload at the top of
 // links() starts the render-blocking download first.
 import appCss from './styles/app.css?url';
-// The two faces used above the fold, latin subset only. Preloaded so first
-// paint swaps to the real type sooner; the other subsets load on demand.
-import dmSans400 from '@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2?url';
+// Above-the-fold faces: Gabarito and Space Mono lead Floodlight pages; Playfair
+// covers Filing display and gold display italics.
+import gabaritoVariable from './assets/fonts/gabarito-variable.woff2?url';
+import spaceMono400 from './assets/fonts/space-mono-regular.woff2?url';
 import playfair400 from '@fontsource/playfair-display/files/playfair-display-latin-400-normal.woff2?url';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preload', as: 'style', href: appCss },
   { rel: 'stylesheet', href: appCss },
-  ...[dmSans400, playfair400].map((href) => ({
+  ...[gabaritoVariable, spaceMono400, playfair400].map((href) => ({
     rel: 'preload',
     href,
     as: 'font',

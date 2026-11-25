@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { type Club, clubLore, clubs, crestThumb } from '~/canon';
 import { Marquee } from '~/components/motion/Marquee';
+import { ClubWordmark } from '~/components/shared/ClubWordmark';
 import { CLUB_PATH } from '~/site-map';
 
 function Holding({ club }: { club: Club }) {
@@ -9,7 +10,7 @@ function Holding({ club }: { club: Club }) {
     <Link
       to={CLUB_PATH(club.id)}
       viewTransition
-      className="group mx-2 flex w-64 shrink-0 items-center gap-4 rounded-sm border border-rule bg-surface/40 p-4 transition-colors duration-500 hover:border-accent/60 hover:bg-surface"
+      className="group mx-2 flex w-72 shrink-0 items-center gap-4 rounded-sm border border-rule bg-surface/40 p-4 transition-colors duration-500 hover:border-accent/60 hover:bg-surface"
     >
       <img
         src={crestThumb(club)}
@@ -18,11 +19,11 @@ function Holding({ club }: { club: Club }) {
         height={48}
         loading="lazy"
         decoding="async"
-        className="h-12 w-auto transition-transform duration-700 group-hover:scale-110"
+        className="h-12 w-auto shrink-0 transition-transform duration-700 group-hover:scale-110"
       />
-      <span className="min-w-0">
-        <span className="block truncate text-sm font-medium">{club.name}</span>
-        <span className="smallcaps mt-1 block text-ink-muted">
+      <span className="min-w-0 flex-1">
+        <ClubWordmark club={club} tone="dark" className="h-8 w-auto max-w-[11rem]" />
+        <span className="smallcaps mt-1.5 block text-ink-muted">
           {lore.ticker} · £{lore.valuationBn}bn
         </span>
       </span>

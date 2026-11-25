@@ -250,5 +250,12 @@
     "tagline": "Every scouting engagement costs double this season.",
     "description": "A levy on scouting engagements now funds the Committee’s own Talent Identification Unit, which has not identified any talent but has identified the levy as an excellent idea. Fees are doubled at the point of hire. The Unit’s first report is due in 2041.",
     "accent": "#a16207"
+  },
+  {
+    "id": "all-inclusive",
+    "name": "All-Inclusive",
+    "tagline": "Every global club holds a berth. Thirty clubs, twenty-nine matches, no second legs.",
+    "description": "A clerical error sold all five berths to all fifteen clubs. Rather than issue refunds, the Committee has declared it a format. Every global club plays this season, the table runs to thirty, and with the calendar already sold each club meets every other once. The Algorithm has been given the summer off and is said to be taking it personally.",
+    "accent": "#0369a1"
   }
 ]

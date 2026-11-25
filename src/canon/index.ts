@@ -65,6 +65,9 @@ export const crestSrc = (club: Club) => `/club-crests/${club.logo}`;
 export const crestThumb = (club: Club) => `/club-crests/thumb/${club.logo}`;
 /** 48px-tall mini, for ledger rows and chips. */
 export const crestMini = (club: Club) => `/club-crests/mini/${club.logo}`;
+/** Bespoke club lettering wordmark: `dark` on dark surfaces, `light` on paper. */
+export const wordmarkSrc = (club: Club, tone: 'dark' | 'light' = 'dark') =>
+  `/club-wordmarks/${club.id}-${tone}.webp`;
 
 /** `71_400_000` → `71.4M`. Same rules as the game's formatFollowers. */
 export function formatFollowers(n: number): string {

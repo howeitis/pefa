@@ -16,7 +16,7 @@ and `CANON.md` for the lore rules.
 | `npm run lint`         | ESLint, zero warnings allowed                                                                                        |
 | `npm test`             | Vitest: canon lint (see below)                                                                                       |
 | `npm run test:e2e`     | Playwright against the build: every route, desktop + 375px, axe, no requests                                         |
-| `npm run canon:import` | Re-imports locked canon from `../Superior League 2036/Howe to Manage` (read-only)                                    |
+| `npm run canon:import` | Re-imports locked canon from `../superior-league-2036` (read-only)                                                   |
 | `npm run brand`        | Regenerates the PEFA™ mark, favicon, app icons, manifest and default OG image                                        |
 | `npm run og`           | Regenerates the per-page OG cards in `public/og/` (gitignored; runs before every build)                              |
 | `npm run land`         | Regenerates `src/data/land-dots.json`, the land mask for the home-page globe (committed; rarely needed)              |
@@ -35,8 +35,9 @@ and `CANON.md` for the lore rules.
   overrides are applied at build time (`vite.canon-overrides.ts`), so the originals never ship, and
   the canon test scans the build output for them. See "Game follow-ups" in `CANON.md`.
 - `src/content/newsroom/*.mdx` are press releases, with frontmatter.
-- `src/play-links.ts` holds the real, out-of-character links: the web build and the Google Play
-  listing. `/play`, the site-wide launch strip, the structured data and `llms.txt` all read them.
+- `src/play-links.ts` holds the real, out-of-character links: the web build, the Google Play
+  listing and the open iOS TestFlight link. `/play`, the site-wide launch strip, the structured data
+  and `llms.txt` all read them.
 - Search: a page's `seoTitle` in `src/site-map.ts` overrides its `<title>` for search results
   without changing its in-world title. `/play` is the search landing page for "football manager
   game" and "soccer simulator" queries, with VideoGame and FAQPage structured data.

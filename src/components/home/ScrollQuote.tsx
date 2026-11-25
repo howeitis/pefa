@@ -25,8 +25,8 @@ export function ScrollQuote({ text, className = '' }: { text: string; className?
           {i < words.length - 1 ? ' ' : ''}
         </span>
       ))}
-      <span className={lit >= words.length ? 'text-ink' : 'text-ink-faint'}>”</span>
-      <style>{`html:not([data-js]) .quote-word { color: var(--ink); }`}</style>
+      <span className={`quote-word ${lit >= words.length ? 'text-ink' : 'text-ink-faint'}`}>”</span>
+      <style>{`html:not([data-js]) .quote-word { color: var(--ink); } @media (prefers-reduced-motion: reduce) { .quote-word { color: var(--ink); } }`}</style>
     </blockquote>
   );
 }

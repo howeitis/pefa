@@ -1,19 +1,19 @@
 {
-  "gameCommit": "99ce6b5d543f268c8d367d750c9b1e4e69d13607",
+  "gameCommit": "e3165671fb82ce7fb75fadeaae774a11e82a07c5",
   "sources": {
-    "src/data/lore.ts": "d878319ba7eeb3af426912e00e332204c48b32107d1c9ba27e417e8ebb6d1f81",
-    "src/data/clubs.ts": "b15422f3df0b5f32eccefb1c9229704bc47dd727c1ea2028e7802dae2bc919fd",
-    "src/data/clubLore.ts": "776cf840983b6aa0231d74ddfa24a9c11a0557286961533dc85dafa6ca1e9f84",
-    "src/engine/decrees.ts": "70771a340717e44809d60833e969177c7cc1c67eb185316e45bc42a69c1b5fd9",
-    "src/data/domesticLeagues.ts": "c8d72e6b989dc5719e19be612f70a7e54161ac8e2383a041585ed365565fd05b",
-    "src/data/league.ts": "b49068cffeeca9ca34ba4a2293d06588c37178f3f4f8c1341232c9883008d3db",
-    "src/engine/legacyMarket.ts": "69b8e5eee66b9d601bf2768af2b298e3837bee667c74b3881240fefddd0022af"
+    "src/data/lore.ts": "4e41a4224c8775d40a5322ed5654c57c64f2eda6fbca14fb718623b8f348f741",
+    "src/data/clubs.ts": "71ad33ec9e44c28ee6202324e01164edff7d5fbdb02223822189ad77aa98df71",
+    "src/data/clubLore.ts": "50d1f23fda96834eaf8a77aec6865e1e966da8e9532f7e559a8aeb2351442eb1",
+    "src/engine/decrees.ts": "75c7269f21f5c4a2b22e1b88d819c1389fb0ad33997cb3423318e3aaec245b21",
+    "src/data/domesticLeagues.ts": "517e45ee9f5ab9eb9895f8356f30e03192b40b524e9d31e5f49cc264178cbae3",
+    "src/data/league.ts": "0b588f38def981ae0dba222ae53aad5f130802ff8c46cb28f781c032dc8ee6f4",
+    "src/engine/legacyMarket.ts": "ab22c24030d3be594fea906902589e21bcd467887ec001709cf933b701f90d32"
   },
   "outputs": {
     "lore.json": "9137a1eb389e3d005afe17057c240ae2e8a29e7fac94109dd83a2b24dae2179c",
     "clubs.json": "cdd952c2e296bdc0da52abd91c447b364015866c4e3cb0f77d379add80995258",
     "clubLore.json": "24440eb2f0b31634efb34f01ddf0c5f0f30dd6122a94d8a54fc35cf642263847",
-    "decrees.json": "0a668d77cc111fcc27b84e0981860bf32afe7a64acdeab6e4a31e2c50a14cfb0",
+    "decrees.json": "adbe540cd73255cc43506d0acf8139c0ca34695a85ca66f150e20c712cd6dabe",
     "domesticLeagues.json": "ddeae833d13feb66de71ccd304eaf90f62325d15b7715b17b59237f4ea7a9af1"
   }
 }

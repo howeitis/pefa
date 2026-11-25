@@ -7,7 +7,7 @@
  * so the site builds without the game checked out next to it; rerun this
  * after a game content drop and review the diff.
  *
- *   npm run canon:import                  # default: ../Superior League 2036/Howe to Manage
+ *   npm run canon:import                  # default: ../superior-league-2036
  *   GAME_REPO=/path/to/repo npm run canon:import
  */
 import { createHash } from 'node:crypto';
@@ -19,8 +19,12 @@ import { fileURLToPath } from 'node:url';
 import { build } from 'esbuild';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const defaultRepos = [
+  join(root, '..', 'superior-league-2036'),
+  join(root, '..', 'Superior League 2036', 'Howe to Manage'),
+];
 const gameRepo =
-  process.env.GAME_REPO ?? join(root, '..', 'Superior League 2036', 'Howe to Manage');
+  process.env.GAME_REPO ?? defaultRepos.find((p) => existsSync(join(p, 'src'))) ?? defaultRepos[0];
 const gameSrc = join(gameRepo, 'src');
 const outDir = join(root, 'src', 'canon', 'game');
 

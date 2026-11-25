@@ -37,7 +37,7 @@ export function OocStrip({ children, label }: { children: ReactNode; label: stri
 }
 
 /** localStorage key the boot script reads before first paint (lib/boot.ts). */
-export const LAUNCH_DISMISSED_KEY = 'pefa:launch-strip-dismissed';
+export const LAUNCH_DISMISSED_KEY = 'pefa:launch-strip-v2-dismissed';
 
 /**
  * The launch announcement above the header on every page except /play, which
@@ -57,25 +57,35 @@ export function LaunchStrip() {
     }
   };
   return (
-    <aside aria-label="Now on Google Play" className="launch-strip ooc font-ooc">
+    <aside aria-label="Now on Android and iOS TestFlight" className="launch-strip ooc font-ooc">
       <div className="mx-auto flex max-w-7xl items-center gap-2 py-2 pl-4 pr-2 sm:px-6 lg:px-8">
         <p className="flex flex-1 flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-sm">
           <span>
-            <strong>The Superior Football Manager:</strong> Superior League 2036 is now live on
-            Google Play.
+            <strong>The Superior Football Manager:</strong> Superior League 2036 is live on Google
+            Play and open iOS testing on TestFlight.
           </span>
-          <a
-            href={PLAY_LINKS.android}
-            rel="noopener"
-            className="font-semibold underline underline-offset-4"
-          >
-            Get the Android app
-          </a>
+          <span className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+            <a
+              href={PLAY_LINKS.ios}
+              rel="noopener"
+              className="font-semibold underline underline-offset-4"
+            >
+              Join iOS TestFlight
+            </a>
+            <span aria-hidden="true">·</span>
+            <a
+              href={PLAY_LINKS.android}
+              rel="noopener"
+              className="font-semibold underline underline-offset-4"
+            >
+              Get the Android app
+            </a>
+          </span>
         </p>
         <button
           type="button"
           onClick={dismiss}
-          aria-label="Close the Google Play announcement"
+          aria-label="Close the launch announcement"
           className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-lg leading-none hover:bg-ooc-ink/10"
         >
           <span aria-hidden="true">×</span>

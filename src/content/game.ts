@@ -29,11 +29,15 @@ export const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'Can I play it in my browser?',
-    a: 'Yes. The web version runs in any modern browser, on desktop or phone, with nothing to install. There is also a free Android app on Google Play.',
+    a: 'Yes. The web version runs in any modern browser, on desktop or phone, with nothing to install. There is also a free Android app on Google Play and an open iOS test on TestFlight.',
   },
   {
     q: 'Is Superior League 2036 on Android?',
     a: 'Yes. The Android app is live on Google Play and free to install.',
+  },
+  {
+    q: 'Is Superior League 2036 on iPhone or iOS?',
+    a: 'Yes. The native iOS app is in open testing on Apple TestFlight and free to join. Install TestFlight from the App Store, then open the join link to download it.',
   },
   {
     q: 'Are real clubs or players in the game?',
@@ -57,17 +61,18 @@ export const GAME_LD = {
   url: PLAY_LINKS.web,
   description: GAME_DESCRIPTION,
   genre: ['Sports', 'Simulation', 'Football management', 'Soccer manager', 'Satire'],
-  gamePlatform: ['Web browser', 'Android'],
+  gamePlatform: ['Web browser', 'Android', 'iOS'],
   applicationCategory: 'Game',
   playMode: 'SinglePlayer',
   isAccessibleForFree: true,
   offers: [
     { '@type': 'Offer', price: '0', priceCurrency: 'GBP', url: PLAY_LINKS.web },
     { '@type': 'Offer', price: '0', priceCurrency: 'GBP', url: PLAY_LINKS.android },
+    { '@type': 'Offer', price: '0', priceCurrency: 'GBP', url: PLAY_LINKS.ios },
   ],
   inLanguage: 'en',
   image: `${SITE_URL}/og-image.jpg`,
-  sameAs: [`${SITE_URL}/play`, PLAY_LINKS.android],
+  sameAs: [`${SITE_URL}/play`, PLAY_LINKS.android, PLAY_LINKS.ios],
 };
 
 /** schema.org WebSite for this site, declared as being about the game. */

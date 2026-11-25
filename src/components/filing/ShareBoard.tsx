@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { type Club, clubLore, crestMini, formatFollowers } from '~/canon';
 import { formatReleaseDate } from '~/content/newsroom';
 import { Sparkline } from '~/components/motion/TickerTape';
+import { ClubWordmark } from '~/components/shared/ClubWordmark';
 import { history, inWorldDate, quote, todayUtc } from '~/lib/market';
 import { CLUB_PATH } from '~/site-map';
 import { LedgerTable } from './LedgerTable';
@@ -42,7 +43,7 @@ export function ShareBoard({ clubs }: { clubs: Club[] }) {
             <Link
               viewTransition
               to={CLUB_PATH(c.id)}
-              className="flex items-center gap-2 hover:text-accent"
+              className="flex items-center gap-2.5 transition-opacity hover:opacity-75"
             >
               <img
                 src={crestMini(c)}
@@ -50,10 +51,13 @@ export function ShareBoard({ clubs }: { clubs: Club[] }) {
                 width={17}
                 height={20}
                 loading="lazy"
-                className="h-5 w-auto"
+                className="h-5 w-auto shrink-0 sm:h-6"
               />
-              <span className="sm:hidden">{c.cardName}</span>
-              <span className="hidden sm:inline">{c.name}</span>
+              <ClubWordmark
+                club={c}
+                tone="light"
+                className="h-6 w-auto max-w-[6.5rem] sm:h-7 sm:max-w-[9.5rem]"
+              />
             </Link>
           ),
         },

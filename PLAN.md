@@ -285,13 +285,28 @@ Decided 2026-09-25:
 
 ---
 
-## 9. Where things stand (2026-09-25)
+## 9. Where things stand (2026-11-24)
 
 ### Done
 
-All phases in §6 are built, tested and deployed. The site has 17 pages, 28 club listings and
-11 press releases. 56 pages are prerendered, each with its own OG card and a sitemap entry.
-Unknown paths return a real 404.
+All phases in §6 are built, tested and deployed. The site has 17 core pages, 30 club listings
+(with bespoke club wordmarks across Floodlight, Filing and OG cards), 37 league decrees (including
+*All-Inclusive*), and 14 press releases. 61 pages are prerendered, each with its own OG card and a
+sitemap entry. Unknown paths return a real 404.
+
+Recent updates since launch:
+
+- **Typography:** bundled **Gabarito** (variable 400–900) and **Space Mono** (400 & 700) from the
+  game repos, mirroring the game's console/editorial split (`Gabarito` + `Space Mono` on Floodlight;
+  `Playfair Display` + `DM Sans` + `Space Mono` on Filing; system sans on `.ooc`).
+- **Platforms:** Google Play is live, and open iOS testing on TestFlight is live; `/play`, the
+  launch strip, Home, Careers, structured data, `llms.txt` and Newsroom all list web, Android and
+  iOS TestFlight.
+- **Media on `/play`:** curated in-game screenshots plus both **Trailer 1** (2035 launch trailer)
+  and **Trailer 2** (2036 league & club trailer, landscape and portrait cuts).
+- **Housekeeping:** pruned unused `PagePlaceholder.tsx`, `public/flags/`, `public/trophies/` and
+  unreferenced `public/brand-*.webp` / `public/league-wordmark*.webp` files; updated `legal.tsx`
+  credits and `scripts/import-game-canon.mjs` default path (`../superior-league-2036`).
 
 Checks that run on every change:
 
@@ -314,8 +329,8 @@ accessibility, best practices and SEO on both.
 - **Loaders:** club and press-release routes have none. They resolve their slug from bundled data,
   so an unknown slug renders the 404 instead of failing to fetch data that was never built.
 - **Scroll reveal:** movement only, with no fade. A mid-fade element failed contrast.
-- **Fonts:** self-hosted, with only Playfair 400 and italic, and DM Sans 400 and 600.
-  Out-of-character blocks use the system font.
+- **Fonts:** self-hosted four-face system matching the game repos: Gabarito, Space Mono, Playfair
+  Display and DM Sans. Out-of-character blocks use the system font.
 - **In-world calendar:** runs ten years ahead of the real one. The share board is dated to match
   (canon `market-board`).
 - **Draft result:** never named. The promo's five lit crests are captioned as not a result, and
@@ -325,17 +340,16 @@ accessibility, best practices and SEO on both.
 
 ### Still open
 
-- **Tester links (blocking the Play CTA):** the Google Group join URL and the Play opt-in URL,
-  once the closed-test track is live. Set them in `src/play-links.ts`; until then `/play` shows
-  "link coming soon".
-- **Game follow-up, owner renames:** the game's `src/data/clubLore.ts` still carries the real
-  names. The proposed replacements are in `CANON.md` under "Game follow-ups". This needs a
-  web-first content drop in the game; the site never edits the game repo.
+- **ACTION REQUIRED — Game follow-up, owner renames (web repo):** `superior-league-2036/src/data/clubLore.ts`
+  still contains real company and fund names (e.g. Kroenkecorp, Fenway, City Football, ENIC,
+  Quantum Pacific, RedBird, Oaktree, Agnelli/Exor, Qatar Sports Investments, Audi/Adidas/Allianz,
+  Signal Iduna, Ares, Public Investment Fund). `pefa` strips them at build time via
+  `src/canon/site/clubOverrides.ts`, and `tests/canon.test.ts` blocks them from shipping here, but
+  **they still need to be removed in the web game repo** (web-first content drop, then propagate to
+  Android/iOS). Full replacement table is in `CANON.md` under "Game follow-ups".
 - **Game follow-up, proposed canon:** entries tagged `proposed-for-game` in `CANON.md` are
   candidates for that same drop, if wanted: the mark, venue spec, partner roles, governance
   procedure, the President's letter, the Board, the Annual Report and the draft weighting.
-- **Flags:** the source and licence of `public/flags/` are unrecorded. This only matters if the
-  site starts using them.
-- **Screenshots on `/play`:** none yet, pending the rights review (§8).
+- **Custom domain (optional):** `src/site.json` is still on `https://pefa-alpha.vercel.app`.
 - **Review the new canon:** names and jokes added in Phases 3–4 (Board, Annual Report
   objectives, minutes, draft weighting) haven't had an owner read-through.

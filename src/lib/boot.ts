@@ -19,7 +19,7 @@ export function boot() {
   root.setAttribute('data-js', '');
   // Keep a closed launch strip closed (components/shared/OocStrip.tsx).
   try {
-    if (localStorage.getItem('pefa:launch-strip-dismissed')) {
+    if (localStorage.getItem('pefa:launch-strip-v2-dismissed')) {
       root.setAttribute('data-launch-dismissed', '');
     }
   } catch {

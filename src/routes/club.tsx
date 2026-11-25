@@ -6,6 +6,7 @@ import { FilingDocument, FilingPage, FilingSection } from '~/components/filing/F
 import { Footnote } from '~/components/filing/Footnote';
 import { PriceChart } from '~/components/filing/PriceChart';
 import { Stamp } from '~/components/filing/Stamp';
+import { ClubWordmark } from '~/components/shared/ClubWordmark';
 import { NotInvited, notInvitedMeta } from '~/components/shared/NotInvited';
 import { history } from '~/lib/market';
 import { pageMeta } from '~/meta';
@@ -51,16 +52,27 @@ export default function ClubListing({ params }: Route.ComponentProps) {
         issuer="PEFA™ · Listing document"
         reference={lore.ticker}
         title={
-          <span className="flex flex-col gap-6 sm:flex-row sm:items-center">
+          <span className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
             <img
               src={crestThumb(club)}
               alt=""
               width={435}
               height={512}
               data-reveal="scale"
-              className="h-28 w-auto shrink-0 self-start drop-shadow-[0_12px_20px_rgb(15_30_54/0.25)] sm:h-32 sm:self-center"
+              className="h-24 w-auto shrink-0 self-start drop-shadow-[0_12px_20px_rgb(15_30_54/0.25)] sm:h-28 sm:self-center"
             />
-            <span>{club.name}</span>
+            <span className="min-w-0 flex-1">
+              <ClubWordmark
+                club={club}
+                tone="light"
+                decorative
+                eager
+                className="h-14 w-auto max-w-[min(100%,26rem)] sm:h-20"
+              />
+              <span className="mt-2.5 block font-mono text-xs font-bold uppercase tracking-[0.14em] text-ink-muted">
+                {club.name}
+              </span>
+            </span>
           </span>
         }
         subtitle={<p className="font-display italic">{lore.positioning}</p>}
@@ -136,7 +148,7 @@ export default function ClubListing({ params }: Route.ComponentProps) {
                   <Link
                     viewTransition
                     to={CLUB_PATH(r.id)}
-                    className="flex items-center gap-2 border border-rule px-3 py-2 hover:border-accent"
+                    className="flex items-center gap-3 border border-rule bg-surface px-3.5 py-2.5 transition-colors hover:border-accent"
                   >
                     <img
                       src={crestMini(r)}
@@ -144,9 +156,9 @@ export default function ClubListing({ params }: Route.ComponentProps) {
                       width={20}
                       height={24}
                       loading="lazy"
-                      className="h-6 w-auto"
+                      className="h-7 w-auto shrink-0"
                     />
-                    {r.name}
+                    <ClubWordmark club={r} tone="light" className="h-7 w-auto max-w-[9rem]" />
                   </Link>
                 </li>
               ))}
@@ -167,14 +179,38 @@ export default function ClubListing({ params }: Route.ComponentProps) {
         </div>
       </FilingDocument>
 
-      <nav aria-label="Other listings" className="mt-8 flex justify-between gap-4 text-sm">
-        <Link viewTransition to={CLUB_PATH(prev.id)} className="hover:text-accent">
-          <span aria-hidden="true">← </span>
-          {prev.cardName}
+      <nav
+        aria-label="Other listings"
+        className="mt-8 flex items-center justify-between gap-4 text-sm"
+      >
+        <Link
+          viewTransition
+          to={CLUB_PATH(prev.id)}
+          className="flex min-w-0 items-center gap-2.5 hover:text-accent"
+        >
+          <span aria-hidden="true" className="shrink-0">
+            ←
+          </span>
+          <ClubWordmark
+            club={prev}
+            tone="light"
+            className="h-6 w-auto max-w-[7.5rem] sm:h-7 sm:max-w-[9.5rem]"
+          />
         </Link>
-        <Link viewTransition to={CLUB_PATH(next.id)} className="text-right hover:text-accent">
-          {next.cardName}
-          <span aria-hidden="true"> →</span>
+        <Link
+          viewTransition
+          to={CLUB_PATH(next.id)}
+          className="flex min-w-0 items-center justify-end gap-2.5 text-right hover:text-accent"
+        >
+          <ClubWordmark
+            club={next}
+            tone="light"
+            align="right"
+            className="h-6 w-auto max-w-[7.5rem] sm:h-7 sm:max-w-[9.5rem]"
+          />
+          <span aria-hidden="true" className="shrink-0">
+            →
+          </span>
         </Link>
       </nav>
     </FilingPage>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { type Club, crestThumb } from '~/canon';
+import { ClubWordmark } from '~/components/shared/ClubWordmark';
 import { CLUB_PATH } from '~/site-map';
 
 /**
@@ -45,10 +46,15 @@ export function CrestGrid({
                   className={`relative h-20 w-auto transition duration-700 [transition-timing-function:var(--ease-out-expo)] group-hover:-translate-y-1 group-hover:scale-110 sm:h-24 ${dim ? 'opacity-35 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100' : ''}`}
                 />
               </span>
-              <span className="relative mt-4 text-sm font-medium leading-snug">
-                {club.cardName}
+              <span className="relative mt-4 flex h-9 w-full items-center justify-center px-1 sm:h-11">
+                <ClubWordmark
+                  club={club}
+                  tone="dark"
+                  align="center"
+                  className={`max-h-full w-auto max-w-[9.5rem] transition duration-700 ${dim ? 'opacity-35 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100' : ''}`}
+                />
               </span>
-              <span className="smallcaps relative mt-1 text-ink-muted">{club.city}</span>
+              <span className="smallcaps relative mt-1.5 text-ink-muted">{club.city}</span>
               {on && <span className="sr-only">(highlighted)</span>}
             </Link>
           </li>

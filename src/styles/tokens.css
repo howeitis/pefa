@@ -20,6 +20,9 @@
   --ink-faint: #6e7484;
   --glow: rgb(229 184 66 / 0.18);
   --focus: #e5b842;
+  /* Matches the game's console shell: Gabarito for brand pages. */
+  --type-display: 'Gabarito', 'DM Sans', system-ui, sans-serif;
+  --type-sans: 'Gabarito', 'DM Sans', system-ui, sans-serif;
   color-scheme: dark;
 }
 
@@ -36,6 +39,9 @@
   --ink-faint: #7a7f88;
   --glow: rgb(15 30 54 / 0.08);
   --focus: #0f1e36;
+  /* Matches the game's editorial shell: Playfair Display and DM Sans on paper. */
+  --type-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --type-sans: 'DM Sans', system-ui, sans-serif;
   color-scheme: light;
 }
 
@@ -52,13 +58,16 @@
   --ink-faint: #707070;
   --glow: transparent;
   --focus: #1d4ed8;
+  --type-display: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --type-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   color-scheme: light;
 }
 
 @theme inline {
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --font-display: var(--type-display);
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: var(--type-sans);
+  --font-mono: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
   --font-ooc: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 
   --color-ground: var(--ground);
@@ -120,14 +129,26 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
   }
-  /* On the brand pages, labels read like a terminal: mono, tracked, caps. */
+  /* On the brand pages, labels read like a terminal: Space Mono, tracked, caps. */
   [data-material='floodlight'] .smallcaps,
   .mono-caps {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+  }
+
+  /* Floodlight display uses Gabarito's bold geometric punch; *asterisk* words
+     in SplitText stay in Playfair Display italic so the satire keeps its bite. */
+  [data-material='floodlight'] .font-display {
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+  [data-material='floodlight'] .split .italic {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.005em;
   }
 
   /* Anything addressed to the real visitor wears this. See OocStrip. */

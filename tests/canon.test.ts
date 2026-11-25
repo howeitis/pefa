@@ -51,6 +51,7 @@ const WORDS: Record<string, number> = {
   thirty: 30,
   'thirty-two': 32,
   'thirty-six': 36,
+  'thirty-seven': 37,
   forty: 40,
 };
 /** A figure as digits or words; NaN for anything else ("not redacted" is not a count). */
@@ -137,9 +138,9 @@ describe('imported game canon', () => {
     expect(clubsJson.clubs).toHaveLength(30);
   });
 
-  it('has lore for every club and all 36 decrees', () => {
+  it('has lore for every club and all 37 decrees', () => {
     for (const club of clubsJson.clubs) expect(clubLore).toHaveProperty(club.id);
-    expect(decrees).toHaveLength(36);
+    expect(decrees).toHaveLength(37);
   });
 });
 

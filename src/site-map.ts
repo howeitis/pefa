@@ -39,7 +39,7 @@ export const PAGES: SitePage[] = [
     title: 'Private Equity Football Accelerate™',
     seoTitle: 'PEFA™ · Superior League 2036, the free satirical football manager game',
     description:
-      'Football did not die. It was algorithmically optimized. PEFA™ is the villain of Superior League 2036, a free, satirical football (soccer) manager simulator for web and Android.',
+      'Football did not die. It was algorithmically optimized. PEFA™ is the villain of Superior League 2036, a free, satirical football (soccer) manager simulator for web, Android and iOS (TestFlight).',
     material: 'floodlight',
   },
   {
@@ -166,7 +166,7 @@ export const PAGES: SitePage[] = [
     seoTitle: 'Superior League 2036: Free Football Manager & Soccer Simulator',
     label: 'Play the game',
     description:
-      'Superior League 2036 is a free, satirical football manager game and soccer simulator for your browser and Android. Pick the team, set tactics, trade players, win the league.',
+      'Superior League 2036 is a free, satirical football manager game and soccer simulator for your browser, Android and iOS (TestFlight). Pick the team, set tactics, trade players, win the league.',
     material: 'ooc',
   },
 ];

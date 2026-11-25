@@ -79,6 +79,7 @@ const llms = (await readFile(new URL('../src/content/llms.md', import.meta.url),
   .replaceAll('{{SITE_URL}}', SITE_URL)
   .replaceAll('{{PLAY_URL}}', PLAY_LINKS.web)
   .replaceAll('{{ANDROID_URL}}', PLAY_LINKS.android)
+  .replaceAll('{{IOS_URL}}', PLAY_LINKS.ios)
   .replace('{{FAQ}}', FAQ.map(({ q, a }) => `### ${q}\n\n${a}`).join('\n\n'));
 await writeFile(join(dir, 'llms.txt'), llms);
 

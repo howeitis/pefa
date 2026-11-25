@@ -269,14 +269,14 @@ export default function Home() {
                 </textPath>
               </text>
             </svg>
-            <span className="absolute inset-7 flex items-center justify-center rounded-full border border-accent/60 bg-surface font-display text-3xl text-accent">
+            <span className="absolute inset-7 flex items-center justify-center rounded-full border border-accent/60 bg-surface font-serif text-3xl text-accent">
               GI
             </span>
           </div>
           <figure>
             <ScrollQuote
               text={LETTER.excerpt}
-              className="max-w-5xl font-display text-3xl leading-snug sm:text-5xl lg:text-6xl"
+              className="max-w-5xl font-serif text-3xl leading-snug sm:text-5xl lg:text-6xl"
             />
             <figcaption className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-ink-muted">
               <span>
@@ -372,8 +372,8 @@ export default function Home() {
           <p className="max-w-2xl">
             <strong>Out of character:</strong> PEFA™ is the villain of Superior League 2036, a
             satirical football manager game (a soccer management simulator, in American). Take a
-            club into PEFA’s league and try to win anyway. It’s free, plays in your browser and is
-            now live on Google Play.
+            club into PEFA’s league and try to win anyway. It’s free, plays in your browser, is live
+            on Google Play, and is in open iOS testing on TestFlight.
           </p>
           <div className="flex shrink-0 flex-col gap-3 sm:items-end">
             <Link
@@ -383,19 +383,28 @@ export default function Home() {
             >
               Play the free football manager game
             </Link>
-            <a
-              href={PLAY_LINKS.android}
-              rel="noopener"
-              className="rounded-md border-2 border-ooc-ink px-5 py-2.5 text-center font-semibold"
-            >
-              Get it on Google Play
-            </a>
+            <div className="flex flex-wrap gap-3 sm:justify-end">
+              <a
+                href={PLAY_LINKS.ios}
+                rel="noopener"
+                className="flex-1 rounded-md border-2 border-ooc-ink px-4 py-2.5 text-center font-semibold sm:flex-initial"
+              >
+                Join iOS TestFlight
+              </a>
+              <a
+                href={PLAY_LINKS.android}
+                rel="noopener"
+                className="flex-1 rounded-md border-2 border-ooc-ink px-4 py-2.5 text-center font-semibold sm:flex-initial"
+              >
+                Get it on Google Play
+              </a>
+            </div>
             <Link
               to="/play#trailer"
               viewTransition
               className="text-center font-semibold underline underline-offset-4"
             >
-              Watch the trailer
+              Watch the trailers
             </Link>
           </div>
         </div>
