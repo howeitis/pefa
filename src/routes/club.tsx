@@ -34,6 +34,112 @@ export const meta = ({ params }: Route.MetaArgs) => {
 
 const gbp = (n: number) => `£${n.toLocaleString('en-GB')}`;
 
+interface ClubVenue {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+const CLUB_VENUES: Record<string, ClubVenue> = {
+  armory: {
+    src: '/venues/armory.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of The Armory Group Superior Venue beneath its 19°C translucent climate dome, featuring circular Clawed AI live valuation ribbons and crimson seats with individual displays.',
+  },
+  kensington: {
+    src: '/venues/kensington.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Kensington Capital FC’s Superior Venue in West London beneath a sealed glass climate dome reading 19°C, with royal-blue instrumented seating and a circular Clawed AI valuation halo.',
+  },
+  'boston-reds': {
+    src: '/venues/boston-reds.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Boston Reds of Merseyside’s Superior Venue enclosed beneath soaring red structural steel trusses and glass roof panels, with overhead acoustic arrays and circular Clawed AI valuation displays.',
+  },
+  citizens: {
+    src: '/venues/citizens.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Manchester Citizens* Corp’s circular Superior Venue beneath a sealed glass dome framed by towering angled white exterior suspension masts, sky-blue instrumented seats, and circular valuation ribbons.',
+  },
+  'red-devils': {
+    src: '/venues/red-devils.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Red Devils PLC’s Superior Venue enclosed by a translucent climate dome spanning massive red cantilevered steel trusses, with scarlet instrumented seats and a glowing amber Synthetic Away End.',
+  },
+  'white-hart-loan': {
+    src: '/venues/white-hart-loan.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of White Hart Loan FC’s Superior Venue beneath a closed glass dome reading 19°C, featuring the illuminated mid-tier Cheese Room lounge, circular valuation halo, and navy seating.',
+  },
+  almostico: {
+    src: '/venues/almostico.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Almostico de Madrid FC’s Superior Venue beneath a sweeping wavy pleated roof sealed by a translucent 19°C climate dome, with red-and-white seating and circular Clawed AI valuation ribbons.',
+  },
+  'more-than-a-club': {
+    src: '/venues/more-than-a-club.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of More Than A Club™ FC’s colossal three-tier Superior Venue in Barcelona beneath a sealed translucent radial-cable dome reading 19°C, ringed by garnet-and-blue valuation boards.',
+  },
+  vardrid: {
+    src: '/venues/vardrid.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Royal VARdrid’s steep vertical Superior Venue beneath a closed futuristic roof, featuring a colossal 360-degree overhead halo displaying Clawed AI VAR Verdict Confirmed and purple-and-gold seating.',
+  },
+  'milano-runway': {
+    src: '/venues/milano-runway.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Milano Runway FC’s steep three-tier Superior Venue beneath massive red overhead roof girders and a glass climate canopy, featuring a lit glass fashion boutique overlooking the pitch.',
+  },
+  debito: {
+    src: '/venues/debito.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Internazionale Debito FC’s steep three-tier Superior Venue beneath gunmetal roof girders and a sealed 19°C glass canopy, with royal-blue seating and bond-yield valuation ribbons.',
+  },
+  piemonte: {
+    src: '/venues/piemonte.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Piemonte Capital’s intimate black-and-white Superior Venue in Turin beneath a closed glass roof framed by twin white exterior suspension masts and a 19°C circular valuation halo.',
+  },
+  'saint-sovereign': {
+    src: '/venues/saint-sovereign.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Paris Saint-Sovereign’s elliptical Superior Venue lined with fifty warm-lit concrete ribs beneath a closed canopy and 19°C overhead display ring.',
+  },
+  'bavarian-monopoly': {
+    src: '/venues/bavarian-monopoly.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Bavarian Monopoly’s circular three-tier Superior Venue in Munich wrapped in glowing crimson diamond-quilted roof cushions sealed at 19°C, with a suspended Clawed AI valuation ring.',
+  },
+  'borussia-export': {
+    src: '/venues/borussia-export.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Interior of Borussia Export AG’s Superior Venue in Dortmund enclosed under a structural glass roof beneath yellow pylons, with Clawed AI live valuation boards ringing the black-and-yellow stands.',
+  },
+  'dc-diplomats': {
+    src: '/venues/dc-diplomats.webp',
+    width: 1024,
+    height: 764,
+    alt: 'Twilight exterior of DC Diplomats FC’s Superior Venue on the Anacostia waterfront in Washington, featuring a white neoclassical colonnade, translucent domed roof, and the illuminated Capitol dome on the horizon.',
+  },
+};
+
 /** A club's listing document, as filed with PEFA on admission. */
 export default function ClubListing({ params }: Route.ComponentProps) {
   const found = listing(params.slug);
@@ -41,6 +147,7 @@ export default function ClubListing({ params }: Route.ComponentProps) {
   const { club, lore } = found;
 
   const founder = club.membership === 'permanent';
+  const venue = CLUB_VENUES[club.id];
   const index = clubs.findIndex((c) => c.id === club.id);
   const prev = clubs[(index - 1 + clubs.length) % clubs.length]!;
   const next = clubs[(index + 1) % clubs.length]!;
@@ -80,6 +187,26 @@ export default function ClubListing({ params }: Route.ComponentProps) {
           <Stamp tone={founder ? 'accent' : 'navy'}>
             {founder ? 'Founder · Un-relegatable' : 'Synergy Draft™ pool'}
           </Stamp>
+        }
+        aside={
+          venue && (
+            <figure className="overflow-hidden border border-rule bg-surface-2">
+              <img
+                src={venue.src}
+                alt={venue.alt}
+                width={venue.width}
+                height={venue.height}
+                decoding="async"
+                className="block h-auto w-full object-cover"
+              />
+              <figcaption className="smallcaps figures flex items-center justify-between gap-2 border-t border-rule px-3.5 py-2 text-[0.6875rem] text-ink-muted">
+                <Link viewTransition to="/superior-venue" className="draw-link hover:text-accent">
+                  Superior Venue™
+                </Link>
+                <span className="text-accent">19°C · Certified</span>
+              </figcaption>
+            </figure>
+          )
         }
       >
         <FactList

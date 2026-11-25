@@ -1,13 +1,35 @@
-import type { CSSProperties } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { clubsIn, crestMini, league } from '~/canon';
 
 /**
- * Fifteen founder crests on a slow inner orbit, five empty gold berths on
- * the outer one turning the other way: the shape of the league as a
- * diagram. Decorative; the page lists the clubs properly below.
+ * Three disjoint five-club waves covering all fifteen global partners so every
+ * club takes a turn orbiting the fifteen permanent founders.
+ */
+const SLOT_ROTATIONS = [
+  ['ny-citizens', 'la-cameo', 'retirement-fund'],
+  ['rayados-industrial', 'al-alami', 'odiados'],
+  ['shanghai-supply', 'pretoria-gold', 'al-zaeem'],
+  ['pyramid-scheme', 'ba-millionaires', 'urawa-synthetic'],
+  ['red-star-beijing', 'dc-diplomats', 'copacabana'],
+].map(clubsIn);
+
+const SWAP_INTERVAL_MS = 900;
+
+/**
+ * Fifteen founder crests on a slow inner orbit, five rotating global club
+ * crests on the outer one turning the other way and cycling frequently through
+ * all fifteen global partners. Decorative; the page lists the clubs properly below.
  */
 export function CrestOrbit() {
   const founders = clubsIn(league.permanentIds);
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const id = window.setInterval(() => setTick((t) => t + 1), SWAP_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <div aria-hidden="true" className="orbit relative hidden h-[30rem] w-[30rem] shrink-0 lg:block">
       <div className="absolute inset-0 rounded-full border border-dashed border-rule" />
@@ -44,14 +66,29 @@ export function CrestOrbit() {
         className="orbit-ring absolute inset-0"
         style={{ '--orbit': '50s', animationDirection: 'reverse' } as CSSProperties}
       >
-        {Array.from({ length: league.rotatingSlots }, (_, i) => {
-          const a = (i / league.rotatingSlots) * 360 + 18;
+        {SLOT_ROTATIONS.map((slotClubs, i) => {
+          const a = (i / SLOT_ROTATIONS.length) * 360 + 18;
+          const cycle = Math.floor(
+            (tick + (SLOT_ROTATIONS.length - 1 - i)) / SLOT_ROTATIONS.length,
+          );
+          const club = slotClubs[cycle % slotClubs.length]!;
           return (
             <span
               key={i}
-              className="absolute left-1/2 top-1/2 -ml-3 -mt-3 h-6 w-6 rounded-full border-2 border-accent bg-ground shadow-[0_0_24px_rgb(229_184_66/0.6)]"
-              style={{ transform: `rotate(${a}deg) translateY(-15rem)` }}
-            />
+              className="absolute left-1/2 top-1/2 -ml-5 -mt-5 flex h-10 w-10 items-center justify-center"
+              style={{ transform: `rotate(${a}deg) translateY(-15rem) rotate(${-a}deg)` }}
+            >
+              <span className="orbit-ring flex h-10 w-10 items-center justify-center">
+                <img
+                  key={club.id}
+                  src={crestMini(club)}
+                  alt=""
+                  width={34}
+                  height={40}
+                  className="orbit-swap h-10 w-auto object-contain"
+                />
+              </span>
+            </span>
           );
         })}
       </div>

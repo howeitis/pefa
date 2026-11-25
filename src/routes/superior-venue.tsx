@@ -1,39 +1,46 @@
+import type { CSSProperties } from 'react';
 import { Link } from 'react-router';
-import { decree, lore } from '~/canon';
+import { clubById, clubLore, crestMini, decree, lore } from '~/canon';
 import { Hero } from '~/components/floodlight/Hero';
-import { VenueMotif } from '~/components/home/Motifs';
 import { Section } from '~/components/floodlight/Section';
+import { VenueFeatureVisual } from '~/components/floodlight/VenueFeatureVisual';
 import { metaFor } from '~/meta';
 
 export const meta = () => metaFor('/superior-venue');
 
 const matchday = lore.prospectus.sections.find((s) => s.heading === 'The Matchday Experience')!;
 
-/**
- * Product copy for the nine features in the prospectus. The feature names are
- * locked canon (in prospectus order); the descriptions are site canon, logged
- * in CANON.md as `venue-spec`.
- */
-const COPY: Record<string, string> = {
-  'Climate-controlled conditions':
-    'Every venue holds the pitch at a constant 19°C under a closed roof. Weather has been removed from the product, along with the excuses it provided.',
-  'Dynamic ticket pricing':
-    'Seat prices update continuously against demand, form and the opponent’s TokTok following. The price you paid is the price the moment deserved.',
-  'Personalized in-seat advertising':
-    'Each seat carries a display tuned to its occupant. Supporters report that the adverts know them better than their club does. We consider this a compliment.',
-  'Sponsored substitutions':
-    'A substitution is a broadcast moment, and every broadcast moment is available for purchase. Changes are announced by, and named after, their sponsor.',
-  'AI-generated chants':
-    'Chants are composed live from each crowd’s historical repertoire, cleared for rights and balanced by crowd audio calibration. The words are new. The feeling is licensed.',
-  'Haptic seating':
-    'Seats pulse on shots, tackles and price movements, so that no supporter misses a moment of value. Haptic seating is sold separately.',
-  'Real-time Micro-Betting™':
-    'In-play markets on every throw-in, corner and substitution, settled before the ball is back in play.',
-  'Live player valuation updates':
-    'Every player’s price updates on the venue boards as the match unfolds, calculated live by Clawed AI.',
-  'Complimentary financial wellness content':
-    'Included with every ticket and shown at half-time. Supporters who have followed dynamic pricing all season will find it especially relevant.',
-};
+interface CertifiedVenue {
+  clubId: string;
+  image: string;
+  alt: string;
+  caption: string;
+}
+
+/** First certified Superior Venues™ shown in architectural preview. */
+const CERTIFIED_VENUES: CertifiedVenue[] = [
+  {
+    clubId: 'armory',
+    image: '/venues/armory.webp',
+    alt: 'Interior of The Armory Group Superior Venue in North London beneath a sealed translucent climate dome reading 19°C, with circular Clawed AI live valuation and Micro-Betting LED ribbons, crimson seats fitted with individual seatback displays, and a glowing amber Synthetic Away End in the upper tier.',
+    caption:
+      'North London’s former bowl, now sealed beneath a translucent climate dome holding the pitch at a contractually constant 19°C. Seatback displays deliver personalised offers to every supporter, while the amber glow in the upper corner marks the venue’s calibrated Synthetic Away End.',
+  },
+  {
+    clubId: 'borussia-export',
+    image: '/venues/borussia-export.webp',
+    alt: 'Interior of Borussia Export AG’s Superior Venue in Dortmund enclosed under a structural glass roof beneath towering yellow pylons, ringed by 19°C and Clawed AI live valuation LED boards above steep black-and-yellow stands.',
+    caption:
+      'The club’s famed home atmosphere, enclosed in structural glass and balanced by overhead Microsack acoustic arrays. Live Clawed AI valuations wrap the fascia at eye level, ensuring every talent pipeline asset knows its current clearing price before half-time.',
+  },
+  {
+    clubId: 'saint-sovereign',
+    image: '/venues/saint-sovereign.webp',
+    alt: 'Interior of Paris Saint-Sovereign’s elliptical Superior Venue lined with fifty warm-lit curved concrete ribs beneath a closed canopy, featuring a 19°C overhead display ring, navy seating with gold spiral mosaics, and personal seatback screens.',
+    caption:
+      'Fifty cantilevered concrete ribs lit to specification beneath a closed elliptical canopy. Sovereign-tier haptic seating, continuous Micro-Betting™ ribbons and 19°C climate lock deliver an identical matchday product regardless of Parisian weather or sporting outcome.',
+  },
+];
 
 /** Decrees that change the matchday itself. */
 const MATCHDAY_DECREES = [
@@ -45,17 +52,53 @@ const MATCHDAY_DECREES = [
   'wellness-breaks',
 ].map(decree);
 
+const heroClub = clubById('dc-diplomats')!;
+const heroClubLore = clubLore[heroClub.id]!;
+
 export default function SuperiorVenue() {
   return (
     <>
       <Hero
         kicker="Superior Venue™ · Infrastructure by Microsack"
-        title="The football stadium has been *replaced.*"
+        title="The football stadium has been *revolutionized.*"
         backdrop="grid"
         aside={
-          <div className="hidden h-[26rem] w-[26rem] lg:block">
-            <VenueMotif />
-          </div>
+          <figure
+            data-reveal="up"
+            style={{ '--delay': '300ms' } as CSSProperties}
+            className="spotlight w-full max-w-lg overflow-hidden rounded-sm border border-rule bg-surface lg:w-[28rem]"
+          >
+            <div className="overflow-hidden border-b border-rule bg-ground">
+              <img
+                src="/venues/dc-diplomats.webp"
+                alt="Twilight exterior of DC Diplomats FC’s Superior Venue on the Anacostia waterfront in Washington, featuring a white neoclassical colonnade, translucent domed roof, LED ribbon reading DC Diplomats FC, DIP.N, Superior Venue and 19°C, and the illuminated Capitol dome on the horizon."
+                width={1024}
+                height={764}
+                decoding="async"
+                className="block aspect-[1024/764] w-full object-cover"
+              />
+            </div>
+            <figcaption className="flex items-center justify-between gap-3 px-4 py-3">
+              <div className="flex items-center gap-2.5">
+                <img
+                  src={crestMini(heroClub)}
+                  alt=""
+                  width={20}
+                  height={20}
+                  decoding="async"
+                  className="h-5 w-5 shrink-0 object-contain"
+                />
+                <Link
+                  viewTransition
+                  to={`/superior-league/clubs/${heroClub.id}`}
+                  className="draw-link smallcaps text-ink hover:text-accent"
+                >
+                  {heroClub.name}
+                </Link>
+              </div>
+              <span className="smallcaps figures text-accent">19°C · {heroClubLore.ticker}</span>
+            </figcaption>
+          </figure>
         }
         lede={
           <p>
@@ -68,28 +111,101 @@ export default function SuperiorVenue() {
 
       <Section
         index="01"
+        id="certified"
+        kicker="Certified venues · 2036"
+        title="See *Superior Venues™.*"
+        intro={
+          <p>
+            The first wave of founder grounds retrofitted and certified by PEFA™ and Microsack for
+            the 2036 season. Every roof closed; every seat instrumented; every atmosphere calibrated
+            to broadcast tolerances.
+          </p>
+        }
+      >
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {CERTIFIED_VENUES.map((venue) => {
+            const club = clubById(venue.clubId)!;
+            const info = clubLore[club.id]!;
+            return (
+              <figure
+                key={club.id}
+                className="spotlight reveal group flex flex-col overflow-hidden rounded-sm border border-rule bg-surface"
+              >
+                <div className="overflow-hidden border-b border-rule bg-ground">
+                  <img
+                    src={venue.image}
+                    alt={venue.alt}
+                    width={1024}
+                    height={571}
+                    loading="lazy"
+                    decoding="async"
+                    className="block aspect-[1024/571] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                  />
+                </div>
+                <figcaption className="flex flex-1 flex-col p-6">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="smallcaps figures text-ink-muted">
+                      {club.city} · {info.ticker}
+                    </p>
+                    <p className="smallcaps figures text-accent">19°C · Certified</p>
+                  </div>
+                  <div className="mt-4 flex items-center gap-3">
+                    <img
+                      src={crestMini(club)}
+                      alt=""
+                      width={24}
+                      height={24}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-6 w-6 shrink-0 object-contain"
+                    />
+                    <h3 className="font-display text-xl leading-tight">
+                      <Link
+                        viewTransition
+                        to={`/superior-league/clubs/${club.id}`}
+                        className="draw-link hover:text-accent"
+                      >
+                        {club.name}
+                      </Link>
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">{venue.caption}</p>
+                </figcaption>
+              </figure>
+            );
+          })}
+        </div>
+      </Section>
+
+      <Section
+        index="02"
         id="features"
         kicker="Specification"
         title="Standard in every *venue.*"
         intro={<p>{matchday.body[0]}</p>}
       >
-        <ol className="grid gap-px overflow-hidden rounded-sm border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {matchday.bullets!.map((name, i) => (
             <li
               key={name}
-              data-reveal="clip"
-              className="spotlight bg-ground p-8 transition-colors duration-500 hover:bg-surface sm:p-10"
+              className="spotlight reveal flex flex-col overflow-hidden rounded-sm border border-rule bg-surface"
             >
-              <p className="smallcaps figures text-accent">{String(i + 1).padStart(2, '0')}</p>
-              <h3 className="mt-6 font-display text-2xl">{name}</h3>
-              <p className="mt-3 text-ink-muted">{COPY[name]}</p>
+              <div className="border-b border-rule bg-[#080c15]">
+                <VenueFeatureVisual name={name} />
+              </div>
+              <div className="flex items-baseline gap-3 px-6 py-5">
+                <span className="smallcaps figures shrink-0 text-accent">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="font-display text-xl leading-snug">{name}</h3>
+              </div>
             </li>
           ))}
         </ol>
       </Section>
 
       <Section
-        index="02"
+        index="03"
         id="regulations"
         kicker="Matchday regulations"
         title="Decrees that shape the experience."
@@ -126,7 +242,7 @@ export default function SuperiorVenue() {
       </Section>
 
       <Section
-        index="03"
+        index="04"
         id="app"
         kicker="Superior League app™"
         title="Participation is *encouraged.*"

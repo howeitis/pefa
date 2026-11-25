@@ -45,6 +45,7 @@ export function FilingDocument({
   title,
   subtitle,
   stamp,
+  aside,
   children,
   headingLevel = 1,
 }: {
@@ -53,6 +54,7 @@ export function FilingDocument({
   title: ReactNode;
   subtitle?: ReactNode;
   stamp?: ReactNode;
+  aside?: ReactNode;
   children: ReactNode;
   headingLevel?: 1 | 2;
 }) {
@@ -70,16 +72,23 @@ export function FilingDocument({
         {reference && <span className="figures font-mono">Ref. {reference}</span>}
       </div>
       <div className="px-6 pb-10 pt-8 sm:px-10 sm:pb-14 sm:pt-12">
-        <header>
-          <Heading className="max-w-3xl text-balance font-display text-4xl leading-tight sm:text-6xl">
-            {typeof title === 'string' ? <SplitText text={title} delay={150} /> : title}
-          </Heading>
-          {subtitle && (
-            <div data-reveal="up" className="mt-5 text-lg text-ink-muted">
-              {subtitle}
-            </div>
-          )}
-          {stamp && <div className="mt-6">{stamp}</div>}
+        <header
+          className={
+            aside ? 'grid gap-8 lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-center lg:gap-10' : ''
+          }
+        >
+          <div className="min-w-0">
+            <Heading className="max-w-3xl text-balance font-display text-4xl leading-tight sm:text-6xl">
+              {typeof title === 'string' ? <SplitText text={title} delay={150} /> : title}
+            </Heading>
+            {subtitle && (
+              <div data-reveal="up" className="mt-5 text-lg text-ink-muted">
+                {subtitle}
+              </div>
+            )}
+            {stamp && <div className="mt-6">{stamp}</div>}
+          </div>
+          {aside && <div className="min-w-0">{aside}</div>}
         </header>
         <div className="mt-10">{children}</div>
       </div>

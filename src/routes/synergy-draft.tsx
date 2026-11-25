@@ -2,8 +2,8 @@ import { Link } from 'react-router';
 import { clubsIn, league, lore, scene } from '~/canon';
 import { DraftCalculator } from '~/components/floodlight/DraftCalculator';
 import { DraftConstellation } from '~/components/floodlight/DraftConstellation';
+import { DraftCrestHero } from '~/components/floodlight/DraftCrestHero';
 import { Hero } from '~/components/floodlight/Hero';
-import { DraftMotif } from '~/components/home/Motifs';
 import { ScrollQuote } from '~/components/home/ScrollQuote';
 import { Section } from '~/components/floodlight/Section';
 import { metaFor } from '~/meta';
@@ -40,11 +40,7 @@ export default function SynergyDraft() {
         kicker={draft.kicker!}
         title={draft.headline!}
         backdrop="grid"
-        aside={
-          <div className="hidden h-[26rem] w-[26rem] rounded-full border border-rule p-12 lg:block">
-            <DraftMotif />
-          </div>
-        }
+        aside={<DraftCrestHero />}
         lede={
           <>
             <p>{draft.body}</p>

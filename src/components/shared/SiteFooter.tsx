@@ -73,10 +73,13 @@ export function SiteFooter({ material }: { material: Material }) {
         </div>
 
         <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-rule px-4 py-6 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>
-            © PEFA™ Private Equity Football Accelerate™. All rights reserved, and several others
-            acquired.
-          </p>
+          <div className="space-y-1">
+            <p>
+              © PEFA™ Private Equity Football Accelerate™. All rights reserved, and several others
+              acquired.
+            </p>
+            <p>Made with Claude Code and a local instance of Muse Glimmer.</p>
+          </div>
           <p className="flex items-center gap-5">
             <LuxClock />
             <a href="#main" className="font-mono uppercase tracking-wider hover:text-ink">

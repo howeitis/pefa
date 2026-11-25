@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { clubLore, domestic, formatFollowers, scene } from '~/canon';
 import { Hero } from '~/components/floodlight/Hero';
+import { PartnerLogo } from '~/components/floodlight/PartnerLogo';
 import { Section } from '~/components/floodlight/Section';
 import { CountUp } from '~/components/motion/CountUp';
 import { metaFor } from '~/meta';
@@ -60,8 +61,8 @@ export default function Partners() {
               data-reveal="clip"
               className="spotlight bg-ground p-8 transition-colors duration-500 hover:bg-surface sm:p-10"
             >
-              <p className="font-display text-4xl">{p.name}</p>
-              <p className="mt-4 text-ink-muted">{p.role}</p>
+              <PartnerLogo name={p.name} />
+              <p className="mt-5 text-ink-muted">{p.role}</p>
             </li>
           ))}
         </ul>
