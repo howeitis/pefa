@@ -3,10 +3,10 @@
  * on-dark variants, the favicon, the app icons, the manifest and the default
  * OG card.
  *
- * The emblem is a football pitch drawn as a chart: a plain pitch outline with
- * a gold trend line climbing through the centre circle and out of the frame.
- * The Superior League (PEFA's product) keeps its own knot mark; this is the
- * owner's, so it is colder and more geometric.
+ * The emblem is a wireframe globe with a gold trend line climbing across it
+ * and breaking out at the top right (after FIFA's globe, acquired). The
+ * wordmark is PEF▲: heavy drawn capitals whose A takes the same trend line as
+ * its crossbar. The Superior League (PEFA's product) keeps its own knot mark.
  *
  * Text is converted to outlines with opentype.js, so no SVG here depends on a
  * font being installed. Run with `npm run brand`. Output is committed.
@@ -76,18 +76,48 @@ function textPath(font, text, x, y, size, tracking = 0) {
   return { d: parts.join(''), width: cursor - x };
 }
 
-// ─── Emblem (64 × 64 design grid) ───
+// ─── Emblem: the Breakout globe (200 × 200 design grid) ───
 
-function emblemGroup({ ink, accent }, { stroke = 2.5, trend = 4 } = {}) {
+// The trend line climbs across the globe and leaves it at the top right, the
+// same gesture as the crossbar of the wordmark's A.
+const GLOBE_ARROW = 'M34 146L72 116L98 130L150 72L184 36M160 32H188V60';
+
+/**
+ * The globe's grid is cut away around the arrow with a mask rather than a
+ * halo in the ground colour, so the mark stays transparent on any surface.
+ * `solid` is the small-size cut: a filled disc with the meridian and equator
+ * cut out, for the favicon and anything under ~40px.
+ */
+function globeGroup(
+  { ink, accent },
+  { id = 'g', solid = false, stroke = 8, trend = 12, gap = 28, detail = true } = {},
+) {
+  const round = 'stroke-linecap="round" stroke-linejoin="round"';
+  if (solid) {
+    return `
+  <defs><mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+    <rect width="200" height="200" fill="#fff"/>
+    <g fill="none" stroke="#000" ${round}>
+      <ellipse cx="100" cy="100" rx="38" ry="80" stroke-width="12"/>
+      <path d="M20 100H180" stroke-width="12"/>
+      <path d="${GLOBE_ARROW}" stroke-width="${trend + 18}"/>
+    </g>
+  </mask></defs>
+  <circle cx="100" cy="100" r="80" fill="${ink}" mask="url(#${id})"/>
+  <path d="${GLOBE_ARROW}" fill="none" stroke="${accent}" stroke-width="${trend + 4}" ${round}/>`;
+  }
+  const extra = detail ? '<path d="M100 20V180M31 60H169M31 140H169"/>' : '';
   return `
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="8" y="15" width="48" height="34" rx="1.5" stroke="${ink}" stroke-width="${stroke}"/>
-    <path d="M32 15V49" stroke="${ink}" stroke-width="${stroke}"/>
-    <circle cx="32" cy="32" r="7" stroke="${ink}" stroke-width="${stroke}"/>
-    <path d="M8 26h5v12H8M56 26h-5v12h5" stroke="${ink}" stroke-width="${stroke}"/>
-    <path d="M5 55L19 42l7 5L39 30l8 4L59 12" stroke="${accent}" stroke-width="${trend}"/>
-    <path d="M51 11.5L59 12l-.5 8" stroke="${accent}" stroke-width="${trend}"/>
-  </g>`;
+  <defs><mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+    <rect width="200" height="200" fill="#fff"/>
+    <path d="${GLOBE_ARROW}" fill="none" stroke="#000" stroke-width="${gap}" ${round}/>
+  </mask></defs>
+  <g fill="none" stroke="${ink}" stroke-width="${stroke}" ${round} mask="url(#${id})">
+    <circle cx="100" cy="100" r="80"/>
+    <ellipse cx="100" cy="100" rx="38" ry="80"/>
+    <path d="M20 100H180"/>${extra}
+  </g>
+  <path d="${GLOBE_ARROW}" fill="none" stroke="${accent}" stroke-width="${trend}" ${round}/>`;
 }
 
 function svg(width, height, body, title) {
@@ -100,41 +130,67 @@ function tm(font, x, y, size, color) {
   return `<path d="${textPath(font, '™', x, y, size).d}" fill="${color}"/>`;
 }
 
-// ─── Wordmark and lockup ───
+// ─── Wordmark: PEF▲ (drawn letters, 120 tall) ───
+
+// Heavy block capitals drawn as 26px strokes, so they need no font. The A has
+// no crossbar: the gold trend line stands in for it and breaks out of the
+// letter at the top right.
+const LETTERS = [
+  'M13 120V13H52A29 29 0 0 1 52 71H13', // P
+  'M197 13H125V107H197M125 60H184', // E
+  'M300 13H228V120M228 60H287', // F
+];
+const A_LEGS = 'M318 124L363 13L408 124';
+const A_ARROW = 'M308 100L340 78L362 90L422 22M402 20H424V42';
+const WORDMARK_W = 466;
+
+function wordmarkGroup(c, id = 'w') {
+  const round = 'stroke-linecap="round" stroke-linejoin="round"';
+  return `
+  <defs>
+    <clipPath id="${id}-base"><rect x="290" y="-20" width="200" height="140"/></clipPath>
+    <mask id="${id}-gap" maskUnits="userSpaceOnUse" x="0" y="-20" width="${WORDMARK_W}" height="160">
+      <rect x="0" y="-20" width="${WORDMARK_W}" height="160" fill="#fff"/>
+      <path d="${A_ARROW}" fill="none" stroke="#000" stroke-width="26" ${round}/>
+    </mask>
+  </defs>
+  <g fill="none" stroke="${c.ink}" stroke-width="26" stroke-linejoin="round" mask="url(#${id}-gap)">
+    ${LETTERS.map((d) => `<path d="${d}"/>`).join('')}
+    <path d="${A_LEGS}" clip-path="url(#${id}-base)"/>
+  </g>
+  <path d="${A_ARROW}" fill="none" stroke="${c.accent}" stroke-width="13" ${round}/>
+  ${tm(sans, 432, 34, 34, c.accent)}`;
+}
 
 function wordmark(c) {
-  const size = 96;
-  const word = textPath(serif, 'PEFA', 0, 80, size, 6);
-  const sup = tm(sans, word.width + 4, 40, 26, c.ink);
-  const w = Math.ceil(word.width + 34);
-  return { body: `<path d="${word.d}" fill="${c.ink}"/>${sup}`, w, h: 104 };
+  return { body: wordmarkGroup(c), w: WORDMARK_W, h: 120 };
 }
 
 function lockup(c) {
-  // Emblem scaled to 112px tall, then PEFA™ and the full name beneath it.
-  const e = `<g transform="translate(0 4) scale(1.75)">${emblemGroup(c)}</g>`;
-  const x = 136;
-  const word = textPath(serif, 'PEFA', x, 74, 84, 5);
-  const sup = tm(sans, x + word.width + 4, 38, 22, c.ink);
-  const tag = textPath(sans, 'PRIVATE EQUITY FOOTBALL ACCELERATE', x + 2, 106, 13.5, 2.1);
-  const w = Math.ceil(Math.max(x + word.width + 30, x + tag.width + 4));
-  return {
-    body: `${e}<path d="${word.d}" fill="${c.ink}"/>${sup}<path d="${tag.d}" fill="${c.sub}"/>`,
-    w,
-    h: 120,
-  };
+  // Globe at 120px, then PEF▲™ and the full name beneath it.
+  const e = `<g transform="scale(0.6)">${globeGroup(c, { id: 'lk-g' })}</g>`;
+  const x = 140;
+  const ws = 0.62;
+  const wm = `<g transform="translate(${x} 6) scale(${ws})">${wordmarkGroup(c, 'lk-w')}</g>`;
+  const tag = textPath(sans, 'PRIVATE EQUITY FOOTBALL ACCELERATE', x + 1, 112, 13.5, 2.1);
+  const w = Math.ceil(Math.max(x + WORDMARK_W * ws, x + tag.width + 4));
+  return { body: `${e}${wm}<path d="${tag.d}" fill="${c.sub}"/>`, w, h: 120 };
 }
 
-// ─── Favicon / app icons: filled tile, heavier strokes so it survives 16px ───
+// ─── Favicon / app icons: filled tile ───
 
-function tile(size, { maskable = false } = {}) {
-  // Maskable icons keep the art inside the central 80% safe zone.
+function tile(size, { maskable = false, small = false } = {}) {
+  // Maskable icons keep the art inside the central 80% safe zone. Small tiles
+  // (the favicon) use the solid cut so the globe survives 16px.
   const inset = maskable ? 0.2 : 0.1;
-  const s = (size * (1 - inset * 2)) / 64;
+  const s = (size * (1 - inset * 2)) / 200;
   const o = size * inset;
   const radius = maskable ? 0 : size * 0.18;
+  const art = small
+    ? globeGroup(COLORS.dark, { id: 'tile', solid: true, trend: 16 })
+    : globeGroup(COLORS.dark, { id: 'tile', stroke: 10, trend: 16, gap: 34 });
   return `<rect width="${size}" height="${size}" rx="${radius}" fill="${NAVY}"/>
-  <g transform="translate(${o} ${o}) scale(${s})">${emblemGroup(COLORS.dark, { stroke: 3.6, trend: 5.5 })}</g>`;
+  <g transform="translate(${o} ${o}) scale(${s})">${art}</g>`;
 }
 
 // ─── OG card (1200 × 630) ───
@@ -183,7 +239,7 @@ async function put(rel, content) {
 
 for (const [variant, c] of Object.entries(COLORS)) {
   const suffix = variant === 'dark' ? '-on-dark' : '';
-  await put(`brand/pefa-emblem${suffix}.svg`, svg(64, 64, emblemGroup(c), 'PEFA™ emblem'));
+  await put(`brand/pefa-emblem${suffix}.svg`, svg(200, 200, globeGroup(c), 'PEFA™ emblem'));
   const wm = wordmark(c);
   await put(`brand/pefa-wordmark${suffix}.svg`, svg(wm.w, wm.h, wm.body, 'PEFA™'));
   const lk = lockup(c);
@@ -193,14 +249,14 @@ for (const [variant, c] of Object.entries(COLORS)) {
   );
 }
 
-const favicon = svg(64, 64, tile(64), 'PEFA™');
+const favicon = svg(64, 64, tile(64, { small: true }), 'PEFA™');
 await put('favicon.svg', favicon);
 
 async function png(rel, source, size) {
   await sharp(Buffer.from(source)).resize(size, size).png().toFile(join(pub, rel));
   out.push(rel);
 }
-await png('favicon-32.png', svg(512, 512, tile(512), 'PEFA™'), 32);
+await png('favicon-32.png', svg(512, 512, tile(512, { small: true }), 'PEFA™'), 32);
 await png('icons/apple-touch-icon.png', svg(512, 512, tile(512, { maskable: true }), 'PEFA™'), 180);
 await png('icons/icon-192.png', svg(512, 512, tile(512), 'PEFA™'), 192);
 await png('icons/icon-512.png', svg(512, 512, tile(512), 'PEFA™'), 512);
@@ -220,7 +276,7 @@ await put(
       name: 'PEFA™ — Private Equity Football Accelerate™',
       short_name: 'PEFA™',
       description:
-        'The corporate site of PEFA™, owner of the Superior League. A satirical companion to Superior League 2036.',
+        'The corporate site of PEFA™, owner of the Superior League. A satirical companion to Superior League 2036, a free football manager game.',
       id: '/',
       start_url: '/',
       scope: '/',
