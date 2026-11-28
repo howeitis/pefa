@@ -64,8 +64,8 @@ export function SiteFooter({ material }: { material: Material }) {
           <img
             src={wordmark}
             alt=""
-            width={296}
-            height={104}
+            width={466}
+            height={120}
             loading="lazy"
             data-reveal="clip"
             className="w-full opacity-[0.07] [mask-image:linear-gradient(to_bottom,#000_40%,transparent)]"

@@ -24,8 +24,8 @@ export const SITE_CANON: SiteCanonEntry[] = [
     title: 'The PEFA™ mark',
     status: 'proposed-for-game',
     facts: [
-      'PEFA’s emblem is a football pitch drawn as a chart: a plain pitch outline with a gold trend line climbing through the centre circle and out of the frame.',
-      'The PEFA™ wordmark is set in a high-contrast serif; the Superior League keeps its own knot mark as PEFA’s product.',
+      'PEFA’s emblem is a wireframe globe with a gold trend line climbing across it and breaking out at the top right.',
+      'The PEFA™ wordmark is drawn in heavy block capitals; the A has no crossbar, only the same gold trend line. The Superior League keeps its own knot mark as PEFA’s product.',
     ],
     surfaces: ['Header', 'Favicon', 'OG cards'],
   },

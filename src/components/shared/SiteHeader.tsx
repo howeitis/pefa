@@ -86,7 +86,7 @@ export function SiteHeader({ material }: { material: Material }) {
       >
         <div className="mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
           <Link to="/" viewTransition className="shrink-0" aria-label="PEFA™ home">
-            <img src={lockup} alt="" width={472} height={120} className="h-9 w-auto sm:h-10" />
+            <img src={lockup} alt="" width={476} height={120} className="h-9 w-auto sm:h-10" />
           </Link>
 
           <nav aria-label="Primary" className="hidden xl:block">
